@@ -1,0 +1,671 @@
+body {
+    background-color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#page {
+    width: 70%;
+    margin: 0 auto;
+}
+
+header {
+    height: auto;
+    background-color: rgb(230, 235, 255);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+nav {
+    clear: both;
+    margin-top: -8px;
+    background-color: rgb(117, 159, 255);
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 65px;
+}
+
+nav li {
+    float: left;
+    margin: 5px 5px;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+nav li a {
+    display: inline-block;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+nav li a:hover {
+    background-color: rgb(230, 235, 255);
+    color: rgb(117, 159, 255);
+}
+
+.logo {
+    display: block;
+    padding: 10px 0;
+    margin: 0;
+    text-align: right;
+    background-color: rgba(117, 159, 255, 0.1);
+}
+
+.logo img {
+    width: 400px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* === Typography === */
+#content h1 {
+    font-size: 30px;
+    margin: 0 0 20px;
+    color: #1a2a4a;
+    font-weight: bold;
+}
+
+#content h2 {
+    font-size: 26px;
+    margin: 38px 0 15px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+#content h3 {
+    font-size: 23px;
+    margin: 30px 0 10px;
+    color: #34495e;
+    font-weight: bold;
+    text-align: justify;
+}
+
+#content p {
+    margin: 0 0 15px;
+    text-align: justify;
+    font-family: Roboto, sans-serif;
+}
+
+#content ul {
+    margin: 0 0 20px;
+    padding-left: 25px;
+}
+
+#content li {
+    margin-bottom: 5px;
+}
+
+/* === Images === */
+.profile-photo {
+    float: left;
+    width: 40%;
+    height: auto;
+    margin: 0 20px 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* === Footer === */
+footer {
+    clear: both;
+    margin-top: 30px;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top: 4px solid rgb(117, 159, 255);
+    background-color: rgb(230, 235, 255);
+    color: #666;
+}
+
+.footer-content {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-family: Arial, sans-serif;
+    color: #555;
+    padding: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    padding-right: 10px;
+}
+
+.social-icon img {
+    width: 32px;
+    height: 32px;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover img {
+    opacity: 0.7;
+}
+
+/* === Contacts === */
+.contacts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 100%;
+    margin: 30px 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-left: 5px solid rgb(117, 159, 255);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+}
+
+.contact-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(117, 159, 255, 0.2);
+    border-left-width: 8px;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(230, 235, 255);
+    border-radius: 50%;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.contact-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #1a2a4a;
+    text-align: left;      /* на десктопе — слева */
+}
+
+.contact-info a {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+    text-decoration: none;
+    border-bottom: 1px dashed #e6e6f0;
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+    word-break: break-word;
+}
+
+.contact-info a:hover {
+    color: rgb(117, 159, 255);
+    border-bottom-style: solid;
+}
+
+/* === Achievements List === */
+.achievements-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.achievements-list li {
+    padding: 15px 20px 15px 50px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 10px;
+    font-size: 17px;
+    color: #333;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid rgb(117, 159, 255);
+    transition: all 0.3s ease;
+}
+
+.achievements-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(117, 159, 255, 0.15);
+    border-left-width: 6px;
+}
+
+.achievements-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background-color: rgb(117, 159, 255);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.achievements-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0 5px 0;
+}
+
+.achievements-list ul li {
+    padding: 8px 10px 8px 35px;
+    margin-bottom: 5px;
+    background: rgba(230, 230, 256, 0.3);
+    border-left: 3px solid rgb(117, 159, 255);
+    font-size: 15px;
+    color: #555;
+    box-shadow: none;
+    position: relative;
+}
+
+.achievements-list ul li:first-child {
+    margin-top: 5px;
+}
+
+.achievements-list ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    color: rgb(117, 159, 255);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0;
+    display: block;
+}
+
+.achievements-list ul li:hover {
+    transform: translateX(3px);
+    background: rgba(117, 159, 255, 0.1);
+    border-left-width: 4px;
+    box-shadow: none;
+}
+
+/* === Base Numbered List Styles === */
+.numbered-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    counter-reset: list-counter;
+}
+
+.numbered-list li {
+    padding: 15px 20px 15px 50px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 10px;
+    font-size: 17px;
+    color: #333;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid rgb(117, 159, 255);
+    transition: all 0.3s ease;
+    counter-increment: list-counter;
+}
+
+.numbered-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(117, 159, 255, 0.15);
+    border-left-width: 6px;
+}
+
+.numbered-list li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background-color: rgb(117, 159, 255);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* === Contacts List (одна колонка) === */
+.contacts-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-left: 5px solid rgb(117, 159, 255);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(117, 159, 255, 0.2);
+    border-left-width: 8px;
+}
+
+.contact-card .contact-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e6e6f0;
+    border-radius: 50%;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.contact-card .contact-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.contact-card .contact-info {
+    flex: 1;
+}
+
+.contact-card .contact-info h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #1a2a4a;
+    text-align: left;      /* на десктопе — слева */
+}
+
+.contact-card .contact-info a {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+    text-decoration: none;
+    border-bottom: 1px dashed #e6e6f0;
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+    word-break: break-word;
+}
+
+.contact-card .contact-info a:hover {
+    color: rgb(117, 159, 255);
+    border-bottom-style: solid;
+}
+
+/* === АДАПТИВНОСТЬ === */
+
+/* Планшеты и небольшие экраны */
+@media (max-width: 992px) {
+    #page {
+        width: 85%;
+    }
+    .logo img {
+        width: 300px;
+    }
+    nav li {
+        font-size: 26px;
+    }
+}
+
+/* Мобильные устройства (ширина до 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    #page {
+        width: 94%;
+    }
+    .logo {
+        text-align: center;
+    }
+    .logo img {
+        width: 80%;
+        max-width: 300px;
+        margin-right: 0;
+    }
+
+    /* Навигация — одна строка, без скролла, компактно */
+    nav {
+        margin-top: -5px;
+        border-radius: 10px;
+        padding: 0 5px;
+    }
+    nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4px;
+        height: 48px;
+        padding: 0;
+        margin: 0;
+    }
+    nav li {
+        float: none;
+        margin: 0;
+        font-size: 0;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+    nav li a {
+        display: block;
+        padding: 6px 4px;
+        font-size: 16px;
+        white-space: nowrap;
+        line-height: 1.2;
+    }
+
+    /* Фотография профиля */
+    .profile-photo {
+        float: none;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    /* Заголовки */
+    #content h1 {
+        font-size: 26px;
+    }
+    #content h2 {
+        font-size: 23px;
+    }
+    #content h3 {
+        font-size: 20px;
+    }
+
+    /* Сетка контактов — одна колонка */
+    .contacts-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+    .contact-item .contact-info h3,
+    .contact-info h3 {
+        text-align: center;    /* центрируем заголовки контактов */
+    }
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .contact-icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Карточки ресурсов */
+    .contacts-list-vertical {
+        max-width: 100%;
+        margin: 20px 0;
+    }
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 18px;
+    }
+    .contact-card .contact-icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .contact-card .contact-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    .contact-card .contact-info h3,
+    .contact-card .contact-info .contact-info h3 {
+        text-align: center;    /* центрируем заголовки ресурсов */
+    }
+    .contact-info h3 {
+        font-size: 16px;
+    }
+    .contact-info a {
+        font-size: 14px;
+    }
+
+    /* Список достижений */
+    .achievements-list li {
+        padding: 12px 15px 12px 45px;
+        font-size: 15px;
+    }
+    .achievements-list li::before {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        left: 14px;
+    }
+    .numbered-list li {
+        padding: 12px 15px 12px 45px;
+        font-size: 15px;
+    }
+    .numbered-list li::before {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        left: 14px;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    .social-links {
+        justify-content: center;
+        padding-right: 0;
+        margin-top: 10px;
+    }
+    .copyright {
+        font-size: 12px;
+    }
+}
+
+/* Очень маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    nav ul {
+        height: 42px;
+        gap: 3px;
+    }
+    nav li a {
+        padding: 5px 3px;
+        font-size: 14px;
+    }
+    .logo img {
+        width: 90%;
+    }
+    #content h1 {
+        font-size: 24px;
+    }
+    #content h2 {
+        font-size: 21px;
+    }
+    /* Повторно обеспечиваем центрирование для узких экранов */
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    .contact-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .contact-info h3 {
+        text-align: center;
+    }
+    .contact-info a {
+        word-break: break-all;
+    }
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    .contact-card .contact-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .contact-card .contact-info h3 {
+        text-align: center;
+    }
+    .social-icon img {
+        width: 28px;
+        height: 28px;
+    }
+}
