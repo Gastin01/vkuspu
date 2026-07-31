@@ -1,95 +1,372 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="manifest" href="/manifest.json">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="default">
-	<meta name="apple-mobile-web-app-title" content="vk-uspu">
-	<link rel="apple-touch-icon" href="apple-icon-180.png">
-	<title>сайт Вячеслава Красноперова</title>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-	</head>
-<body>
-	<div id="page">
-	<header>
-		<a href="index.html" class="logo">
-		<img src="logo.png" alt="vk-uspu.ru">
-	</a>
-
+<script>
+if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark-theme');
+}
+</script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="vk-uspu">
+    <link rel="apple-touch-icon" href="apple-icon-180.png">
+    <title>сайт Вячеслава Красноперова</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
     
-	<nav>
+    <!-- Подключаем внешний файл с данными публикаций -->
+    <script src="papers-data.js"></script>
+</head>
 
-		<ul>
-			<li><a href="index.html">Главная</a></li>
-			<li><a href="science.html">Научная деятельность</a></li>
-			<li><a href="resourses.html">Ресурсы</a></li>
-			<li><a href="contacts.html">Контакты</a></li>
+<body>
+<div id="page">
 
-		</ul>
-		
-	</nav>
-	
-
-	
-</header>
-	
-	<section id="content">
-
-<br>
-    <h1>Публикационная активность</h1>
-
-    <p> Являюсь соавтором следующих публикаций: </p>    
-    <ol class="numbered-list">
-		<li>Формирование исследовательских умений уральских школьников при выполнении межпредметных лабораторных работ: результаты пилотного исследования</li>
-		<li>Апробация межпредметной лабораторной работы в средней школе</li>
-		<li>Формирование исследовательских умений обучающихся при выполнении межпредметной лабораторной работы в старших классах общеобразовательной школы</li>
-		<li>Формирование исследовательских умений обучающихся при выполнении межпредметной лабораторной работы в старших классах общеобразовательной школы и лицея</li>
-		<li>Измерение параметров математической модели в опыте со свободно подвешенной цепью</li>
-		<li>Развитие исследовательских умений у обучающихся в процессе выполнения лабораторных работ по математике</li>
-		<li>Адаптированные лабораторные работы по математике как средство мотивации обучающихся к изучению точных наук формирование исследовательских умений обучающихся при выполнении межпредметной лабораторной работы в старших классах общеобразовательной школы</li>
-		<li>Определение фундаментальной мировой постоянной - числа e - в физическом опыте с подвешенной цепью</li>
-		<li>Conducting transubject laboratory work for students of the general education class</li>
-		<li>Реализация деятельностного подхода в обучении математике посредством лабораторных работ с использованием геолокационных технологий</li>
-		<li>Практико-ориентированное обучение математике при выполнении лабораторных работ с применением технологии мобильной геолокации</li>
-		<li>Лабораторные работы по математическому моделированию как средство развития способности школьников к исследовательской деятельности</li>
-		<li>Реализация практикоориентированного обучения при подготовке и выполнении на местности лабораторной работы по математике с географическим содержанием</li>
-		<li>Формирование цифровых компетенций студентов-гуманитариев СВФУ (г. Якутск) при выполнении лабораторной работы «три памятника» географо-математического содержания </li>
-		<li>Лабораторные работы по математике с географическим контекстом как инструмент формирования функциональной математической грамотности обучающихся</li>
-		<li>Выполнение лабораторных работ по математике с использованием икт на основе географических данных</li>
-		<li>Реализация практико-ориентированного обучения математике при выполнении лабораторных работ с использованием мобильной геолокации</li>
-    </ol>
-
-
- </section>
-	
-	<footer>
-    <div class="footer-content">
-        <div class="copyright">
-                       © 2026 г. Красноперов Вячеслав Андреевич.
+<header>
+    <div class="header-top">
+        <!-- Слайдер переключения темы -->
+        <div class="theme-switch" id="themeSwitch">
+            <div class="slider"></div>
+            <div class="labels">
+                <span class="active" id="lightLabel">С</span>
+                <span id="darkLabel">Т</span>
+            </div>
         </div>
-        
-        <div class="social-links">
-            <a href="mailto:vk.uspu@ya.ru" class="social-icon">
-                <img src="email-logo.png" alt="Email">
-            </a>
-            <a href="https://vk.com/gastin01" target="_blank" class="social-icon">
-                <img src="vk-logo.webp" alt="ВКонтакте">
-            </a>
-            <a href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank" class="social-icon">
-                <img src="elibrary-logo.png" alt="elibrary">
-            </a>
-        </div>
+        <a href="index.html" class="logo">
+            <img id="logo" src="logo-light.png" alt="сайт Вячеслава Красноперова">
+        </a>
     </div>
-</footer>
-	</div>
-	</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li class="active"><a href="science.html">Наука</a></li>
+            <li><a href="resourses.html">Ресурсы</a></li>
+            <li class="rght"><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <section id="content">
+        <!-- Заголовок и счётчик в одной строке -->
+        <div class="content-header">
+            <h1>Публикационная активность</h1>
+            <span id="resultCount" class="result-count-header">Показано: 21 из 21</span>
+        </div>
+
+        <!-- Блок фильтров (без счётчика) -->
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label>Год:</label>
+                <select id="filterYear">
+                    <option value="all">Все годы</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Уровень:</label>
+                <select id="filterLevel">
+                    <option value="all">Все уровни</option>
+                    <option value="vak1">ВАК (К1)</option>
+                    <option value="vak3">ВАК (К3)</option>
+                    <option value="vak2">ВАК (К2)</option>
+                    <option value="rinc">РИНЦ</option>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+            <div class="filter-group search-group">
+                <label>Поиск:</label>
+                <input type="text" id="filterSearch" placeholder="Название, автор, сборник...">
+            </div>
+            <button id="clearFilters" class="btn-glass">Сбросить</button>
+        </div>
+
+        <!-- Таблица -->
+        <div class="table-wrapper">
+            <table class="publications-table" id="publicationsTable">
+                <thead>
+                    <tr>
+                        <th class="center">Год</th>
+                        <th>Название</th>
+                        <th class="center">Соавторы</th>
+                        <th>Сборник / Журнал</th>
+                        <th class="center">Уровень</th>
+                        <th class="center">Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Данные рендерятся через JS -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">© 2026 г. Красноперов Вячеслав Андреевич. <br>
+				version 6.0.</div>
+            <div class="social-links">
+                <a href="mailto:vk.uspu@ya.ru" class="social-icon"><img src="email-logo.png" alt="Email"></a>
+                <a href="https://vk.com/gastin01" target="_blank" class="social-icon"><img src="vk-logo.webp" alt="ВКонтакте"></a>
+                <a href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank" class="social-icon"><img src="elibrary-logo.png" alt="elibrary"></a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Контейнер для уведомлений -->
+<div id="notification-container"></div>
+
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
   }
+</script>
+
+<script>
+    // ============================================================
+    // Данные публикаций загружены из внешнего файла papers-data.js
+    // ============================================================
+
+    // ===== СИСТЕМА УВЕДОМЛЕНИЙ =====
+    function showNotification(type, title, message) {
+        const container = document.getElementById('notification-container');
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        
+        const icon = document.createElement('div');
+        icon.className = 'notification-icon';
+        icon.innerHTML = type === 'success' ? '✓' : '✕';
+        
+        const textWrapper = document.createElement('div');
+        textWrapper.className = 'notification-text';
+        const titleEl = document.createElement('div');
+        titleEl.className = 'notification-title';
+        titleEl.textContent = title;
+        const messageEl = document.createElement('div');
+        messageEl.className = 'notification-message';
+        messageEl.textContent = message;
+        textWrapper.appendChild(titleEl);
+        textWrapper.appendChild(messageEl);
+        
+        notification.appendChild(icon);
+        notification.appendChild(textWrapper);
+        container.appendChild(notification);
+        
+        notification.offsetHeight;
+        notification.classList.add('show');
+        
+        const hideTimeout = setTimeout(() => {
+            hideNotification(notification);
+        }, 4000);
+        
+        notification.addEventListener('click', () => {
+            clearTimeout(hideTimeout);
+            hideNotification(notification);
+        });
+    }
+
+    function hideNotification(notification) {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+        setTimeout(() => notification.remove(), 300);
+    }
+
+    // ===== РЕНДЕРИНГ ТАБЛИЦЫ =====
+    const tbody = document.querySelector('#publicationsTable tbody');
+
+    function createLevelBadge(levelKey) {
+        if (levelKey === 'vak1') {
+            return '<span class="level-badge level-vak1">ВАК (К1)</span>';
+        } else if (levelKey === 'vak3') {
+            return '<span class="level-badge level-vak3">ВАК (К3)</span>';
+        } else if (levelKey === 'vak2') {
+            return '<span class="level-badge level-vak2">ВАК (К2)</span>';
+        } else if (levelKey === 'rinc') {
+            return '<span class="level-badge level-rinc">РИНЦ</span>';
+        } else {
+            return '<span class="level-badge level-other">Другое</span>';
+        }
+    }
+
+    function renderTable(data) {
+        tbody.innerHTML = '';
+        data.forEach((item) => {
+            const tr = document.createElement('tr');
+            let levelsArray = [];
+            if (item.level) {
+                levelsArray = item.level.split(',').map(s => s.trim()).filter(s => s);
+            }
+            tr.dataset.year = item.year;
+            tr.dataset.level = levelsArray.join(',');
+
+            let badgesHtml = levelsArray.map(levelKey => createLevelBadge(levelKey)).join(' ');
+
+            const hasStandard = levelsArray.some(l => l === 'rinc' || l === 'vak1' || l === 'vak3');
+            const elibLabel = hasStandard ? 'eLibrary' : 'Ссылка';
+
+            const biblioAttr = item.biblio.replace(/"/g, '&quot;');
+
+            let authorsHtml = item.authors;
+            if (item.authors && item.authors !== '—') {
+                const authorsList = item.authors.split(',').map(a => a.trim());
+                authorsHtml = authorsList.map(a => `<span class="author-nowrap">${a}</span>`).join(', ');
+            } else {
+                authorsHtml = item.authors;
+            }
+
+            tr.innerHTML = `
+                <td data-label="Год" class="center">${item.year}</td>
+                <td data-label="Название">${item.title}</td>
+                <td data-label="Соавторы" class="center">${authorsHtml}</td>
+                <td data-label="Сборник">${item.journal}</td>
+                <td data-label="Уровень" class="center">${badgesHtml}</td>
+                <td data-label="Действия" class="actions-cell center">
+                    <a href="#" class="btn-sm btn-elibrary" data-link="${item.elink}" target="_blank" title="Открыть ссылку">${elibLabel}</a>
+                    <button class="btn-sm biblio-btn" data-biblio="${biblioAttr}" title="Копировать цитирование">Цитировать</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+        updateCount(data.length);
+    }
+
+    // ===== ОБРАБОТЧИКИ =====
+    document.querySelector('#publicationsTable').addEventListener('click', function(e) {
+        const btn = e.target.closest('.btn-elibrary');
+        if (!btn) return;
+        e.preventDefault();
+        const link = btn.dataset.link;
+        if (!link || link === '#') {
+            showNotification('error', 'Ссылка отсутствует', 'Для этой работы не указана ссылка.');
+        } else {
+            window.open(link, '_blank');
+        }
+    });
+
+    document.querySelector('#publicationsTable').addEventListener('click', function(e) {
+        const btn = e.target.closest('.biblio-btn');
+        if (!btn) return;
+        const biblioText = btn.dataset.biblio;
+        if (!biblioText) {
+            showNotification('error', 'Библиография отсутствует', 'Для этой работы не указана библиографическая ссылка.');
+            return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(biblioText).then(() => {
+                showNotification('success', 'Скопировано!', 'Библиографическая ссылка скопирована в буфер обмена.');
+            }).catch(() => fallbackCopy(biblioText));
+        } else {
+            fallbackCopy(biblioText);
+        }
+    });
+
+    function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            showNotification('success', 'Скопировано!', 'Библиографическая ссылка скопирована в буфер обмена.');
+        } catch (e) {
+            showNotification('error', 'Ошибка', 'Не удалось скопировать текст. Попробуйте вручную.');
+        }
+        document.body.removeChild(textarea);
+    }
+
+    // ===== ФИЛЬТРЫ =====
+    const filterYear = document.getElementById('filterYear');
+    const filterLevel = document.getElementById('filterLevel');
+    const filterSearch = document.getElementById('filterSearch');
+    const clearBtn = document.getElementById('clearFilters');
+    const resultSpan = document.getElementById('resultCount');
+
+    function filterTable() {
+        const yearVal = filterYear.value;
+        const levelVal = filterLevel.value;
+        const searchVal = filterSearch.value.toLowerCase().trim();
+
+        const rows = tbody.querySelectorAll('tr');
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const rowYear = row.dataset.year;
+            const rowLevels = row.dataset.level ? row.dataset.level.split(',') : [];
+            const textContent = row.textContent.toLowerCase();
+
+            let show = true;
+            if (yearVal !== 'all' && rowYear !== yearVal) show = false;
+            if (levelVal !== 'all' && !rowLevels.includes(levelVal)) show = false;
+            if (searchVal && !textContent.includes(searchVal)) show = false;
+
+            row.style.display = show ? '' : 'none';
+            if (show) visibleCount++;
+        });
+        updateCount(visibleCount);
+    }
+
+    function updateCount(count) {
+        resultSpan.textContent = `Показано: ${count} из ${papersData.length}`;
+    }
+
+    filterYear.addEventListener('change', filterTable);
+    filterLevel.addEventListener('change', filterTable);
+    filterSearch.addEventListener('input', filterTable);
+    clearBtn.addEventListener('click', function() {
+        filterYear.value = 'all';
+        filterLevel.value = 'all';
+        filterSearch.value = '';
+        filterTable();
+    });
+
+    // ===== ИНИЦИАЛИЗАЦИЯ =====
+    if (typeof papersData !== 'undefined' && Array.isArray(papersData)) {
+        renderTable(papersData);
+    } else {
+        console.error('Данные публикаций не загружены. Убедитесь, что файл papers-data.js подключен.');
+        document.querySelector('#publicationsTable tbody').innerHTML = '<tr><td colspan="6" style="text-align:center;padding:20px;">⚠️ Данные временно недоступны. Попробуйте обновить страницу.</td></tr>';
+    }
+</script>
+<script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ СЛАЙДЕРОМ =====
+(function() {
+    const themeSwitch = document.getElementById('themeSwitch');
+    const lightLabel = document.getElementById('lightLabel');
+    const darkLabel = document.getElementById('darkLabel');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    // Функция обновления состояния слайдера
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            themeSwitch.classList.add('dark');
+            lightLabel.classList.remove('active');
+            darkLabel.classList.add('active');
+			document.getElementById("logo").src = "logo-dark.png";
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+            themeSwitch.classList.remove('dark');
+            lightLabel.classList.add('active');
+            darkLabel.classList.remove('active');
+			document.getElementById("logo").src = "logo-light.png";
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    // Применяем сохранённую тему при загрузке
+    setTheme(currentTheme);
+
+    // Обработчик клика
+    themeSwitch.addEventListener('click', function() {
+        const isDark = document.documentElement.classList.contains('dark-theme');
+        setTheme(isDark ? 'light' : 'dark');
+    });
+})();
 </script>
 </body>
 </html>

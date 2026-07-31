@@ -1,0 +1,997 @@
+/* ============================================================
+   ПЕРЕМЕННЫЕ (фиолетовая цветовая схема)
+   ============================================================ */
+:root {
+    --brand-color: #4a2c7a;
+    --brand-color-rgb: 74, 44, 122;
+    --brand-light: rgba(74, 44, 122, 0.10);
+    --brand-hover: rgba(74, 44, 122, 0.18);
+    --brand-border: rgba(74, 44, 122, 0.20);
+    --glass-white: rgba(255, 255, 255, 0.35);
+    --glass-border: rgba(255, 255, 255, 0.45);
+}
+
+/* ============================================================
+   ОБЩИЕ СБРОСЫ И БАЗОВЫЕ СТИЛИ
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    background: linear-gradient(145deg, #e8e4f0, #f5f2fa);
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    color: #1a1a1a;
+}
+
+/* ============================================================
+   ОСНОВНОЙ КОНТЕЙНЕР — стеклянная панель
+   ============================================================ */
+#page {
+    width: 70%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--glass-white);
+    backdrop-filter: blur(28px) saturate(1.1);
+    -webkit-backdrop-filter: blur(28px) saturate(1.1);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.06), 0 2px 10px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    padding: 0 30px 30px 30px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* ============================================================
+   ШАПКА
+   ============================================================ */
+header {
+    background: transparent;
+    padding: 10px 0 0 0;
+}
+
+.logo {
+    display: block;
+    padding: 10px 0;
+    text-align: right;
+    background: transparent;
+}
+
+.logo img {
+    width: 400px;
+    height: auto;
+    margin-right: 20px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.05));
+}
+
+/* ============================================================
+   НАВИГАЦИЯ — стеклянная полоса + фиолетовые акценты
+   ============================================================ */
+nav {
+    clear: both;
+    margin-top: -5px;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    padding: 0 8px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav li {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 500;
+}
+
+nav li.rght {
+    margin-left: auto !important;
+}
+
+/* Стиль кнопок навигации — ЭТАЛОН для .btn-glass */
+nav li a {
+    display: inline-block;
+    padding: 10px 18px;
+    text-decoration: none;
+    color: #1a1a2e;
+    background: transparent;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    font-size: 1.2rem;
+    letter-spacing: -0.2px;
+}
+
+nav li a:hover {
+    background: rgba(74, 44, 122, 0.12);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: var(--brand-color);
+    box-shadow: 0 2px 8px rgba(var(--brand-color-rgb), 0.06);
+}
+
+/* Активный пункт — стеклянная плашка */
+nav li.active a {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--brand-color);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 2px 12px rgba(var(--brand-color-rgb), 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+}
+
+nav li.active a:hover {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 2px 16px rgba(var(--brand-color-rgb), 0.12);
+}
+
+/* ============================================================
+   КОНТЕНТ
+   ============================================================ */
+#content {
+    padding: 10px 0 0 0;
+}
+
+#content h1 {
+    font-size: 2rem;
+    margin: 20px 0 15px;
+    color: #1a1a2e;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+#content h2 {
+    font-size: 1.6rem;
+    margin: 30px 0 15px;
+    color: #2a2a3e;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+
+#content h3 {
+    font-size: 1.3rem;
+    margin: 25px 0 10px;
+    color: #2a2a3e;
+    font-weight: 500;
+    text-align: left;
+}
+
+#content p {
+    margin: 0 0 15px;
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    color: #2a2a2a;
+}
+
+#content a {
+    color: var(--brand-color);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(var(--brand-color-rgb), 0.3);
+    transition: all 0.2s ease;
+}
+
+#content a:hover {
+    color: #3a1f6a;
+    border-bottom-style: solid;
+    border-color: var(--brand-color);
+}
+
+/* ============================================================
+   ФОТОГРАФИЯ ПРОФИЛЯ (Главная страница)
+   ============================================================ */
+.profile-photo {
+    float: left;
+    width: 40%;
+    height: auto;
+    margin: 0 20px 15px 0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================================
+   СПИСКИ (достижения, нумерованные) — стекло + фиолетовые акценты
+   ============================================================ */
+.achievements-list,
+.numbered-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.achievements-list li,
+.numbered-list li {
+    padding: 16px 20px 16px 55px;
+    margin-bottom: 12px;
+    background: var(--glass-white);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 14px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    font-size: 1rem;
+    color: #1a1a1a;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.achievements-list li:hover,
+.numbered-list li:hover {
+    transform: translateX(6px);
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 6px 20px rgba(var(--brand-color-rgb), 0.08);
+    border-color: rgba(var(--brand-color-rgb), 0.20);
+}
+
+/* Галочка — фиолетовый фон */
+.achievements-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: var(--brand-light);
+    backdrop-filter: blur(4px);
+    color: var(--brand-color);
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(var(--brand-color-rgb), 0.2);
+}
+
+/* Нумерация — фиолетовая */
+.numbered-list li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    transform: none;
+    width: 24px;
+    height: 24px;
+    background: var(--brand-light);
+    backdrop-filter: blur(4px);
+    color: var(--brand-color);
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(var(--brand-color-rgb), 0.2);
+    pointer-events: none;
+}
+
+.numbered-list {
+    counter-reset: list-counter;
+}
+.numbered-list li {
+    counter-increment: list-counter;
+}
+
+/* Вложенный список достижений */
+.achievements-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0 5px 0;
+}
+
+.achievements-list ul li {
+    padding: 10px 15px 10px 40px;
+    margin-bottom: 6px;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border-left: 3px solid rgba(var(--brand-color-rgb), 0.3);
+    font-size: 0.95rem;
+    color: #2a2a2a;
+    box-shadow: none;
+    position: relative;
+    transform: none !important;
+}
+
+.achievements-list ul li::before {
+    content: "•";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: var(--brand-color);
+    font-size: 20px;
+    border-radius: 0;
+    display: block;
+    border: none;
+}
+
+.achievements-list ul li:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateX(4px) !important;
+    border-left-color: var(--brand-color);
+}
+
+/* ============================================================
+   КОНТАКТЫ (contacts.html) — стеклянные карточки с фиолетовыми ссылками
+   ============================================================ */
+.contacts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 100%;
+    margin: 30px 0;
+}
+
+.contact-item,
+.contact-card {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    background: var(--glass-white);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+}
+
+.contact-item:hover,
+.contact-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 12px 32px rgba(var(--brand-color-rgb), 0.08);
+    border-color: rgba(var(--brand-color-rgb), 0.20);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    padding: 10px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    margin: 0 0 5px;
+    font-size: 1.1rem;
+    color: #1a1a2e;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* ССЫЛКИ В КОНТАКТАХ — ФИОЛЕТОВЫЕ */
+.contact-info a {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--brand-color);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(var(--brand-color-rgb), 0.3);
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+    word-break: break-word;
+}
+
+.contact-info a:hover {
+    color: #3a1f6a;
+    border-bottom-style: solid;
+    border-color: var(--brand-color);
+}
+
+/* Специально для ресурсов (одна колонка) */
+.contacts-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+/* ============================================================
+   НАУКА: ГРУППИРОВКА ПО ГОДАМ + ПЛИТКИ
+   ============================================================ */
+.science-years {
+    margin: 30px 0;
+}
+
+/* ----- Блок года (аккордеон) ----- */
+.year-group {
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.year-group:hover {
+    box-shadow: 0 4px 20px rgba(var(--brand-color-rgb), 0.06);
+}
+
+.year-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 18px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.08);
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.year-header:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.year-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #1a1a2e;
+}
+
+/* Кнопка переключения года — стеклянная, круглая */
+.year-toggle,
+.paper-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--brand-color-rgb), 0.20);
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--brand-color);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 6px rgba(var(--brand-color-rgb), 0.04);
+    flex-shrink: 0;
+    line-height: 1;
+    padding: 0;
+}
+
+.year-toggle:hover,
+.paper-toggle:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(var(--brand-color-rgb), 0.35);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(var(--brand-color-rgb), 0.12);
+}
+
+.year-toggle::before,
+.paper-toggle::before {
+    content: "▼";
+    font-size: 12px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+}
+
+.year-group.open .year-toggle::before,
+.paper-card.open .paper-toggle::before {
+    transform: rotate(180deg);
+}
+
+/* --- Содержимое года (открывается) --- */
+.year-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 18px;
+}
+
+.year-group.open .year-content {
+    max-height: 3000px;
+    opacity: 1;
+    padding: 16px 18px 20px 18px;
+}
+
+/* ----- Сетка плиток (2 колонки) ----- */
+.papers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ----- Карточка одной работы ----- */
+.paper-card {
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 14px 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+}
+
+.paper-card:hover {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 16px rgba(var(--brand-color-rgb), 0.06);
+    border-color: rgba(var(--brand-color-rgb), 0.12);
+}
+
+.paper-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.paper-title span {
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #1a1a2e;
+    line-height: 1.4;
+    flex: 1;
+}
+
+/* ============================================================
+   БЛОК ДЕТАЛЕЙ СТАТЬИ (ТАБЛИЦА + КНОПКИ В СТИЛЕ НАВИГАЦИИ)
+   ============================================================ */
+.paper-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0;
+    padding: 0;
+}
+
+.paper-card.open .paper-details {
+    max-height: 800px;
+    opacity: 1;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* ----- ТАБЛИЦА С ИНФОРМАЦИЕЙ (автоширина колонок) ----- */
+.paper-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.paper-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.paper-table tr:last-child {
+    border-bottom: none;
+}
+
+.paper-table td {
+    padding: 5px 12px;
+    vertical-align: top;
+    color: #2a2a3a;
+}
+
+.paper-table .label {
+    font-weight: 600;
+    color: #1a1a2e;
+    white-space: nowrap;
+    text-align: right;
+    padding-right: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    width: 1%;
+}
+
+.paper-table .value {
+    font-weight: 400;
+    color: #2a2a3a;
+    width: 99%;
+}
+
+/* ----- КНОПКИ В СТИЛЕ НАВИГАЦИИ (идентичны nav li a) ----- */
+.paper-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+/* Кнопки полностью идентичны nav li a по стилю и поведению */
+.btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 18px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a1a2e;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    border-bottom: none !important;
+    font-family: inherit;
+    box-shadow: none;
+}
+
+/* Ховер — как у nav li a */
+.btn-glass:hover {
+    background: rgba(74, 44, 122, 0.12);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: var(--brand-color);
+    box-shadow: 0 2px 8px rgba(var(--brand-color-rgb), 0.06);
+    transform: none;
+}
+
+/* Активное состояние */
+.btn-glass:active {
+    transform: scale(0.97);
+}
+
+/* ----- Блок библиографии (скрыт) ----- */
+.paper-biblio-wrapper {
+    margin-top: 6px;
+}
+
+.paper-biblio {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 12px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #2a2a3a;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.paper-biblio.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 12px;
+}
+
+/* ============================================================
+   ПОДВАЛ
+   ============================================================ */
+footer {
+    clear: both;
+    margin-top: 40px;
+    padding: 20px 0 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #3a3a4a;
+}
+
+.footer-content {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #3a3a4a;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    padding-right: 10px;
+}
+
+.social-icon img {
+    width: 32px;
+    height: 32px;
+    display: block;
+    transition: opacity 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+}
+
+.social-icon:hover img {
+    opacity: 0.7;
+}
+
+/* ============================================================
+   АДАПТИВНОСТЬ
+   ============================================================ */
+@media (max-width: 992px) {
+    #page {
+        width: 85%;
+        padding: 0 20px 20px 20px;
+    }
+    .logo img {
+        width: 300px;
+    }
+    nav li a,
+    .btn-glass {
+        font-size: 1rem;
+        padding: 8px 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+    #page {
+        width: 100%;
+        padding: 0 16px 20px 16px;
+        border-radius: 16px;
+    }
+    .logo {
+        text-align: center;
+    }
+    .logo img {
+        width: 80%;
+        max-width: 280px;
+        margin-right: 0;
+    }
+    nav {
+        padding: 0 4px;
+        border-radius: 12px;
+    }
+    nav ul {
+        height: 48px;
+        gap: 4px;
+        justify-content: space-between;
+    }
+    nav li {
+        font-size: 0;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+    nav li a,
+    .btn-glass {
+        font-size: 0.9rem;
+        padding: 6px 6px;
+        white-space: nowrap;
+        line-height: 1.2;
+        border-radius: 6px;
+    }
+    .profile-photo {
+        float: none;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+    #content h1 {
+        font-size: 1.6rem;
+    }
+    #content h2 {
+        font-size: 1.3rem;
+    }
+    #content h3 {
+        font-size: 1.1rem;
+    }
+    .contacts-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .contact-item,
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 15px;
+    }
+    .contact-item .contact-info h3,
+    .contact-card .contact-info h3 {
+        text-align: center;
+    }
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .contact-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    .contact-info h3 {
+        font-size: 1rem;
+    }
+    .contact-info a {
+        font-size: 0.9rem;
+    }
+    .achievements-list li,
+    .numbered-list li {
+        padding: 12px 15px 12px 45px;
+        font-size: 0.9rem;
+    }
+    .achievements-list li::before,
+    .numbered-list li::before {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        left: 14px;
+    }
+    .numbered-list li::before {
+        top: 14px;
+    }
+    .papers-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .year-header {
+        padding: 8px 14px;
+    }
+    .year-header h3 {
+        font-size: 1.1rem;
+    }
+    .year-group.open .year-content {
+        padding: 12px 14px 16px 14px;
+    }
+    .paper-title span {
+        font-size: 0.9rem;
+    }
+    .paper-card {
+        padding: 12px 14px;
+    }
+    .paper-table {
+        font-size: 0.82rem;
+    }
+    .paper-table td {
+        padding: 4px 10px;
+    }
+    .paper-table .label {
+        padding-right: 10px;
+        min-width: 60px;
+    }
+    .btn-glass {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+    .paper-actions {
+        gap: 8px;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .social-links {
+        justify-content: center;
+        padding-right: 0;
+        margin-top: 10px;
+    }
+    .copyright {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    #page {
+        padding: 0 10px 15px 10px;
+        border-radius: 12px;
+    }
+    nav ul {
+        height: 42px;
+        gap: 2px;
+    }
+    nav li a,
+    .btn-glass {
+        font-size: 0.75rem;
+        padding: 4px 4px;
+        border-radius: 4px;
+    }
+    .contact-item,
+    .contact-card {
+        padding: 14px 12px;
+    }
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+    }
+    .contact-icon img {
+        width: 26px;
+        height: 26px;
+    }
+    .social-icon img {
+        width: 26px;
+        height: 26px;
+    }
+    .year-toggle,
+    .paper-toggle {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        min-height: 24px;
+        font-size: 11px;
+    }
+    .year-toggle::before,
+    .paper-toggle::before {
+        font-size: 10px;
+    }
+    .paper-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-glass {
+        justify-content: center;
+        white-space: normal;
+    }
+    .paper-table {
+        font-size: 0.78rem;
+    }
+    .paper-table td {
+        padding: 3px 8px;
+    }
+    .paper-table .label {
+        padding-right: 8px;
+        min-width: 50px;
+    }
+}

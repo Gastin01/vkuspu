@@ -1,97 +1,272 @@
 <!DOCTYPE html>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="manifest" href="/manifest.json">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="default">
-	<meta name="apple-mobile-web-app-title" content="vk-uspu">
-	<link rel="apple-touch-icon" href="apple-icon-180.png">
-	<title>сайт Вячеслава Красноперова</title>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-	</head>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="vk-uspu">
+    <link rel="apple-touch-icon" href="apple-icon-180.png">
+    <title>сайт Вячеслава Красноперова</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+</head>
 <body>
-	<div id="page">
-	<header>
-		<a href="index.html" class="logo">
-		<img src="logo.png" alt="vk-uspu.ru">
-	</a>
 
-    
-	<nav>
+<div id="page">
 
-		<ul>
-			<li><a href="index.html">Главная</a></li>
-			<li><a href="science.html">Научная деятельность</a></li>
-			<li><a href="resourses.html">Ресурсы</a></li>
-			<li><a href="contacts.html">Контакты</a></li>
-
-		</ul>
-		
-	</nav>
-	
-
-	
-</header>
-	
-	<section id="content">
-	<br>
-    <h1><B>Вячеслав Андреевич Красноперов</B></h1>
-        <img src="myphoto.jpg" alt="Моя фотография" class="profile-photo">
-	<h3>Я Вячеслав, студент УрГПУ (г. Екатеринбург). </h3>
-    <p>Последние несколько лет занимаюсь научной деятельностью, в частности, разрабатываю и модифицирую средства формирования функциональной математической грамотности (ФМГ), умения математического моделирования (ММ), мотивации и интереса к математике у обучающихся старших классов.</p>
-    <p>Основным таким средством являются Лабораторные работы по математическому моделированию (ЛРММ). Под научным руководством Бодрякова В.Ю. мной и соавторами осуществляются педагогические апробации ЛРММ со школьниками, целью которых служит модернизация ЛРММ как средства формирования умения математического моделирования у старшеклассников.</p>
-
-    <h2>Мои основные достижения</h2>
-    <ul class="achievements-list">
-        <li>Автор более 20 научных работ, из них:
-		<ul>
-		<li> 18 работ, индексируемых в РИНЦ</li>
-		<li> 2 статьи в журналах из списка ВАК (первого и третьего квартилей)</li>
-		</ul>
-		
-		</li>
-        <li>Победитель и призер международных и всеросийских конкурсов молодых ученых</li>
-        <li>Выступил с докладом на более чем 15-ти конференциях, в том числе международных</li>
-        <li>Стипендиат благотворительного проекта РУСАЛ/ЭН+ 2024/2025 и 2025/2026 гг.</li>
-        <li>Стипендиат Правительства Российской Федерации 2025/2026 гг.</li>
-        <li>Стипендиат УрГПУ за достижения в научной деятельности 1 и 2 семестров 2025/2026 гг.</li>
-    </ul>
-    <h3>Можно ли со мной посотрудничать?</h3>
-
-	
-	
-    <p>Конечно! Просто свяжитель со мной любым удобным вам способом: <a href="contacts.html" >контакты</a>!</p>
-    
- </section>
-	
-	<footer>
-    <div class="footer-content">
-        <div class="copyright">
-                       © 2026 г. Красноперов Вячеслав Андреевич.
-        </div>
-        
-        <div class="social-links">
-            <a href="mailto:vk.uspu@ya.ru" class="social-icon">
-                <img src="email-logo.png" alt="Email">
-            </a>
-            <a href="https://vk.com/gastin01" target="_blank" class="social-icon">
-                <img src="vk-logo.webp" alt="ВКонтакте">
-            </a>
-            <a href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank" class="social-icon">
-                <img src="elibrary-logo.png" alt="elibrary">
+    <header>
+        <div class="header-top">
+            <div class="theme-switch" id="themeSwitch">
+                <div class="slider"></div>
+                <div class="labels">
+                    <span class="active" id="lightLabel">С</span>
+                    <span id="darkLabel">Т</span>
+                </div>
+            </div>
+            <a href="index.html" class="logo">
+                <img id="logo" src="logo-light.png" alt="Вячеслав Красноперов – сайт">
             </a>
         </div>
-    </div>
-</footer>
-	</div>
-	
+
+        <nav aria-label="Основная навигация">
+            <ul>
+                <li class="active"><a href="index.html">Главная</a></li>
+                <li><a href="science.html">Наука</a></li>
+                <li><a href="resourses.html">Ресурсы</a></li>
+                <li class="rght"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+
+        <!-- ========== HERO ========== -->
+        <section class="hero-section">
+            <div class="hero-image">
+                <img src="myphoto.jpg" alt="Вячеслав Красноперов" class="profile-photo">
+            </div>
+            <div class="hero-info">
+                <h1>Вячеслав Красноперов</h1>
+                <p class="hero-subtitle">
+                    студент УрГПУ, исследователь в области методики обучения математике
+                </p>
+                <p>
+                    Моя научная деятельность посвящена разработке и исследованию
+                    современных средств формирования функциональной математической
+                    грамотности, математического моделирования, учебной мотивации
+                    и интереса к математике у старшеклассников.
+                </p>
+                <p>
+                    Основное направление – создание и апробация лабораторных работ
+                    по математическому моделированию, объединяющих математическое
+                    содержание с практико-ориентированными задачами школьного образования.
+                </p>
+                <p>
+                    На сайте представлены мои публикации, методические материалы,
+                    образовательные разработки и контакты.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========== СТАТИСТИКА ========== -->
+        <section>
+            <h2>Кратко обо мне</h2>
+            <div class="stats-grid">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>20+</h3> <br>
+                        <p>научных публикаций</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>15+</h3> <br>
+                        <p>научных конференций</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>2</h3> <br>
+                        <p>статьи в журналах ВАК</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>3</h3> <br>
+                        <p>академические стипендии</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ИССЛЕДОВАНИЯ ========== -->
+        <section>
+            <h2>Основные направления исследований</h2>
+            <div class="research-grid">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>Математическое моделирование</h3>
+                        <p>
+                            Проектирование лабораторных работ по математическому моделированию
+                            как средства формирования соответствующего умения
+                            у старшеклассников.
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>Функциональная математическая грамотность</h3>
+                        <p>
+                            Разработка методических решений,
+                            направленных на формирование и диагностику
+                            функциональной математической грамотности.
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>Мотивация к изучению математики</h3>
+                        <p>
+                            Исследование факторов развития познавательного интереса,
+                            внутренней мотивации и вовлечённости школьников
+                            в математическое образование.
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h3>Педагогический эксперимент</h3>
+                        <p>
+                            Организация и проведение педагогических апробаций,
+                            статистическая обработка результатов
+                            и оценка эффективности образовательных разработок.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== РАЗДЕЛЫ САЙТА ========== -->
+        <section>
+            <h2>Разделы сайта</h2>
+            <div class="pages-grid">
+                <a href="science.html" class="contact-card">
+                    <div class="contact-info">
+                        <h3>Наука</h3>
+                        <p>
+                            Публикации, конференции,
+                            научные проекты,
+                            достижения и исследования.
+                        </p>
+                    </div>
+                </a>
+                <a href="resourses.html" class="contact-card">
+                    <div class="contact-info">
+                        <h3>Ресурсы</h3>
+                        <p>
+                            Методические материалы,
+                            программные разработки,
+                            полезные ссылки
+                            и образовательные проекты.
+                        </p>
+                    </div>
+                </a>
+                <a href="contacts.html" class="contact-card">
+                    <div class="contact-info">
+                        <h3>Контакты</h3>
+                        <p>
+                            Электронная почта,
+                            социальные сети,
+                            научные профили
+                            и способы связи.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== СОТРУДНИЧЕСТВО ========== -->
+        <section>
+            <h2>Сотрудничество</h2>
+            <p>
+                Открыт к научному и образовательному сотрудничеству,
+                совместным исследованиям, участию в конференциях,
+                разработке методических материалов и образовательных проектов.
+                Если вы хотите обсудить совместную работу или задать вопрос,
+                буду рад общению.
+            </p>
+            <p>
+                <a href="contacts.html">Связаться со мной →</a>
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                © 2026 г. Красноперов Вячеслав Андреевич. <br>
+				version 6.0.
+            </div>
+            <div class="social-links">
+                <a href="mailto:vk.uspu@ya.ru" class="social-icon">
+                    <img src="email-logo.png" alt="Email">
+                </a>
+                <a href="https://vk.com/gastin01" target="_blank" class="social-icon">
+                    <img src="vk-logo.webp" alt="ВКонтакте">
+                </a>
+                <a href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank" class="social-icon">
+                    <img src="elibrary-logo.png" alt="eLibrary">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
 <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
-  }
-</script>	
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+    }
+</script>
+
+<script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
+    (function() {
+        const themeSwitch = document.getElementById('themeSwitch');
+        const lightLabel = document.getElementById('lightLabel');
+        const darkLabel = document.getElementById('darkLabel');
+        const logo = document.getElementById('logo');
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-theme');
+                themeSwitch.classList.add('dark');
+                lightLabel.classList.remove('active');
+                darkLabel.classList.add('active');
+                logo.src = 'logo-dark.png';
+            } else {
+                document.documentElement.classList.remove('dark-theme');
+                themeSwitch.classList.remove('dark');
+                lightLabel.classList.add('active');
+                darkLabel.classList.remove('active');
+                logo.src = 'logo-light.png';
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        setTheme(currentTheme);
+
+        themeSwitch.addEventListener('click', function() {
+            const isDark = document.documentElement.classList.contains('dark-theme');
+            setTheme(isDark ? 'light' : 'dark');
+        });
+    })();
+</script>
+
 </body>
 </html>

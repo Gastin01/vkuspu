@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+<script>
+if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark-theme');
+}
+</script>
 	<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,35 +20,37 @@
 	</head>
 <body>
 	<div id="page">
-	<header>
-		<a href="index.html" class="logo">
-		<img src="logo.png" alt="vk-uspu.ru">
-	</a>
-
-    
-	<nav>
-
-		<ul>
-			<li><a href="index.html">Главная</a></li>
-			<li><a href="science.html">Научная деятельность</a></li>
-			<li><a href="resourses.html">Ресурсы</a></li>
-			<li><a href="contacts.html">Контакты</a></li>
-
-		</ul>
-		
-	</nav>
-	
-
-	
+<header>
+    <div class="header-top">
+        <!-- Слайдер переключения темы -->
+        <div class="theme-switch" id="themeSwitch">
+            <div class="slider"></div>
+            <div class="labels">
+                <span class="active" id="lightLabel">С</span>
+                <span id="darkLabel">Т</span>
+            </div>
+        </div>
+        <a href="index.html" class="logo">
+            <img id="logo" src="logo-light.png" alt="сайт Вячеслава Красноперова">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="science.html">Наука</a></li>
+            <li class="active"><a href="resourses.html">Ресурсы</a></li>
+            <li class="rght"><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
 </header>
 	
 	<section id="content">
 	
 	
 <br>
-    <h1>Мои ресурсы:</h1>
+    <h1>Общедоступные ресурсы:</h1>
 
-<div class="contacts-list-vertical">
+<div class="contacts-container">
     
 	<div class="contact-card">
         <div class="contact-icon">
@@ -55,6 +62,22 @@
         </div>
     </div>
 	
+
+    <div class="contact-card">
+        <div class="contact-icon">
+            <img src="github-logo.png" alt="Программа для ЛРММ">
+        </div>
+        <div class="contact-info">
+            <h3>Программа для ЛРММ</h3>
+            <a href="https://github.com/Gastin01/lwmm-art" target="_blank">Скачать с github</a>
+        </div>
+    </div>	
+</div>
+
+<h1>Приватные ресурсы:</h1>
+
+<div class="contacts-container">
+    
 	<div class="contact-card">
         <div class="contact-icon">
             <img src="yadisk-logo.png" alt="Учебные файлы">
@@ -94,15 +117,16 @@
             <a href="https://disk.yandex.ru/d/NtIW9YYa96jaqg" target="_blank">Полный доступ (при наличии пароля)</a>
         </div>
     </div>
-</div>
 
+</div>
 
  </section>
 	
 	<footer>
     <div class="footer-content">
         <div class="copyright">
-                       © 2026 г. Красноперов Вячеслав Андреевич.
+                       © 2026 г. Красноперов Вячеслав Андреевич. <br>
+				version 6.0.
         </div>
         
         <div class="social-links">
@@ -124,6 +148,42 @@
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
   }
+</script>
+<script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ СЛАЙДЕРОМ =====
+(function() {
+    const themeSwitch = document.getElementById('themeSwitch');
+    const lightLabel = document.getElementById('lightLabel');
+    const darkLabel = document.getElementById('darkLabel');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    // Функция обновления состояния слайдера
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            themeSwitch.classList.add('dark');
+            lightLabel.classList.remove('active');
+            darkLabel.classList.add('active');
+			document.getElementById("logo").src = "logo-dark.png";
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+            themeSwitch.classList.remove('dark');
+            lightLabel.classList.add('active');
+            darkLabel.classList.remove('active');
+			document.getElementById("logo").src = "logo-light.png";
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    // Применяем сохранённую тему при загрузке
+    setTheme(currentTheme);
+
+    // Обработчик клика
+    themeSwitch.addEventListener('click', function() {
+        const isDark = document.documentElement.classList.contains('dark-theme');
+        setTheme(isDark ? 'light' : 'dark');
+    });
+})();
 </script>
 </body>
 </html>
