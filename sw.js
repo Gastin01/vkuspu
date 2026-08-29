@@ -1,4 +1,4 @@
-const CACHE_NAME = 'site-cache-v3';
+const CACHE_NAME = 'site-cache-v4';
 
 const urlsToCache = [
   '/',
@@ -19,15 +19,25 @@ const urlsToCache = [
   '/yadisk-logo.png'
 ];
 
-// Установка
+// файлы, для которых всегда сначала идём в сеть (чтобы правки в CSS/HTML/JS
+// были видны сразу, без ручного повышения версии кэша)
+const NETWORK_FIRST_EXTENSIONS = ['.html', '.css', '.js'];
+
+function isNetworkFirst(url) {
+  const path = new URL(url).pathname;
+  return path === '/' || NETWORK_FIRST_EXTENSIONS.some(ext => path.endsWith(ext));
+}
+
+// Установка — сразу активируем новую версию, не дожидаясь закрытия вкладок
 self.addEventListener('install', event => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
   );
 });
 
-// Активация (чистим старые кэши)
+// Активация — чистим старые кэши и берём под контроль уже открытые вкладки
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(names =>
@@ -36,32 +46,40 @@ self.addEventListener('activate', event => {
           .filter(name => name !== CACHE_NAME)
           .map(name => caches.delete(name))
       )
-    )
+    ).then(() => self.clients.claim())
   );
 });
 
-// Запросы (умный fallback)
+// Запросы
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      // если есть в кэше — отдаём
-      if (response) return response;
+  const request = event.request;
 
-      // иначе идём в сеть
-      return fetch(event.request)
+  if (isNetworkFirst(request.url)) {
+    // network-first: сначала сеть (свежая версия), при неудаче — кэш
+    event.respondWith(
+      fetch(request)
         .then(networkResponse => {
-          // кэшируем новые файлы (например, картинки)
-          return caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, networkResponse.clone());
-            return networkResponse;
-          });
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+          return networkResponse;
         })
-        .catch(() => {
-          // если вообще нет сети — можно вернуть index
-          if (event.request.mode === 'navigate') {
-            return caches.match('/index.html');
-          }
+        .catch(() =>
+          caches.match(request).then(cached => cached || caches.match('/index.html'))
+        )
+    );
+    return;
+  }
+
+  // остальное (картинки и т.п.) — как раньше, cache-first
+  event.respondWith(
+    caches.match(request).then(response => {
+      if (response) return response;
+      return fetch(request).then(networkResponse => {
+        return caches.open(CACHE_NAME).then(cache => {
+          cache.put(request, networkResponse.clone());
+          return networkResponse;
         });
+      });
     })
   );
 });
