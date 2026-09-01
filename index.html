@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+<script>
+(function () {
+    var color = localStorage.getItem('themeColor') || 'purple';
+    var mode = localStorage.getItem('themeMode') || 'light';
+    document.documentElement.classList.add('color-' + color);
+    if (mode === 'dark') document.documentElement.classList.add('dark-theme');
+})();
+</script>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,13 +26,31 @@
 
     <header>
         <div class="header-top">
-            <div class="theme-switch" id="themeSwitch">
-                <div class="slider"></div>
-                <div class="labels">
-                    <span class="active" id="lightLabel">С</span>
-                    <span id="darkLabel">Т</span>
+            <!-- ===== НОВЫЙ БЛОК theme-menu ===== -->
+            <div class="theme-menu" id="themeMenu">
+                <button type="button" class="theme-trigger" id="themeTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Настройки темы оформления" title="Тема оформления">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+                        <circle cx="13.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                        <circle cx="17.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+                        <circle cx="8.5" cy="7.5" r="1" fill="currentColor" stroke="none"/>
+                        <circle cx="6.5" cy="12.5" r="1" fill="currentColor" stroke="none"/>
+                    </svg>
+                </button>
+                <div class="theme-panel" id="themePanel" role="group" aria-label="Выбор темы оформления">
+                    <button type="button" class="theme-dot" data-color="purple" title="Фиолетовый" aria-label="Фиолетовый акцент"></button>
+                    <button type="button" class="theme-dot" data-color="orange" title="Оранжевый" aria-label="Оранжевый акцент"></button>
+                    <button type="button" class="theme-dot" data-color="ocean" title="Океан" aria-label="Акцент «Океан»"></button>
+                    <button type="button" class="theme-dot" data-color="emerald" title="Изумруд" aria-label="Акцент «Изумруд»"></button>
+                    <button type="button" class="theme-dot" data-color="rose" title="Роза" aria-label="Акцент «Роза»"></button>
+                    <span class="theme-divider" aria-hidden="true"></span>
+                    <button type="button" class="mode-toggle" id="modeToggle" title="Светлый / тёмный режим" aria-label="Переключить светлый или тёмный режим" aria-pressed="false">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
                 </div>
             </div>
+            <!-- ===== КОНЕЦ НОВОГО БЛОКА ===== -->
             <a href="index.html" class="logo">
                 <img id="logo" src="logo-light.png" alt="Вячеслав Красноперов – сайт">
             </a>
@@ -209,7 +235,7 @@
         <div class="footer-content">
             <div class="copyright">
                 © 2026 г. Красноперов Вячеслав Андреевич. <br>
-				version 6.3.
+				version 6.5.1.
             </div>
             <div class="social-links">
                 <a href="mailto:vk.uspu@ya.ru" class="social-icon">
@@ -234,38 +260,89 @@
 </script>
 
 <script>
-    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ: цвет (5 акцентов) + режим (светлый/тёмный) =====
     (function() {
-        const themeSwitch = document.getElementById('themeSwitch');
-        const lightLabel = document.getElementById('lightLabel');
-        const darkLabel = document.getElementById('darkLabel');
+        const COLORS = ['purple', 'orange', 'ocean', 'emerald', 'rose'];
+
+        const root = document.documentElement;
+        const dots = document.querySelectorAll('.theme-dot');
+        const modeToggle = document.getElementById('modeToggle');
         const logo = document.getElementById('logo');
+        const menu = document.getElementById('themeMenu');
+        const trigger = document.getElementById('themeTrigger');
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        function applyColor(color) {
+            if (!COLORS.includes(color)) color = 'purple';
 
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark-theme');
-                themeSwitch.classList.add('dark');
-                lightLabel.classList.remove('active');
-                darkLabel.classList.add('active');
-                logo.src = 'logo-dark.png';
-            } else {
-                document.documentElement.classList.remove('dark-theme');
-                themeSwitch.classList.remove('dark');
-                lightLabel.classList.add('active');
-                darkLabel.classList.remove('active');
-                logo.src = 'logo-light.png';
-            }
-            localStorage.setItem('theme', theme);
+            COLORS.forEach(c => root.classList.remove('color-' + c));
+            root.classList.add('color-' + color);
+
+            dots.forEach(dot => {
+                const isActive = dot.dataset.color === color;
+                dot.classList.toggle('active', isActive);
+                dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+
+            localStorage.setItem('themeColor', color);
         }
 
-        setTheme(currentTheme);
+        function applyMode(mode) {
+            const isDark = mode === 'dark';
+            root.classList.toggle('dark-theme', isDark);
 
-        themeSwitch.addEventListener('click', function() {
-            const isDark = document.documentElement.classList.contains('dark-theme');
-            setTheme(isDark ? 'light' : 'dark');
+            if (modeToggle) {
+                modeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            }
+            if (logo) {
+                logo.src = isDark ? 'logo-dark.png' : 'logo-light.png';
+            }
+
+            localStorage.setItem('themeMode', mode);
+        }
+
+        const currentColor = localStorage.getItem('themeColor') || 'purple';
+        const currentMode = localStorage.getItem('themeMode') || 'light';
+        applyColor(currentColor);
+        applyMode(currentMode);
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                applyColor(this.dataset.color);
+            });
         });
+
+        if (modeToggle) {
+            modeToggle.addEventListener('click', function() {
+                const isDark = root.classList.contains('dark-theme');
+                applyMode(isDark ? 'light' : 'dark');
+            });
+        }
+
+        // Открытие/закрытие меню тапом — на десктопе панель и так
+        // раскрывается по наведению (см. CSS), это для сенсорных экранов
+        if (menu && trigger) {
+            trigger.addEventListener('click', function() {
+                const isOpen = menu.classList.toggle('open');
+                trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!menu.contains(e.target)) {
+                    menu.classList.remove('open');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // после выбора цвета или режима на тач-экране меню можно сразу закрыть
+            menu.addEventListener('click', function(e) {
+                if (e.target.closest('.theme-dot') || e.target.closest('.mode-toggle')) {
+                    setTimeout(() => {
+                        menu.classList.remove('open');
+                        trigger.setAttribute('aria-expanded', 'false');
+                    }, 150);
+                }
+            });
+        }
     })();
 </script>
 

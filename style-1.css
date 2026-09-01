@@ -11,7 +11,7 @@
 :root {
     /* Фоны и поверхности (светлый режим) */
     --bg-body: linear-gradient(145deg, #e8e4f0, #f5f2fa);
-    --bg-page: rgba(255, 255, 255, 0.55);
+    --bg-page: rgba(255, 255, 255, 0.35);
     --glass-white: rgba(255, 255, 255, 0.35);
     --glass-border: rgba(255, 255, 255, 0.45);
     --glass-shadow: 0 12px 48px rgba(0, 0, 0, 0.06), 0 2px 10px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -61,7 +61,7 @@
    цвет теперь задаётся отдельно классами html.color-*.dark-theme) ---- */
 html.dark-theme {
     --bg-body: linear-gradient(145deg, #2b2622, #40342c);
-    --bg-page: rgba(28, 27, 30, 0.82);
+    --bg-page: rgba(28, 27, 30, 0.78);
     --glass-white: rgba(60, 58, 62, 0.55);
     --glass-border: rgba(255,255,255,.14);
     --glass-shadow: 0 12px 42px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.05);
@@ -275,9 +275,7 @@ body::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(18px);       /* было 40px — паттерн почти не читался; #page добавит ещё
-                                  свой backdrop-blur(28px) поверх, так что итоговая мягкость
-                                  сохранится и там, где лежит текст */
+    filter: blur(40px);
     opacity: var(--bg-pattern-opacity);
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -356,20 +354,24 @@ header {
    см. JS) и скрывается, когда курсор/фокус уходит. */
 .theme-menu {
     position: relative;
-    /* фиксированный размер по кнопке — соседние элементы (лого) не должны
-       "прыгать", когда панель раскрывается поверх кнопки */
-    width: 34px;
-    height: 34px;
     flex-shrink: 0;
+}
+
+/* невидимый "мостик" под кнопкой — чтобы при переводе курсора
+   на панель ховер не терялся в зазоре между ними */
+.theme-menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 10px;
 }
 
 .theme-trigger {
     -webkit-appearance: none;
     appearance: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
+    position: relative;
     overflow: hidden;
     width: 34px;
     height: 34px;
@@ -386,19 +388,22 @@ header {
     padding: 0;
     margin: 0;
     cursor: pointer;
-    transition: background 0.25s ease, box-shadow 0.2s ease, opacity 0.15s ease;
+    transition: background 0.25s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
 .theme-trigger svg {
     position: relative;
     z-index: 1;
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
 }
 
-.theme-trigger:hover {
+.theme-trigger:hover,
+.theme-menu.open .theme-trigger,
+.theme-menu:focus-within .theme-trigger {
     background: var(--brand-light);
     box-shadow: 0 4px 14px rgba(var(--brand-color-rgb), 0.18);
+    transform: translateY(-1px);
 }
 
 .theme-trigger:focus-visible {
@@ -406,18 +411,9 @@ header {
     outline-offset: 2px;
 }
 
-/* при раскрытии панели кнопка прячется — панель появляется как бы
-   "вместо" неё, разворачиваясь вбок (вправо), а не выпадая вниз */
-.theme-menu:hover .theme-trigger,
-.theme-menu:focus-within .theme-trigger,
-.theme-menu.open .theme-trigger {
-    opacity: 0;
-    pointer-events: none;
-}
-
 .theme-panel {
     position: absolute;
-    top: 0;
+    top: calc(100% + 8px);
     left: 0;
     display: flex;
     align-items: center;
@@ -432,9 +428,8 @@ header {
     z-index: 50;
     opacity: 0;
     visibility: hidden;
-    transform-origin: left center;
-    transform: scaleX(0.6);
-    transition: opacity 0.2s ease, transform 0.22s cubic-bezier(0.2, 0.8, 0.3, 1), visibility 0.2s;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
 }
 
 .theme-menu:hover .theme-panel,
@@ -442,7 +437,7 @@ header {
 .theme-menu.open .theme-panel {
     opacity: 1;
     visibility: visible;
-    transform: scaleX(1);
+    transform: translateY(0);
 }
 
 .theme-dot {
@@ -1556,7 +1551,7 @@ footer {
        иначе крупный fixed-слой с filter:blur сильно грузит GPU телефона */
     body::before {
         inset: -30px;
-        filter: blur(14px);
+        filter: blur(22px);
     }
 
     .header-top {
@@ -1577,10 +1572,6 @@ footer {
         margin-right: 0;
     }
 
-    .theme-menu {
-        width: 30px;
-        height: 30px;
-    }
     .theme-trigger {
         width: 30px;
         height: 30px;
@@ -1988,10 +1979,6 @@ footer {
     }
     .logo img {
         width: 140px;
-    }
-    .theme-menu {
-        width: 27px;
-        height: 27px;
     }
     .theme-trigger {
         width: 27px;
@@ -2517,10 +2504,9 @@ footer {
 
    Место уже подготовлено — картинка ложится позади всего контента
    через body::before (см. выше, сразу после базового правила body)
-   и автоматически размывается на 18px через CSS filter: blur()
-   (на мобильных — 14px, легче для GPU). Поэтому саму картинку
-   размывать заранее не нужно — работает и с обычной чёткой
-   фотографией/текстурой/градиентом.
+   и автоматически размывается на 40px через CSS filter: blur().
+   Поэтому саму картинку размывать заранее не нужно — работает
+   и с обычной чёткой фотографией/текстурой/градиентом.
 
    ТРЕБОВАНИЯ К ФАЙЛУ:
    - Формат: JPG или WEBP (WEBP лучше сжимает — предпочтительно).
