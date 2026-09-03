@@ -1,5 +1,5 @@
 javascript
-const CACHE_NAME = 'site-cache-v6.6.2wl';
+const CACHE_NAME = 'site-cache-v6.6.2wl2';
 
 const urlsToCache = [
   '/',
