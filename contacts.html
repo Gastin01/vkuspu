@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <script>
 (function () {
     var color = localStorage.getItem('themeColor') || 'purple';
@@ -8,18 +8,19 @@
     if (mode === 'dark') document.documentElement.classList.add('dark-theme');
 })();
 </script>
-	<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="manifest" href="/manifest.json">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="default">
-	<meta name="apple-mobile-web-app-title" content="vk-uspu">
-	<link rel="apple-touch-icon" href="apple-icon-180.png">
-	<title>сайт Вячеслава Красноперова</title>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-	</head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+	<link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="vk-uspu">
+    <link rel="apple-touch-icon" href="assets/icons/apple-icon-180.png">
+    <title>сайт Вячеслава Красноперова</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+</head>
 <body>
 	<div id="page">
 <header>
@@ -60,6 +61,7 @@
             <li><a href="index.html">Главная</a></li>
             <li><a href="science.html">Наука</a></li>
             <li><a href="resourses.html">Ресурсы</a></li>
+			<li><a href="lwm.html">ЛРМ</a></li>
             <li class="rght active"><a href="contacts.html">Контакты</a></li>
         </ul>
     </nav>
@@ -72,7 +74,7 @@
     <div class="contacts-container">
         <div class="contact-item">
             <div class="contact-icon">
-                <img src="email-logo.png" alt="Email">
+                <img src="assets/logos/email-logo.png" alt="Email">
             </div>
             <div class="contact-info">
                 <h3>Электронная почта</h3>
@@ -82,7 +84,7 @@
         
         <div class="contact-item">
             <div class="contact-icon">
-                <img src="vk-logo.webp" alt="ВКонтакте">
+                <img src="assets/logos/vk-logo.webp" alt="ВКонтакте">
             </div>
             <div class="contact-info">
                 <h3>ВКонтакте</h3>
@@ -92,7 +94,7 @@
         
         <div class="contact-item">
             <div class="contact-icon">
-                <img src="telegram-logo.png" alt="Telegram">
+                <img src="assets/logos/telegram-logo.png" alt="Telegram">
             </div>
             <div class="contact-info">
                 <h3>Telegram</h3>
@@ -102,7 +104,7 @@
 		
 		<div class="contact-item">
             <div class="contact-icon">
-                <img src="max-logo.png" alt="Max">
+                <img src="assets/logos/max-logo.png" alt="Max">
             </div>
             <div class="contact-info">
                 <h3>Max</h3>
@@ -116,7 +118,7 @@
 	<div class="contacts-container">       
         <div class="contact-item">
             <div class="contact-icon">
-                <img src="elibrary-logo.png" alt="eLibrary">
+                <img src="assets/logos/elibrary-logo.png" alt="eLibrary">
             </div>
             <div class="contact-info">
                 <h3>eLibrary</h3>
@@ -125,7 +127,7 @@
         </div>
 		<div class="contact-item">
             <div class="contact-icon">
-                <img src="orcid-logo.png" alt="ORCID">
+                <img src="assets/logos/orcid-logo.png" alt="ORCID">
             </div>
             <div class="contact-info">
                 <h3>ORCID</h3>
@@ -135,26 +137,25 @@
     </div>
  </section>
 	
-	<footer>
-    <div class="footer-content">
-        <div class="copyright">
-                       © 2026 г. Красноперов Вячеслав Андреевич. <br>
-				version 6.5.1.
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                © 2026 г. Красноперов Вячеслав Андреевич. <br>
+				version 6.6.2.
+            </div>
+            <div class="social-links">
+                <a href="mailto:vk.uspu@ya.ru" class="social-icon">
+                    <img src="assets/logos/email-logo.png" alt="Email">
+                </a>
+                <a href="https://vk.com/gastin01" target="_blank" class="social-icon">
+                    <img src="assets/logos/vk-logo.webp" alt="ВКонтакте">
+                </a>
+                <a href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank" class="social-icon">
+                    <img src="assets/logos/elibrary-logo.png" alt="eLibrary">
+                </a>
+            </div>
         </div>
-        
-        <div class="social-links">
-            <a href="mailto:vk.uspu@ya.ru" class="social-icon">
-                <img src="email-logo.png" alt="Email">
-            </a>
-            <a href="https://vk.com/gastin01" target="_blank" class="social-icon">
-                <img src="vk-logo.webp" alt="ВКонтакте">
-            </a>
-            <a href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank" class="social-icon">
-                <img src="elibrary-logo.png" alt="elibrary">
-            </a>
-        </div>
-    </div>
-</footer>
+    </footer>
 	</div>
 	</div>
 	<script>
@@ -197,7 +198,9 @@
             modeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
         }
         if (logo) {
-            logo.src = isDark ? 'logo-dark.png' : 'logo-light.png';
+            logo.src = isDark
+    ? 'assets/logos/logo-dark.png'
+    : 'assets/logos/logo-light.png';
         }
 
         localStorage.setItem('themeMode', mode);

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<script>
+(function () {
+    var color = localStorage.getItem('themeColor') || 'purple';
+    var mode = localStorage.getItem('themeMode') || 'light';
+    document.documentElement.classList.add('color-' + color);
+    if (mode === 'dark') document.documentElement.classList.add('dark-theme');
+})();
+</script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+	<link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="vk-uspu">
+    <link rel="apple-touch-icon" href="assets/icons/apple-icon-180.png">
+    <title>сайт Вячеслава Красноперова</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+</head>
+<body>
+	<div id="page">
+<header>
+    <div class="header-top">
+        <!-- Слайдер переключения темы -->
+        <!-- ===== НОВЫЙ БЛОК theme-menu ===== -->
+        <div class="theme-menu" id="themeMenu">
+            <button type="button" class="theme-trigger" id="themeTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Настройки темы оформления" title="Тема оформления">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+                    <circle cx="13.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                    <circle cx="17.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+                    <circle cx="8.5" cy="7.5" r="1" fill="currentColor" stroke="none"/>
+                    <circle cx="6.5" cy="12.5" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+            </button>
+            <div class="theme-panel" id="themePanel" role="group" aria-label="Выбор темы оформления">
+                <button type="button" class="theme-dot" data-color="purple" title="Фиолетовый" aria-label="Фиолетовый акцент"></button>
+                <button type="button" class="theme-dot" data-color="orange" title="Оранжевый" aria-label="Оранжевый акцент"></button>
+                <button type="button" class="theme-dot" data-color="ocean" title="Океан" aria-label="Акцент «Океан»"></button>
+                <button type="button" class="theme-dot" data-color="emerald" title="Изумруд" aria-label="Акцент «Изумруд»"></button>
+                <button type="button" class="theme-dot" data-color="rose" title="Роза" aria-label="Акцент «Роза»"></button>
+                <span class="theme-divider" aria-hidden="true"></span>
+                <button type="button" class="mode-toggle" id="modeToggle" title="Светлый / тёмный режим" aria-label="Переключить светлый или тёмный режим" aria-pressed="false">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
+        </div>
+        <!-- ===== КОНЕЦ НОВОГО БЛОКА ===== -->
+        <a href="index.html" class="logo">
+            <img id="logo" src="logo-light.png" alt="сайт Вячеслава Красноперова">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="science.html">Наука</a></li>
+            <li><a href="resourses.html">Ресурсы</a></li>
+            <li class="active"><a href="lwm.html">ЛРМ</a></li>
+			<li class="rght"><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+</header>
+	
+	<section id="content">
+
+        <section class="lwm-calculator" aria-labelledby="lwm-title">
+            <div class="lwm-header">
+                <div>
+                    <h1 id="lwm-title">ЛРММ «Арт-объект»</h1>
+                    <p class="lwm-description">Определение координат целевой точки по двум исходным точкам и заданным азимутам.</p>
+                </div>
+            </div>
+
+            <div class="lwm-grid">
+                <article class="lwm-card">
+                    <h2>Первая точка</h2>
+                    <div class="lwm-fields">
+                        <label><span>Широта, °</span><input id="latA" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                        <label><span>Долгота, °</span><input id="lonA" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                        <label><span>Азимут, °</span><input id="azA" type="text" inputmode="decimal" autocomplete="off" placeholder="0–360"></label>
+                    </div>
+                </article>
+
+                <article class="lwm-card">
+                    <h2>Вторая точка</h2>
+                    <div class="lwm-fields">
+                        <label><span>Широта, °</span><input id="latB" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                        <label><span>Долгота, °</span><input id="lonB" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                        <label><span>Азимут, °</span><input id="azB" type="text" inputmode="decimal" autocomplete="off" placeholder="0–360"></label>
+                    </div>
+                </article>
+            </div>
+
+            <div class="lwm-actions">
+                <button type="button" class="lwm-button lwm-button-primary" id="calculateButton">Вычислить</button>
+                <button type="button" class="lwm-button" id="copyButton" disabled>Скопировать последний результат</button>
+                <button type="button" class="lwm-button lwm-button-ghost" id="clearButton">Очистить</button>
+            </div>
+
+            <article class="lwm-result-card">
+                <div class="lwm-result-heading">
+                    <h2>Результаты вычислений</h2>
+                </div>
+                <div id="resultOutput" class="lwm-result-output" role="status" aria-live="polite"></div>
+                <div id="history" class="lwm-history" aria-label="История вычислений"></div>
+            </article>
+
+            <article class="lwm-help-card">
+                <h2>Справка</h2>
+                <ul>
+                    <li>Ввод чисел допускается как с точкой, так и с запятой.</li>
+                    <li>Азимут должен находиться в диапазоне от 0 до 360°.</li>
+                    <li>При параллельных направлениях пересечение не определяется.</li>
+                    <li>Расчёт выполняется непосредственно в браузере — сервер Python для него не нужен.</li>
+                </ul>
+            </article>
+        </section>
+
+	</section>
+	
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                © 2026 г. Красноперов Вячеслав Андреевич. <br>
+				version 6.6.2.
+            </div>
+            <div class="social-links">
+                <a href="mailto:vk.uspu@ya.ru" class="social-icon">
+                    <img src="assets/logos/email-logo.png" alt="Email">
+                </a>
+                <a href="https://vk.com/gastin01" target="_blank" class="social-icon">
+                    <img src="assets/logos/vk-logo.webp" alt="ВКонтакте">
+                </a>
+                <a href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank" class="social-icon">
+                    <img src="assets/logos/elibrary-logo.png" alt="eLibrary">
+                </a>
+            </div>
+        </div>
+    </footer>
+	</div>
+	</div>
+	<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+</script>
+<script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ: цвет (5 акцентов) + режим (светлый/тёмный) =====
+(function() {
+    const COLORS = ['purple', 'orange', 'ocean', 'emerald', 'rose'];
+
+    const root = document.documentElement;
+    const dots = document.querySelectorAll('.theme-dot');
+    const modeToggle = document.getElementById('modeToggle');
+    const logo = document.getElementById('logo');
+    const menu = document.getElementById('themeMenu');
+    const trigger = document.getElementById('themeTrigger');
+
+    function applyColor(color) {
+        if (!COLORS.includes(color)) color = 'purple';
+
+        COLORS.forEach(c => root.classList.remove('color-' + c));
+        root.classList.add('color-' + color);
+
+        dots.forEach(dot => {
+            const isActive = dot.dataset.color === color;
+            dot.classList.toggle('active', isActive);
+            dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        localStorage.setItem('themeColor', color);
+    }
+
+    function applyMode(mode) {
+        const isDark = mode === 'dark';
+        root.classList.toggle('dark-theme', isDark);
+
+        if (modeToggle) {
+            modeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        }
+        if (logo) {
+            logo.src = isDark
+    ? 'assets/logos/logo-dark.png'
+    : 'assets/logos/logo-light.png';
+        }
+
+        localStorage.setItem('themeMode', mode);
+    }
+
+    // Применяем сохранённые цвет и режим при загрузке
+    const currentColor = localStorage.getItem('themeColor') || 'purple';
+    const currentMode = localStorage.getItem('themeMode') || 'light';
+    applyColor(currentColor);
+    applyMode(currentMode);
+
+    // Обработчик клика по точкам цвета
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            applyColor(this.dataset.color);
+        });
+    });
+
+    // Обработчик клика по переключателю светлый/тёмный
+    if (modeToggle) {
+        modeToggle.addEventListener('click', function() {
+            const isDark = root.classList.contains('dark-theme');
+            applyMode(isDark ? 'light' : 'dark');
+        });
+    }
+
+    // Открытие/закрытие меню тапом — на десктопе панель и так
+    // раскрывается по наведению (см. CSS), это для сенсорных экранов
+    if (menu && trigger) {
+        trigger.addEventListener('click', function() {
+            const isOpen = menu.classList.toggle('open');
+            trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!menu.contains(e.target)) {
+                menu.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // после выбора цвета или режима на тач-экране меню можно сразу закрыть
+        menu.addEventListener('click', function(e) {
+            if (e.target.closest('.theme-dot') || e.target.closest('.mode-toggle')) {
+                setTimeout(() => {
+                    menu.classList.remove('open');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }, 150);
+            }
+        });
+    }
+})();
+</script>
+
+<script>
+(function(){
+"use strict";
+const LAT_METERS=111111.0, LON_METERS=111319.0;
+const ids=["latA","lonA","azA","latB","lonB","azB"];
+const fields=Object.fromEntries(ids.map(id=>[id,document.getElementById(id)]));
+const calculateButton=document.getElementById("calculateButton");
+const copyButton=document.getElementById("copyButton");
+const clearButton=document.getElementById("clearButton");
+const resultOutput=document.getElementById("resultOutput");
+const resultStatus=document.getElementById("resultStatus");
+const history=document.getElementById("history");
+let lastResultString="";
+
+function parseFloatRu(value){return Number.parseFloat(String(value).trim().replace(",","."));}
+
+function calculateTarget(pointA,azimuthA,pointB,azimuthB){
+    const avgLat=(pointA[0]+pointB[0])/2;
+    const alpha=azimuthA*Math.PI/180, beta=azimuthB*Math.PI/180;
+    function toMeters(lat,lon){
+        return [lon*LON_METERS*Math.cos(avgLat*Math.PI/180),lat*LAT_METERS];
+    }
+    function toDegrees(x,y){
+        return [y/LAT_METERS,x/(LON_METERS*Math.cos(avgLat*Math.PI/180))];
+    }
+    const [xA,yA]=toMeters(pointA[0],pointA[1]);
+    const [xB,yB]=toMeters(pointB[0],pointB[1]);
+    const numerator=(yB-yA)*Math.sin(beta)+(xA-xB)*Math.cos(beta);
+    const denominator=Math.sin(beta-alpha);
+    if(Math.abs(denominator)<1e-12){const e=new Error("Азимуты параллельны — пересечения нет.");e.code="PARALLEL";throw e;}
+    const tA=numerator/denominator;
+    return toDegrees(xA+tA*Math.sin(alpha),yA+tA*Math.cos(alpha));
+}
+
+function setResult(text,type,status){
+    resultOutput.textContent=text;
+    resultOutput.classList.toggle("is-success",type==="success");
+    resultOutput.classList.toggle("is-error",type==="error");
+    if (resultStatus) resultStatus.textContent=status;
+}
+function addHistory(text){
+    const item=document.createElement("div"); item.className="lwm-history-item"; item.textContent=text; history.prepend(item);
+    while(history.children.length>5) history.removeChild(history.lastElementChild);
+}
+function calculate(){
+    try{
+        const v=ids.map(id=>parseFloatRu(fields[id].value));
+        if(v.some(x=>!Number.isFinite(x))) throw new Error("Пожалуйста, введите числовые значения во все поля. Допускаются точка или запятая в качестве десятичного разделителя.");
+        const [latA,lonA,azA,latB,lonB,azB]=v;
+        if(!(0<=azA&&azA<=360)||!(0<=azB&&azB<=360)) throw new Error("Азимут должен быть в диапазоне от 0 до 360 градусов.");
+        const r=calculateTarget([latA,lonA],azA,[latB,lonB],azB);
+        lastResultString=`${r[0].toFixed(6)}° с.ш., ${r[1].toFixed(6)}° в.д.`;
+        setResult(`Результат: ${lastResultString}`,"success","Расчёт выполнен");
+        copyButton.disabled=false; addHistory(`Результат: ${lastResultString}`);
+    }catch(e){
+        setResult(e.message||"Неизвестная ошибка.","error","Ошибка");
+        if(e.code==="PARALLEL") addHistory("Ошибка: азимуты параллельны, пересечения нет.");
+    }
+}
+async function copyLastResult(){
+    if(!lastResultString)return;
+    try{await navigator.clipboard.writeText(lastResultString);if (resultStatus) resultStatus.textContent="Скопировано";}
+    catch(e){
+        const area=document.createElement("textarea");area.value=lastResultString;area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();
+        try{document.execCommand("copy");if (resultStatus) resultStatus.textContent="Скопировано";}finally{area.remove();}
+    }
+}
+function clearAll(){
+    ids.forEach(id=>fields[id].value=""); lastResultString=""; copyButton.disabled=true;
+    setResult("","normal",""); fields.latA.focus();
+}
+calculateButton.addEventListener("click",calculate);
+copyButton.addEventListener("click",copyLastResult);
+clearButton.addEventListener("click",clearAll);
+ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();calculate();}}));
+})();
+</script>
+
+</body>
+</html>

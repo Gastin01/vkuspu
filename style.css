@@ -113,7 +113,7 @@ html.color-purple {
     --brand-border: rgba(74, 44, 122, 0.25);
     --btn-hover-bg: rgba(74, 44, 122, 0.12);
     --bg-body: linear-gradient(145deg, #e8e4f0, #f5f2fa);
-	--bg-pattern: url('pattern-light-purple.jpg');
+	--bg-pattern: url('assets/patterns/pattern-purple.jpg');
     --bg-pattern-opacity: 0.2;
 	}
 html.color-purple.dark-theme {
@@ -135,7 +135,7 @@ html.color-orange {
     --brand-border: rgba(193, 86, 10, 0.25);
     --btn-hover-bg: rgba(193, 86, 10, 0.12);
     --bg-body: linear-gradient(145deg, #f5e6d8, #fbf3ea);
-	--bg-pattern: url('pattern-light-orange.jpg');
+	--bg-pattern: url('assets/patterns/pattern-orange.jpg');
     --bg-pattern-opacity: 0.4;
 }
 html.color-orange.dark-theme {
@@ -157,7 +157,7 @@ html.color-ocean {
     --brand-border: rgba(20, 108, 148, 0.25);
     --btn-hover-bg: rgba(20, 108, 148, 0.12);
     --bg-body: linear-gradient(145deg, #dbe9f0, #eef6f9);
-	--bg-pattern: url('pattern-light-ocean.jpg');
+	--bg-pattern: url('assets/patterns/pattern-ocean.jpg');
     --bg-pattern-opacity: 0.3;
 	}
 html.color-ocean.dark-theme {
@@ -179,7 +179,7 @@ html.color-emerald {
     --brand-border: rgba(28, 124, 84, 0.25);
     --btn-hover-bg: rgba(28, 124, 84, 0.12);
     --bg-body: linear-gradient(145deg, #dcf0e4, #eef9f2);
-	--bg-pattern: url('pattern-light-emerald.jpg');
+	--bg-pattern: url('assets/patterns/pattern-emerald.jpg');
     --bg-pattern-opacity: 0.5;
 	}
 html.color-emerald.dark-theme {
@@ -201,7 +201,7 @@ html.color-rose {
     --brand-border: rgba(176, 51, 92, 0.25);
     --btn-hover-bg: rgba(176, 51, 92, 0.12);
     --bg-body: linear-gradient(145deg, #f3dde6, #faeef2);
-	--bg-pattern: url('pattern-light-rose.jpg');
+	--bg-pattern: url('assets/patterns/pattern-rose.jpg');
     --bg-pattern-opacity: 0.4;
 	}
 html.color-rose.dark-theme {
@@ -275,9 +275,7 @@ body::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(18px);       /* было 40px — паттерн почти не читался; #page добавит ещё
-                                  свой backdrop-blur(28px) поверх, так что итоговая мягкость
-                                  сохранится и там, где лежит текст */
+    filter: blur(8px);        /* было 18px, до этого 40px — по вашей просьбе ещё резче */
     opacity: var(--bg-pattern-opacity);
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -293,7 +291,9 @@ body::before {
     .contact-card:hover,
     .stats-grid .contact-card:hover,
     .research-grid .contact-card:hover,
-    .pages-grid .contact-card:hover {
+    .page-tile:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover {
         transform: none !important;
     }
 }
@@ -650,7 +650,7 @@ nav li.active a:hover {
     padding: 10px 0 0 0;
 }
 
-#content h1 {
+main h1 {
     font-size: 2rem;
     margin: 20px 0 15px;
     color: var(--text-primary);
@@ -658,7 +658,7 @@ nav li.active a:hover {
     letter-spacing: -0.5px;
 }
 
-#content h2 {
+main h2 {
     font-size: 1.6rem;
     margin: 30px 0 15px;
     color: var(--text-secondary);
@@ -666,7 +666,7 @@ nav li.active a:hover {
     letter-spacing: -0.3px;
 }
 
-#content h3 {
+main h3 {
     font-size: 1.3rem;
     margin: 25px 0 10px;
     color: var(--text-secondary);
@@ -674,7 +674,7 @@ nav li.active a:hover {
     text-align: left;
 }
 
-#content p {
+main p {
     margin: 0 0 15px;
     text-align: justify;
     line-height: 1.6;
@@ -682,20 +682,20 @@ nav li.active a:hover {
     color: var(--text-light);
 }
 
-#content a {
+main a {
     color: var(--brand-color);
     text-decoration: none;
     border-bottom: 1px dashed rgba(var(--brand-color-rgb), 0.3);
     transition: all 0.2s ease;
 }
 
-#content a:hover {
+main a:hover {
     color: color-mix(in srgb, var(--brand-color) 80%, black);
     border-bottom-style: solid;
     border-color: var(--brand-color);
 }
 
-.dark-theme #content a:hover {
+.dark-theme main a:hover {
     color: color-mix(in srgb, var(--brand-color) 80%, white);
 }
 
@@ -948,8 +948,9 @@ nav li.active a:hover {
 }
 
 /* ссылка — кнопка под названием, а не подчёркнутый текст в строку.
-   #content поднимает приоритет выше общего "#content a" (у него был пунктир
-   и своя подсветка при наведении, из-за чего кнопка выглядела неряшливо) */
+   (раньше здесь был нужен #content для приоритета над общим "a" —
+   сейчас это уже не обязательно, т.к. базовые main h1/h2/h3/p/a
+   переведены на низкую специфичность, но оставляем для надёжности) */
 #content .contacts-container .contact-info a {
     display: inline-flex;
     align-self: center;
@@ -1556,7 +1557,7 @@ footer {
        иначе крупный fixed-слой с filter:blur сильно грузит GPU телефона */
     body::before {
         inset: -30px;
-        filter: blur(14px);
+        filter: blur(6px);
     }
 
     .header-top {
@@ -1641,22 +1642,22 @@ footer {
         white-space: nowrap;
     }
 
-    #content h1 {
+    main h1 {
         font-size: 1.5rem;
         margin: 15px 0 10px;
         text-align: center;
     }
-    #content h2 {
+    main h2 {
         font-size: 1.3rem;
         margin: 20px 0 10px;
         text-align: center;
     }
-    #content h3 {
+    main h3 {
         font-size: 1.1rem;
         margin: 18px 0 8px;
         text-align: center;
     }
-    #content p {
+    main p {
         font-size: 0.95rem;
         text-align: justify;
     }
@@ -2033,16 +2034,16 @@ footer {
         gap: 3px;
         min-height: 40px;
     }
-    #content h1 {
+    main h1 {
         font-size: 1.3rem;
     }
-    #content h2 {
+    main h2 {
         font-size: 1.1rem;
     }
-    #content h3 {
+    main h3 {
         font-size: 1rem;
     }
-    #content p {
+    main p {
         font-size: 0.9rem;
     }
     .filter-group select {
@@ -2134,42 +2135,59 @@ footer {
 .hero-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
-        "image name"
-        "image info";
+        "name  name"
+        "image info"
+        "cta   cta";
     column-gap: 30px;
-    row-gap: 6px;
-    align-items: center;
+    row-gap: 22px;
+    align-items: start;
 }
 
 .hero-name {
     grid-area: name;
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-size: 2rem;
+    margin: 0;
+    font-size: 2.1rem;
     font-weight: 600;
     letter-spacing: -0.5px;
     color: var(--text-primary);
-    text-align: left;                       /* на десктопе — рядом с фото, слева */
+    text-align: left;
 }
 
 .hero-image {
     grid-area: image;
+    position: relative;
+    z-index: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
+/* мягкое цветное пятно за фото — фирменный акцент, добавляет объём
+   вместо плоского прямоугольника с картинкой */
+.hero-image::before {
+    content: "";
+    position: absolute;
+    inset: -6% -6% 6% -6%;
+    background: radial-gradient(circle at 32% 28%, rgba(var(--brand-color-rgb), 0.28), transparent 68%);
+    filter: blur(24px);
+    z-index: -1;
+    border-radius: 32px;
+}
+
 .hero-image .profile-photo {
+    position: relative;
     width: 100%;
-    max-width: 500px;                       /* было 480px, уменьшаем */
+    max-width: 460px;
     aspect-ratio: 4 / 3;                    /* совпадает с реальными пропорциями фото — убирает скачок вёрстки при загрузке */
     border-radius: 24px;
     object-fit: cover;
     object-position: center 25%;
     float: none;
     margin: 0;
+    background: var(--card-bg);             /* видимая подложка, пока грузится/если не найдётся файл */
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.12);
 }
 
 .hero-info {
@@ -2188,6 +2206,112 @@ footer {
     margin-bottom: 16px;
 }
 
+/* ===== Теги направлений — вместо сплошной "стены" текста =====
+   Те же чипы, что используются по всему сайту (Год-бейдж в публикациях,
+   переключатель темы) — короткие акценты вместо длинных абзацев. */
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 6px 0 4px;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    color: var(--brand-color);
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* ===== CTA-кнопки в hero — отдельная строка на всю ширину, под фото и текстом ===== */
+.hero-cta {
+    grid-area: cta;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 13px 26px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* #content поднимает приоритет выше общего "main a" (у него своя подсветка
+   ссылок при наведении) — иначе на hover текст кнопки перекрашивался в тот
+   же фиолетовый/оранжевый, что и фон, и становился нечитаемым.
+   Отдельно на :hover ещё раз обнуляем border-bottom: "main a:hover"
+   трогает только border-bottom-style (none → solid), а зарезервированная
+   под него ширина (~3px, "medium" по умолчанию) оставалась и на
+   наведении кнопка реально становилась на 3px выше — отсюда и разница
+   в размере между обычным и hover-состоянием. */
+#content .btn-primary,
+#content .btn-secondary {
+    border-bottom: none;
+}
+
+#content .btn-primary {
+    background: var(--brand-color);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(var(--brand-color-rgb), 0.30);
+}
+#content .btn-primary:hover {
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(var(--brand-color-rgb), 0.38);
+}
+.dark-theme #content .btn-primary,
+.dark-theme #content .btn-primary:hover {
+    color: #241d17;                          /* тот же приём, что и у кнопки в контактах —
+                                                  на ярких тёмных акцентах белый текст сливается */
+}
+
+#content .btn-secondary {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+}
+#content .btn-secondary:hover {
+    background: var(--brand-light);
+    border-color: var(--brand-border);
+    color: var(--brand-color);
+}
+
+/* ===== Круглые иконки-бейджи (статистика/направления) ===== */
+.icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--brand-light);
+    color: var(--brand-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+}
+.icon-badge svg {
+    width: 22px;
+    height: 22px;
+}
+
 /* ================= СТАТИСТИКА ================= */
 
 .stats-grid {
@@ -2197,12 +2321,13 @@ footer {
 }
 
 .stats-grid .contact-card {
-    text-align: center;                     /* центрирование всего содержимого */
+    text-align: left;
     display: flex;
-    flex-direction: column;
-    align-items: center;                    /* дополнительное центрирование */
-    justify-content: center;
-    padding: 30px 18px;                     /* чуть больше отступов */
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
     /* фон/рамка/тень — раньше приходили от общего .contact-card,
        теперь он ограничен блоком контактов, поэтому задаём явно здесь */
     background: var(--card-bg);
@@ -2212,6 +2337,26 @@ footer {
     border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
+}
+
+/* .contact-info теперь тоже строка: иконка + текстовый столбик рядом */
+.stats-grid .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+}
+
+.stats-grid .icon-badge {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.stats-grid .stat-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
 }
 
 .stats-grid .contact-card:hover {
@@ -2224,18 +2369,18 @@ footer {
 
 /* ===== УВЕЛИЧЕНИЕ ЦИФР В СТАТИСТИКЕ ===== */
 .stats-grid .contact-card h3 {
-    font-size: 2rem !important;
-    text-align: center !important;
+    font-size: 1.6rem !important;
+    text-align: left !important;
     margin: 0 !important;
     line-height: 1.2 !important;
     color: var(--brand-color) !important;
 }
 
 .stats-grid p {
-    margin-top: 8px;
-    margin-bottom: 0;
-    font-size: 1rem;
-    text-align: center;
+    margin: 0;
+    font-size: 0.85rem;
+    text-align: left;
+    color: var(--text-muted);
 }
 /* ================= ИССЛЕДОВАНИЯ ================= */
 
@@ -2246,6 +2391,11 @@ footer {
 }
 
 .research-grid .contact-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
     height: 100%;
     background: var(--card-bg);
     backdrop-filter: blur(12px);
@@ -2253,7 +2403,7 @@ footer {
     border-radius: 16px;
     border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-sm);
-    padding: 20px 25px;
+    padding: 20px 22px;
     transition: all 0.3s ease;
 }
 
@@ -2264,71 +2414,139 @@ footer {
     border-color: rgba(var(--brand-color-rgb), 0.20);
 }
 
+.research-grid .icon-badge {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.research-grid .contact-info {
+    flex: 1;
+    min-width: 0;
+}
+
 .research-grid h3 {
     margin-top: 0;
-    margin-bottom: 14px;
-    text-align: center;
+    margin-bottom: 6px;
+    font-size: 1.08rem;
+    color: var(--brand-color);
+    text-align: left;
 }
 
 .research-grid p {
     margin-bottom: 0;
-    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: left;
 }
 
-/* ================= РАЗДЕЛЫ ================= */
+/* ================= РАЗДЕЛЫ САЙТА ================= */
+/* Раньше — центрированные карточки-близнецы блока статистики/направлений.
+   Теперь — горизонтальные "плитки-ссылки": иконка слева, заголовок и
+   описание справа, стрелка у края — сразу читается как переход, а не
+   просто факт, и не дублирует визуально соседние секции. */
 
 .pages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 16px;
 }
 
-.pages-grid a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.pages-grid .contact-card {
+.page-tile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     height: 100%;
+    padding: 18px 20px;
     background: var(--card-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
-    border: 1px solid var(--glass-border) !important;  /* перебивает всё */
+    border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-sm);
-    padding: 20px 25px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
-.pages-grid .contact-card:hover {
-    transform: translateY(-5px);
+.page-tile:hover {
+    transform: translateY(-4px);
     background: var(--card-hover);
     box-shadow: 0 12px 32px rgba(var(--brand-color-rgb), 0.08);
     border-color: rgba(var(--brand-color-rgb), 0.20);
 }
 
-.pages-grid h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
+.page-tile-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    background: var(--brand-light);
     color: var(--brand-color);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.page-tile-icon svg {
+    width: 23px;
+    height: 23px;
 }
 
-.pages-grid p {
-    margin-bottom: 0;
-    text-align: center;
+.page-tile-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.page-tile-title {
+    display: block;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--brand-color);
+    margin-bottom: 4px;
+}
+
+.page-tile-desc {
+    display: block;
+    font-size: 0.87rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+.page-tile-arrow {
+    flex-shrink: 0;
+    color: var(--brand-color);
+    font-size: 1.15rem;
+    transition: transform 0.2s ease;
+}
+
+.page-tile:hover .page-tile-arrow {
+    transform: translateX(4px);
 }
 
 /* ================= СОТРУДНИЧЕСТВО ================= */
+/* Раньше — обычный абзац текста в конце страницы (CTA легко было не
+   заметить, скроллом мимо). Теперь — выделенный блок с фирменной
+   подсветкой и кнопкой, как полноценное завершение страницы. */
 
-#content > p:last-of-type {
-    margin-top: -10px;
-    font-weight: 500;
+.cta-band {
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    text-align: center;
 }
 
-#content > p:last-of-type a {
-    font-weight: 600;
+.cta-band h2 {
+    margin-top: 0;
+}
+
+.cta-band p {
+    max-width: 620px;
+    margin: 0 auto 22px;
+    text-align: center;
+}
+
+.cta-band .btn-primary {
+    justify-content: center;
 }
 
 /* ================= АДАПТИВНОСТЬ ГЛАВНОЙ СТРАНИЦЫ ================= */
@@ -2338,11 +2556,12 @@ footer {
        фото и текст — одной ширины (как остальной контент страницы) */
     .hero-section {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto auto auto;
         grid-template-areas:
             "image"
             "name"
-            "info";
+            "info"
+            "cta";
         row-gap: 16px;
         column-gap: 0;
     }
@@ -2358,6 +2577,11 @@ footer {
         width: 100%;
         max-width: 100%;
         border-radius: 20px;
+    }
+
+    .hero-image::before {
+        inset: -3% -3% 3% -3%;
+        filter: blur(20px);                 /* легче для GPU на телефоне */
     }
 
     .hero-info {
@@ -2393,17 +2617,41 @@ footer {
         text-align: justify;
     }
 
+    .hero-tags {
+        justify-content: center;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
     .stats-grid {
         grid-template-columns: 1fr 1fr;
         gap: 15px;
     }
 
     .stats-grid .contact-card {
-        padding: 18px 12px;
+        padding: 14px 14px;
+        gap: 10px;
+    }
+
+    .stats-grid .contact-info {
+        gap: 10px;
+    }
+
+    .stats-grid .icon-badge,
+    .research-grid .icon-badge {
+        width: 38px;
+        height: 38px;
+    }
+    .stats-grid .icon-badge svg,
+    .research-grid .icon-badge svg {
+        width: 18px;
+        height: 18px;
     }
 
     .stats-grid h3 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .research-grid {
@@ -2415,7 +2663,7 @@ footer {
         gap: 16px;
     }
 
-    .pages-grid .contact-card,
+    .page-tile,
     .research-grid .contact-card {
         padding: 16px 18px;
     }
@@ -2446,7 +2694,7 @@ footer {
         font-size: 0.75rem;
         padding: 7px 8px;
     }
-    #content h1 {
+    main h1 {
         font-size: 1.2rem;
     }
     .publications-table .btn-sm {
@@ -2480,11 +2728,15 @@ footer {
        как на десктопе, вместо вертикального стека */
     .hero-section {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto 1fr auto;
         grid-template-areas:
             "image name"
-            "image info";
+            "image info"
+            "image cta";
         row-gap: 4px;
+    }
+    .hero-cta {
+        justify-content: flex-start;
     }
     .hero-name {
         text-align: left;
@@ -2517,8 +2769,8 @@ footer {
 
    Место уже подготовлено — картинка ложится позади всего контента
    через body::before (см. выше, сразу после базового правила body)
-   и автоматически размывается на 18px через CSS filter: blur()
-   (на мобильных — 14px, легче для GPU). Поэтому саму картинку
+   и автоматически размывается на 8px через CSS filter: blur()
+   (на мобильных — 6px, легче для GPU). Поэтому саму картинку
    размывать заранее не нужно — работает и с обычной чёткой
    фотографией/текстурой/градиентом.
 
@@ -2560,3 +2812,318 @@ footer {
    5. Если правки не будут применяться — как обычно, проверьте
       кэш service worker (закрыть вкладку и открыть заново).
    ============================================================ */
+/* ============================================================
+   ЛРММ «АРТ-ОБЪЕКТ» — стили калькулятора
+   Использует существующие переменные основного style.css
+   ============================================================ */
+
+.lwm-calculator {
+    padding: 10px 0 0;
+}
+
+.lwm-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 20px 0 24px;
+}
+
+.lwm-header h1 {
+    margin: 0 0 8px !important;
+}
+
+.lwm-description {
+    margin: 0 !important;
+    max-width: 760px;
+    text-align: left !important;
+}
+
+/* Поля формы */
+
+.lwm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.lwm-card,
+.lwm-result-card,
+.lwm-help-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-card {
+    padding: 22px;
+}
+
+.lwm-card h2,
+.lwm-result-card h2,
+.lwm-help-card h2 {
+    margin: 0 0 18px !important;
+    color: var(--text-secondary);
+    font-size: 1.25rem !important;
+}
+
+.lwm-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.lwm-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+    color: var(--text-secondary);
+    font-size: .95rem;
+    font-weight: 500;
+}
+
+.lwm-fields input {
+    width: 100%;
+    min-height: 44px;
+    padding: 9px 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: 11px;
+    outline: none;
+    background: var(--btn-bg);
+    color: var(--text-primary);
+    font: inherit;
+    box-shadow: var(--shadow-sm);
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.lwm-fields input::placeholder {
+    color: var(--text-muted);
+    opacity: .65;
+}
+
+.lwm-fields input:hover {
+    background: var(--card-hover);
+}
+
+.lwm-fields input:focus {
+    border-color: var(--brand-color);
+    background: rgba(255, 255, 255, .22);
+    box-shadow:
+        0 3px 14px rgba(var(--brand-color-rgb), .12);
+}
+
+.dark-theme .lwm-fields input:focus {
+    background: rgba(255, 255, 255, .08);
+}
+
+
+/* ============================================================
+   КНОПКИ
+   ============================================================ */
+
+.lwm-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 22px 0;
+}
+
+.lwm-button {
+    appearance: none;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    min-height: 42px;
+    padding: 9px 17px;
+    background: var(--btn-bg);
+    color: var(--text-primary);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition:
+        transform .15s ease,
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.lwm-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: var(--btn-hover-bg);
+    color: var(--brand-color);
+    border-color: rgba(var(--brand-color-rgb), .25);
+    box-shadow:
+        0 5px 16px rgba(var(--brand-color-rgb), .10);
+}
+
+.lwm-button:active:not(:disabled) {
+    transform: scale(.98);
+}
+
+.lwm-button:focus-visible {
+    outline: 2px solid var(--brand-color);
+    outline-offset: 2px;
+}
+
+.lwm-button:disabled {
+    cursor: not-allowed;
+    opacity: .45;
+}
+
+.lwm-button-primary {
+    background: var(--brand-color);
+    color: #fff;
+    border-color: var(--brand-color);
+    box-shadow:
+        0 5px 16px rgba(var(--brand-color-rgb), .18);
+}
+
+.lwm-button-primary:hover:not(:disabled) {
+    background: var(--brand-color);
+    color: #fff;
+    border-color: var(--brand-color);
+    filter: brightness(1.05);
+}
+
+.lwm-button-ghost {
+    background: transparent;
+}
+
+
+/* ============================================================
+   РЕЗУЛЬТАТ
+   ============================================================ */
+
+.lwm-result-card,
+.lwm-help-card {
+    padding: 22px;
+    margin-top: 20px;
+}
+
+.lwm-result-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.lwm-result-heading h2 {
+    margin-bottom: 0 !important;
+}
+
+.lwm-result-output {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+    margin-top: 16px;
+    border-radius: 13px;
+    background: rgba(var(--brand-color-rgb), .07);
+    border: 1px solid rgba(var(--brand-color-rgb), .14);
+    color: var(--text-primary);
+    font-size: 1.08rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.lwm-result-output.is-success {
+    color: var(--brand-color);
+    font-weight: 600;
+}
+
+.lwm-result-output.is-error {
+    border-color: rgba(180, 60, 60, .25);
+    background: rgba(180, 60, 60, .07);
+}
+
+
+/* ============================================================
+   ИСТОРИЯ
+   ============================================================ */
+
+.lwm-history {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 14px;
+}
+
+.lwm-history-item {
+    padding: 9px 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .12);
+    color: var(--text-muted);
+    font-size: .88rem;
+    line-height: 1.45;
+}
+
+.dark-theme .lwm-history-item {
+    background: rgba(255, 255, 255, .05);
+}
+
+
+/* ============================================================
+   СПРАВКА
+   ============================================================ */
+
+.lwm-help-card ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-light);
+}
+
+.lwm-help-card li {
+    margin: 7px 0;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   АДАПТИВНОСТЬ
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .lwm-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lwm-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .lwm-result-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .lwm-actions {
+        justify-content: stretch;
+    }
+
+    .lwm-button {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .lwm-card,
+    .lwm-result-card,
+    .lwm-help-card {
+        padding: 16px;
+    }
+
+    .lwm-header {
+        gap: 10px;
+    }
+}
