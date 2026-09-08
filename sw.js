@@ -1,5 +1,4 @@
-javascript
-const CACHE_NAME = 'site-cache-v6.6.2wl2';
+const CACHE_NAME = 'site-cache-v6.6.6.1';
 
 const urlsToCache = [
   '/',
@@ -17,7 +16,15 @@ const urlsToCache = [
 
   // Фотографии
   '/assets/images/myphoto.jpg',
-
+  '/assets/images/lwm-scheme.png',
+  '/assets/images/primer-line-normal.png',
+  '/assets/images/primer-line-vector.png',
+  '/assets/images/primer-parametric-line.gif',
+  '/assets/images/proof-step-1.png',
+  '/assets/images/proof-step-2.png',
+  '/assets/images/proof-step-3.png',
+  '/assets/images/proof-step-4.png',
+  
   // Логотипы
   '/assets/logos/logo-light.png',
   '/assets/logos/logo-dark.png',
@@ -37,11 +44,11 @@ const urlsToCache = [
   '/assets/icons/icon-512.png',
 
   // Фоновые паттерны
-  '/assets/patterns/pattern-light-purple.jpg',
-  '/assets/patterns/pattern-light-orange.jpg',
-  '/assets/patterns/pattern-light-ocean.jpg',
-  '/assets/patterns/pattern-light-emerald.jpg',
-  '/assets/patterns/pattern-light-rose.jpg'
+  '/assets/patterns/pattern-purple.jpg',
+  '/assets/patterns/pattern-orange.jpg',
+  '/assets/patterns/pattern-ocean.jpg',
+  '/assets/patterns/pattern-emerald.jpg',
+  '/assets/patterns/pattern-rose.jpg'
 ];
 
 
