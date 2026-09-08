@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<script>
+(function () {
+    var color = localStorage.getItem('themeColor') || 'purple';
+    var mode = localStorage.getItem('themeMode') || 'light';
+    document.documentElement.classList.add('color-' + color);
+    if (mode === 'dark') document.documentElement.classList.add('dark-theme');
+})();
+</script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+	<link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="vk-uspu">
+    <link rel="apple-touch-icon" href="assets/icons/apple-icon-180.png">
+    <title>сайт Вячеслава Красноперова</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+</head>
+<body>
+
+<div id="page">
+
+    <header>
+        <div class="header-top">
+            <!-- ===== НОВЫЙ БЛОК theme-menu ===== -->
+            <div class="theme-menu" id="themeMenu">
+                <button type="button" class="theme-trigger" id="themeTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Настройки темы оформления" title="Тема оформления">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+                        <circle cx="13.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                        <circle cx="17.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+                        <circle cx="8.5" cy="7.5" r="1" fill="currentColor" stroke="none"/>
+                        <circle cx="6.5" cy="12.5" r="1" fill="currentColor" stroke="none"/>
+                    </svg>
+                </button>
+                <div class="theme-panel" id="themePanel" role="group" aria-label="Выбор темы оформления">
+                    <button type="button" class="theme-dot" data-color="purple" title="Фиолетовый" aria-label="Фиолетовый акцент"></button>
+                    <button type="button" class="theme-dot" data-color="orange" title="Оранжевый" aria-label="Оранжевый акцент"></button>
+                    <button type="button" class="theme-dot" data-color="ocean" title="Океан" aria-label="Акцент «Океан»"></button>
+                    <button type="button" class="theme-dot" data-color="emerald" title="Изумруд" aria-label="Акцент «Изумруд»"></button>
+                    <button type="button" class="theme-dot" data-color="rose" title="Роза" aria-label="Акцент «Роза»"></button>
+                    <span class="theme-divider" aria-hidden="true"></span>
+                    <button type="button" class="mode-toggle" id="modeToggle" title="Светлый / тёмный режим" aria-label="Переключить светлый или тёмный режим" aria-pressed="false">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                </div>
+            </div>
+            <!-- ===== КОНЕЦ НОВОГО БЛОКА ===== -->
+            <a href="index.html" class="logo">
+                <img id="logo" src="assets/logos/logo-light.png" alt="сайт Вячеслава Красноперова">
+            </a>
+        </div>
+
+        <nav aria-label="Основная навигация">
+            <ul>
+                <li class="active"><a href="index.html">Главная</a></li>
+                <li><a href="science.html">Наука</a></li>
+                <li><a href="resourses.html">Ресурсы</a></li>
+				<li><a href="lwm.html" class="nav-new">ЛРМ</a></li>
+                <li class="rght"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+
+        <!-- ========== HERO ========== -->
+        <section class="hero-section">
+            <h1 class="hero-name">Красноперов Вячеслав Андреевич</h1>
+            <div class="hero-image">
+                <img src="assets/images/myphoto.jpg" alt="Вячеслав Красноперов" class="profile-photo"
+                     width="1000" height="750" fetchpriority="high" decoding="async">
+            </div>
+            <div class="hero-info">
+                <p class="hero-subtitle">
+                    студент УрГПУ, исследователь в области методики обучения математике
+                </p>
+                <p>
+                    Разрабатываю и исследую современные средства формирования
+                    функциональной математической грамотности и учебной мотивации
+                    школьников — от лабораторных работ по математическому
+                    моделированию до практико-ориентированных заданий.
+                </p>
+                <div class="hero-tags">
+                    <span class="hero-tag">Математическое моделирование</span>
+                    <span class="hero-tag">Функциональная грамотность</span>
+                    <span class="hero-tag">Лабораторные работы по математике</span>
+                    <span class="hero-tag">Педагогический эксперимент</span>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="contacts.html" class="btn-primary">Связаться со мной</a>
+                <a href="science.html" class="btn-secondary">Мои публикации →</a>
+            </div>
+        </section>
+
+        <!-- ========== СТАТИСТИКА ========== -->
+        <section>
+            <h2>Кратко обо мне</h2>
+            <div class="stats-grid">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <span class="icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+                        </span>
+                        <span class="stat-text">
+                            <h3>20+</h3>
+                            <p>научных публикаций</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <span class="icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+                        </span>
+                        <span class="stat-text">
+                            <h3>15+</h3>
+                            <p>научных конференций</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <span class="icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 7 21l5-3 5 3-2-7.5"/></svg>
+                        </span>
+                        <span class="stat-text">
+                            <h3>2</h3>
+                            <p>статьи в журналах ВАК</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <span class="icon-badge" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 16.9 5.8 20.3l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+                        </span>
+                        <span class="stat-text">
+                            <h3>3</h3>
+                            <p>доп. стипендии</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ИССЛЕДОВАНИЯ ========== -->
+        <section>
+            <h2>Основные направления исследований</h2>
+            <div class="research-grid">
+                <div class="contact-card">
+                    <span class="icon-badge" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 3 4-6"/></svg>
+                    </span>
+                    <div class="contact-info">
+                        <h3>Математическое моделирование</h3>
+                        <p>
+                            Проектирование лабораторных работ по математическому моделированию
+                            как средства формирования соответствующего умения
+                            у старшеклассников.
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <span class="icon-badge" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5c.8 0 1.5-.7 1.5-1.5z"/></svg>
+                    </span>
+                    <div class="contact-info">
+                        <h3>Функциональная математическая грамотность</h3>
+                        <p>
+                            Разработка методических решений,
+                            направленных на формирование и диагностику
+                            функциональной математической грамотности.
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <span class="icon-badge" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg>
+                    </span>
+                    <div class="contact-info">
+                        <h3>Мотивация к изучению математики</h3>
+                        <p>
+                            Исследование факторов развития познавательного интереса,
+                            внутренней мотивации и вовлечённости школьников
+                            в математическое образование.
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <span class="icon-badge" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/></svg>
+                    </span>
+                    <div class="contact-info">
+                        <h3>Педагогический эксперимент</h3>
+                        <p>
+                            Организация и проведение педагогических апробаций,
+                            статистическая обработка результатов
+                            и оценка эффективности образовательных разработок.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== РАЗДЕЛЫ САЙТА ========== -->
+        <section>
+            <h2>Разделы сайта</h2>
+            <div class="pages-grid">
+                <a href="science.html" class="page-tile">
+                    <span class="page-tile-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="9" ry="3.8"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg>
+                    </span>
+                    <span class="page-tile-text">
+                        <span class="page-tile-title">Наука</span>
+                        <span class="page-tile-desc">Публикации, конференции, научные проекты, достижения и исследования.</span>
+                    </span>
+                    <span class="page-tile-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="resourses.html" class="page-tile">
+                    <span class="page-tile-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                    </span>
+                    <span class="page-tile-text">
+                        <span class="page-tile-title">Ресурсы</span>
+                        <span class="page-tile-desc">Методические материалы, программные разработки, полезные ссылки и образовательные проекты.</span>
+                    </span>
+                    <span class="page-tile-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="contacts.html" class="page-tile">
+                    <span class="page-tile-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                    </span>
+                    <span class="page-tile-text">
+                        <span class="page-tile-title">Контакты</span>
+                        <span class="page-tile-desc">Электронная почта, социальные сети, научные профили и способы связи.</span>
+                    </span>
+                    <span class="page-tile-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== СОТРУДНИЧЕСТВО ========== -->
+        <section class="cta-band">
+            <h2>Сотрудничество</h2>
+            <p>
+                Открыт к научному и образовательному сотрудничеству,
+                совместным исследованиям, участию в конференциях,
+                разработке методических материалов и образовательных проектов.
+                Если вы хотите обсудить совместную работу или задать вопрос,
+                буду рад общению.
+            </p>
+            <a href="contacts.html" class="btn-primary">Связаться со мной →</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                © 2026 г. Красноперов Вячеслав Андреевич. <br>
+				version 6.6.6.
+            </div>
+            <div class="social-links">
+                <a href="mailto:vk.uspu@ya.ru" class="social-icon">
+                    <img src="assets/logos/email-logo.png" alt="Email">
+                </a>
+                <a href="https://vk.com/gastin01" target="_blank" class="social-icon">
+                    <img src="assets/logos/vk-logo.webp" alt="ВКонтакте">
+                </a>
+                <a href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank" class="social-icon">
+                    <img src="assets/logos/elibrary-logo.png" alt="eLibrary">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+    }
+</script>
+
+<script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ: цвет (5 акцентов) + режим (светлый/тёмный) =====
+    (function() {
+        const COLORS = ['purple', 'orange', 'ocean', 'emerald', 'rose'];
+
+        const root = document.documentElement;
+        const dots = document.querySelectorAll('.theme-dot');
+        const modeToggle = document.getElementById('modeToggle');
+        const logo = document.getElementById('logo');
+        const menu = document.getElementById('themeMenu');
+        const trigger = document.getElementById('themeTrigger');
+
+        function applyColor(color) {
+            if (!COLORS.includes(color)) color = 'purple';
+
+            COLORS.forEach(c => root.classList.remove('color-' + c));
+            root.classList.add('color-' + color);
+
+            dots.forEach(dot => {
+                const isActive = dot.dataset.color === color;
+                dot.classList.toggle('active', isActive);
+                dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+
+            localStorage.setItem('themeColor', color);
+        }
+
+        function applyMode(mode) {
+            const isDark = mode === 'dark';
+            root.classList.toggle('dark-theme', isDark);
+
+            if (modeToggle) {
+                modeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            }
+            if (logo) {
+                logo.src = isDark
+    ? 'assets/logos/logo-dark.png'
+    : 'assets/logos/logo-light.png';
+            }
+
+            localStorage.setItem('themeMode', mode);
+        }
+
+        const currentColor = localStorage.getItem('themeColor') || 'purple';
+        const currentMode = localStorage.getItem('themeMode') || 'light';
+        applyColor(currentColor);
+        applyMode(currentMode);
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                applyColor(this.dataset.color);
+            });
+        });
+
+        if (modeToggle) {
+            modeToggle.addEventListener('click', function() {
+                const isDark = root.classList.contains('dark-theme');
+                applyMode(isDark ? 'light' : 'dark');
+            });
+        }
+
+        // Открытие/закрытие меню тапом — на десктопе панель и так
+        // раскрывается по наведению (см. CSS), это для сенсорных экранов
+        if (menu && trigger) {
+            trigger.addEventListener('click', function() {
+                const isOpen = menu.classList.toggle('open');
+                trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!menu.contains(e.target)) {
+                    menu.classList.remove('open');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // после выбора цвета или режима на тач-экране меню можно сразу закрыть
+            menu.addEventListener('click', function(e) {
+                if (e.target.closest('.theme-dot') || e.target.closest('.mode-toggle')) {
+                    setTimeout(() => {
+                        menu.classList.remove('open');
+                        trigger.setAttribute('aria-expanded', 'false');
+                    }, 150);
+                }
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>
