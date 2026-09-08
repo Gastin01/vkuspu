@@ -2873,48 +2873,15 @@ footer {
     margin: 0 0 12px !important;
     line-height: 1.6;
 }
-/* ----- "Заготовки" под картинки — пользователь добавит файлы позже -----
-   Не одна склеенная картинка со слайда, а отдельные подписанные слоты:
-   каждому — своё имя файла и подпись, ждут заполнения по одному. */
-.lwm-image-slots {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin: 14px 0 20px;
+.lwm-primer-body figure {
+    margin: 12px 0 16px;
 }
-.lwm-image-slots-single {
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 360px;
-}
-
-.lwm-image-slot {
-    margin: 0;
-}
-
-.lwm-image-slot-media {
-    aspect-ratio: 4 / 3;
-    border-radius: 12px;
-    background: #fff;                    /* белая подложка — не теряется в тёмной теме,
-                                             пунктир — визуально читается как "место ждёт файл" */
-    border: 1.5px dashed var(--brand-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.lwm-image-slot-media img {
+.lwm-primer-body img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 10px;
-}
-
-.lwm-image-slot figcaption {
-    margin-top: 8px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: var(--shadow-sm);
 }
 
 .theory-card {
@@ -2967,44 +2934,35 @@ footer {
     margin: 24px 0 28px;
 }
 
-.proof-stage {
-    text-align: center;
-}
-
-/* картинка занимает столько места, сколько нужно ей самой — раньше
-   рамка была жёстко 16:10, и на маленькой картинке (например, пустые
-   оси) вокруг неё оставалось много пустого белого поля "из ниоткуда" */
 .proof-slide-media {
     position: relative;
-    display: inline-block;
-    max-width: 100%;
+    aspect-ratio: 16 / 10;
     border-radius: 16px;
-    margin-bottom: 8px;
-}
-
-.proof-slide-media img {
-    display: inline-block;
-    max-width: 100%;
-    max-height: 320px;
-    width: auto;
-    height: auto;
-    border-radius: 16px;
+    overflow: hidden;
     background: #fff;                    /* схемы — чёрные линии на белом, нужна
                                              подложка, чтобы не терялись в тёмной теме */
     box-shadow: var(--shadow-sm);
+    margin-bottom: 10px;
 }
 
-/* заглушка на месте картинки, пока файл не добавлен — показана по
-   умолчанию, скрывается по событию load у img (см. JS) */
+.proof-slide-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* заглушка на месте картинки, пока файл не добавлен — если img не
+   загрузился (onerror), картинка прячется и остаётся эта заглушка */
 .proof-slide-placeholder {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 280px;
-    max-width: 100%;
-    aspect-ratio: 16 / 10;
-    margin: 0 auto;
-    border-radius: 16px;
     font-size: 2.4rem;
     font-weight: 700;
     color: var(--brand-color);
@@ -3012,20 +2970,16 @@ footer {
 }
 
 .proof-caption {
-    margin: 0 0 14px;
+    margin: 0 0 18px;
     text-align: center;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--brand-color);
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
 
 .proof-scrubber {
     display: flex;
     align-items: center;
-    gap: 12px;
-    max-width: 320px;                    /* короче — примерно вполовину ширины карточки,
-                                             а не во всю её ширину, как было */
-    margin: 0 auto;
+    gap: 14px;
 }
 
 .proof-scrubber-end {
@@ -3060,12 +3014,11 @@ footer {
     cursor: pointer;
 }
 
-/* ползунок-"таблетка" (овал), а не кружок — как в оригинальном слайдере iOS */
 .proof-range::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 34px;
-    height: 22px;
-    border-radius: 11px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.08);
     cursor: grab;
@@ -3073,7 +3026,7 @@ footer {
 }
 .proof-range:active::-webkit-slider-thumb {
     cursor: grabbing;
-    transform: scaleX(1.1);
+    transform: scale(1.12);
 }
 
 .proof-range::-moz-range-track {
@@ -3087,9 +3040,9 @@ footer {
     background: var(--brand-color);
 }
 .proof-range::-moz-range-thumb {
-    width: 34px;
-    height: 22px;
-    border-radius: 11px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
     border: none;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.08);
@@ -3104,8 +3057,8 @@ footer {
 /* засечки-деления под дорожкой — только визуальный ориентир */
 .proof-ticks {
     position: absolute;
-    left: 17px;
-    right: 17px;
+    left: 13px;
+    right: 13px;
     top: calc(50% + 9px);
     display: flex;
     justify-content: space-between;
@@ -3256,13 +3209,33 @@ footer {
 /* ----- Быстрые переходы по странице -----
    Не замена сворачиванию секций, а дополнение: якоря — чтобы быстро
    попасть туда, где нужно, сворачивание — чтобы убрать то, что сейчас
-   не нужно. Разные задачи, обе полезны на длинной странице.
-   Кнопки — те же .btn-primary/.btn-secondary, что и на главной. */
+   не нужно. Разные задачи, обе полезны на длинной странице. */
 .lwm-jumplinks {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     margin: 0 0 28px;
+}
+
+.lwm-jumplinks a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    color: var(--brand-color);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+.lwm-jumplinks a:hover {
+    background: var(--brand-light);
+    border-color: var(--brand-border);
 }
 
 /* Поля формы */
@@ -3502,10 +3475,6 @@ footer {
 @media (max-width: 768px) {
 
     .lwm-task {
-        grid-template-columns: 1fr;
-    }
-
-    .lwm-image-slots {
         grid-template-columns: 1fr;
     }
 

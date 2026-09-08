@@ -1,4 +1,4 @@
-const CACHE_NAME = 'site-cache-v6.6.6.1';
+const CACHE_NAME = 'site-cache-v6.6.2';
 
 const urlsToCache = [
   '/',
@@ -17,14 +17,7 @@ const urlsToCache = [
   // Фотографии
   '/assets/images/myphoto.jpg',
   '/assets/images/lwm-scheme.png',
-  '/assets/images/primer-line-normal.png',
-  '/assets/images/primer-line-vector.png',
-  '/assets/images/primer-parametric-line.gif',
-  '/assets/images/proof-step-1.png',
-  '/assets/images/proof-step-2.png',
-  '/assets/images/proof-step-3.png',
-  '/assets/images/proof-step-4.png',
-  
+
   // Логотипы
   '/assets/logos/logo-light.png',
   '/assets/logos/logo-dark.png',

@@ -65,6 +65,7 @@
             <li><a href="index.html">Главная</a></li>
             <li class="active"><a href="science.html">Наука</a></li>
             <li><a href="resourses.html">Ресурсы</a></li>
+			<li><a href="lwm.html" class="nav-new">ЛРМ</a></li>
             <li class="rght"><a href="contacts.html">Контакты</a></li>
         </ul>
     </nav>
@@ -131,7 +132,7 @@
         <div class="footer-content">
             <div class="copyright">
                 © 2026 г. Красноперов Вячеслав Андреевич. <br>
-				version 6.6.2.
+				version 6.6.6.
             </div>
             <div class="social-links">
                 <a href="mailto:vk.uspu@ya.ru" class="social-icon">
@@ -148,9 +149,6 @@
     </footer>
 
 
-<!-- Контейнер для уведомлений -->
-<div id="notification-container"></div>
-
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
@@ -163,7 +161,7 @@
     // ============================================================
 
     // ===== СИСТЕМА УВЕДОМЛЕНИЙ =====
-    function showNotification(type, title, message) {
+function showNotification(type, title, message) {
         const container = document.getElementById('notification-container');
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
@@ -453,5 +451,13 @@
     }
 })();
 </script>
+
+<!-- Закрываем основной стеклянный контейнер сайта -->
+</div>
+
+<!-- Контейнер уведомлений находится ВНЕ #page,
+     поэтому position: fixed привязан к окну браузера -->
+<div id="notification-container"></div>
+
 </body>
 </html>
