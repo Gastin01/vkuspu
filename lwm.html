@@ -89,8 +89,8 @@
 
         <!-- ========== БЫСТРЫЕ ПЕРЕХОДЫ ========== -->
         <div class="hero-cta">
-            <a href="#theorySection" class="btn-primary">К выводу модели</a>
-            <a href="#calculatorSection" class="btn-secondary">К калькулятору</a>
+            <a href="#theorySection" class="btn-primary">К выводу модели ↓</a>
+            <a href="#calculatorSection" class="btn-secondary">К калькулятору ↓</a>
         </div>
 
         <!-- ========== МАТЕМАТИЧЕСКАЯ МОДЕЛЬ ========== -->
@@ -120,7 +120,6 @@
                     <div class="proof-stage">
                         <div class="proof-slide-media">
                             <img id="proofImage" src="assets/images/proof-step-1.png" alt="Шаг 1: координатная плоскость" loading="lazy">
-                            <span class="proof-slide-placeholder" id="proofPlaceholder">1</span>
                         </div>
                     </div>
                     <div class="proof-scrubber">
@@ -176,7 +175,7 @@
                         </div>
                         <p>Имеем:</p>
                         <div class="theory-eq">
-                            $$\overrightarrow{MM_0} = t\cdot\vec{a} \iff \left\{\begin{array}{l} x - x_0 = t\cdot a_1 \\ y - y_0 = t \cdot a_2\end{array}\right. \iff m:\left\{\begin{array}{l}x = x_0 + t\cdot a_1\\ y = y_0 + t \cdot a_2\end{array}\right.$$
+                            $$\overrightarrow{MM_0} = t \cdot \vec{a} \iff \left\{\begin{array}{l} x - x_0 = t\cdot a_1 \\ y - y_0 = t \cdot a_2\end{array}\right. \iff m:\left\{\begin{array}{l}x = x_0 + t\cdot a_1\\ y = y_0 + t \cdot a_2\end{array}\right.$$
                         </div>
                         <p>
                             Меняя \(t\), мы "пробегаем" всю прямую: разным значениям \(t\)
@@ -337,7 +336,7 @@
         <div class="footer-content">
             <div class="copyright">
                 © 2026 г. Красноперов Вячеслав Андреевич. <br>
-				version 6.6.6.
+				version 6.6.6.2.
             </div>
             <div class="social-links">
                 <a href="mailto:vk.uspu@ya.ru" class="social-icon">
@@ -566,7 +565,6 @@ ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.
         if (!range) return;
 
         const img = document.getElementById('proofImage');
-        const placeholder = document.getElementById('proofPlaceholder');
         const caption = document.getElementById('proofCaption');
 
         const STEPS = [
@@ -584,21 +582,9 @@ ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.
         function render(index) {
             const step = STEPS[index];
             img.alt = step.alt;
-            placeholder.textContent = String(index + 1);
-            placeholder.style.display = 'flex';
-            img.style.display = 'none';
             img.src = step.src;
             caption.textContent = 'Шаг ' + (index + 1) + '. ' + step.caption;
         }
-
-        img.addEventListener('load', function() {
-            img.style.display = 'inline-block';
-            placeholder.style.display = 'none';
-        });
-        img.addEventListener('error', function() {
-            img.style.display = 'none';
-            placeholder.style.display = 'flex';
-        });
 
         range.addEventListener('input', function() {
             render(parseInt(range.value, 10));
