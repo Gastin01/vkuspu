@@ -165,7 +165,7 @@ html.color-ocean {
     --btn-hover-bg: rgba(20, 108, 148, 0.12);
     --bg-body: linear-gradient(145deg, #dbe9f0, #eef6f9);
 	--bg-pattern: url('assets/patterns/pattern-ocean.jpg');
-    --bg-pattern-opacity: 0.5;
+    --bg-pattern-opacity: 0.3;
 	}
 html.color-ocean.dark-theme {
     --brand-color: #5ec8e8;
@@ -176,7 +176,7 @@ html.color-ocean.dark-theme {
     --btn-hover-bg: rgba(94, 200, 232, 0.18);
     --bg-body: linear-gradient(145deg, #16232c, #1f3541);
     --bg-pattern: url('assets/patterns/pattern-ocean.jpg');
-    --bg-pattern-opacity: 0.8;
+    --bg-pattern-opacity: 0.3;
 }
 
 /* ---- Изумруд (зелёный) ---- */
@@ -189,7 +189,7 @@ html.color-emerald {
     --btn-hover-bg: rgba(28, 124, 84, 0.12);
     --bg-body: linear-gradient(145deg, #dcf0e4, #eef9f2);
 	--bg-pattern: url('assets/patterns/pattern-emerald.jpg');
-    --bg-pattern-opacity: 0.4;
+    --bg-pattern-opacity: 0.5;
 	}
 html.color-emerald.dark-theme {
     --brand-color: #4fd48a;
@@ -3155,14 +3155,15 @@ footer {
 /* полное официальное название работы — курсивом, как подзаголовок,
    а не акцентной "цитатой" (было похоже на выделенную вставку, а не на титул) */
 .lwm-fullname {
-    margin: 2px 0 24px !important;
-    max-width: 760px;
-    font-size: 1.15rem;
+    margin: 2px 0 2px !important;
+    /* max-width: 1200px; */
+    font-size: 1.5rem;
     font-weight: 500;
     font-style: italic;
-    line-height: 1.5;
+	text-align: justify;
+    line-height: 1.2;
     color: var(--text-secondary);
-    text-align: left !important;
+;
 }
 
 /* ----- Кнопка сворачивания секции ----- */
@@ -3621,5 +3622,18 @@ html.dark-theme nav li:not(.active) a.nav-new::after {
         padding: 0 4px;
         border-radius: 3px;
         line-height: 1.4;
+    }
+}
+
+
+/* Две колонки для полей широты/долготы в новом калькуляторе */
+.lwm-fields-two {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Адаптив для мобильных – чтобы на узких экранах поля становились в столбик */
+@media (max-width: 768px) {
+    .lwm-fields-two {
+        grid-template-columns: 1fr;
     }
 }

@@ -89,8 +89,8 @@
 
         <!-- ========== БЫСТРЫЕ ПЕРЕХОДЫ ========== -->
         <div class="hero-cta">
-            <a href="#theorySection" class="btn-primary">К выводу модели ↓</a>
-            <a href="#calculatorSection" class="btn-secondary">К калькулятору ↓</a>
+            <a href="#theorySection" class="btn-secondary">К выводу модели →</a>
+            <a href="#calculatorSection" class="btn-primary">К калькулятору →</a>
         </div>
 
         <!-- ========== МАТЕМАТИЧЕСКАЯ МОДЕЛЬ ========== -->
@@ -122,13 +122,14 @@
                             <img id="proofImage" src="assets/images/proof-step-1.png" alt="Шаг 1: координатная плоскость" loading="lazy">
                         </div>
                     </div>
+					<br>
                     <div class="proof-scrubber">
-                        <span class="proof-scrubber-end" aria-hidden="true">1</span>
+                        <span class="proof-scrubber-end" aria-hidden="true"></span>
                         <div class="proof-track-wrap">
                             <input type="range" class="proof-range" id="proofRange" min="0" max="3" step="1" value="0" aria-label="Шаг построения">
                             <div class="proof-ticks" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
                         </div>
-                        <span class="proof-scrubber-end" aria-hidden="true">4</span>
+                        <span class="proof-scrubber-end" aria-hidden="true"></span>
                     </div>
                 </div>
 
@@ -331,7 +332,67 @@
         </section>
 
 	</section>
-	
+	<!-- ========== НОВЫЙ КАЛЬКУЛЯТОР АЗИМУТОВ (по трём точкам) ========== -->
+<section class="lwm-calculator" id="azCalculatorSection" aria-labelledby="az-calc-title">
+    <div class="lwm-section-header">
+        <div>
+            <h2 id="az-calc-title">Калькулятор азимутов по трём точкам</h2>
+            <p class="lwm-description">Введите координаты трёх точек – получите азимуты из точки 1 в точку 3 и из точки 2 в точку 3.</p>
+        </div>
+        <button type="button" class="lwm-collapse-toggle" aria-expanded="true" aria-controls="azCalculatorBody" data-target="azCalculatorSection">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+    </div>
+
+    <div class="lwm-collapse" id="azCalculatorBody">
+        <div class="lwm-collapse-inner">
+
+            <div class="lwm-grid">
+                <!-- Точка 1 -->
+                <article class="lwm-card">
+                    <h2>Точка 1</h2>
+                    <div class="lwm-fields lwm-fields-two">
+                        <label><span>Широта, °</span><input id="az-lat1" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                        <label><span>Долгота, °</span><input id="az-lon1" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                    </div>
+                </article>
+
+                <!-- Точка 2 -->
+                <article class="lwm-card">
+                    <h2>Точка 2</h2>
+                    <div class="lwm-fields lwm-fields-two">
+                        <label><span>Широта, °</span><input id="az-lat2" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                        <label><span>Долгота, °</span><input id="az-lon2" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                    </div>
+                </article>
+
+                <!-- Точка 3 -->
+                <article class="lwm-card">
+                    <h2>Точка 3</h2>
+                    <div class="lwm-fields lwm-fields-two">
+                        <label><span>Широта, °</span><input id="az-lat3" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                        <label><span>Долгота, °</span><input id="az-lon3" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
+                    </div>
+                </article>
+            </div>
+
+            <div class="lwm-actions">
+                <button type="button" class="lwm-button lwm-button-primary" id="az-calculateButton">Вычислить азимуты</button>
+                <button type="button" class="lwm-button" id="az-copyButton" disabled>Скопировать результат</button>
+                <button type="button" class="lwm-button lwm-button-ghost" id="az-clearButton">Очистить</button>
+            </div>
+
+            <article class="lwm-result-card">
+                <div class="lwm-result-heading">
+                    <h2>Результат</h2>
+                </div>
+                <div id="az-resultOutput" class="lwm-result-output" role="status" aria-live="polite"></div>
+                <div id="az-history" class="lwm-history" aria-label="История вычислений"></div>
+            </article>
+
+        </div>
+    </div>
+</section>
     <footer>
         <div class="footer-content">
             <div class="copyright">
@@ -594,6 +655,142 @@ ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.
         render(0);
         updateFill();
     })();
+</script>
+
+<script>
+(function() {
+    "use strict";
+
+    // ID полей и элементов нового калькулятора
+    const ids = ["az-lat1", "az-lon1", "az-lat2", "az-lon2", "az-lat3", "az-lon3"];
+    const fields = Object.fromEntries(ids.map(id => [id, document.getElementById(id)]));
+
+    const calculateButton = document.getElementById("az-calculateButton");
+    const copyButton = document.getElementById("az-copyButton");
+    const clearButton = document.getElementById("az-clearButton");
+    const resultOutput = document.getElementById("az-resultOutput");
+    const resultStatus = document.getElementById("az-resultStatus");
+    const history = document.getElementById("az-history");
+
+    let lastResultString = "";
+
+    function parseFloatRu(value) {
+        return Number.parseFloat(String(value).trim().replace(",", "."));
+    }
+
+    function computeBearing(lat1, lon1, lat2, lon2) {
+        const phi1 = lat1 * Math.PI / 180;
+        const phi2 = lat2 * Math.PI / 180;
+        const deltaLambda = (lon2 - lon1) * Math.PI / 180;
+
+        const y = Math.sin(deltaLambda) * Math.cos(phi2);
+        const x = Math.cos(phi1) * Math.sin(phi2) -
+                  Math.sin(phi1) * Math.cos(phi2) * Math.cos(deltaLambda);
+
+        let bearing = Math.atan2(y, x) * 180 / Math.PI;
+        bearing = (bearing + 360) % 360;
+        return bearing;
+    }
+
+    function setResult(text, type, status) {
+        resultOutput.textContent = text;
+        resultOutput.classList.toggle("is-success", type === "success");
+        resultOutput.classList.toggle("is-error", type === "error");
+        if (resultStatus) resultStatus.textContent = status;
+    }
+
+    function addHistory(text) {
+        const item = document.createElement("div");
+        item.className = "lwm-history-item";
+        item.textContent = text;
+        history.prepend(item);
+        while (history.children.length > 5) {
+            history.removeChild(history.lastElementChild);
+        }
+    }
+
+    function calculate() {
+        try {
+            const values = ids.map(id => parseFloatRu(fields[id].value));
+            if (values.some(x => !Number.isFinite(x))) {
+                throw new Error("Пожалуйста, введите числовые значения во все поля. Допускаются точка или запятая.");
+            }
+
+            const [lat1, lon1, lat2, lon2, lat3, lon3] = values;
+
+            if (!(-90 <= lat1 && lat1 <= 90) || !(-90 <= lat2 && lat2 <= 90) || !(-90 <= lat3 && lat3 <= 90)) {
+                throw new Error("Широта должна быть от -90 до 90 градусов.");
+            }
+            if (!(-180 <= lon1 && lon1 <= 180) || !(-180 <= lon2 && lon2 <= 180) || !(-180 <= lon3 && lon3 <= 180)) {
+                throw new Error("Долгота должна быть от -180 до 180 градусов.");
+            }
+
+            if (lat1 === lat3 && lon1 === lon3) {
+                throw new Error("Точка 1 совпадает с точкой 3. Азимут не определён.");
+            }
+            if (lat2 === lat3 && lon2 === lon3) {
+                throw new Error("Точка 2 совпадает с точкой 3. Азимут не определён.");
+            }
+
+            const bearing13 = computeBearing(lat1, lon1, lat3, lon3);
+            const bearing23 = computeBearing(lat2, lon2, lat3, lon3);
+
+            lastResultString =
+                `Азимут 1→3: ${bearing13.toFixed(3)}°, 2→3: ${bearing23.toFixed(3)}°`;
+            setResult(`Результат: ${lastResultString}`, "success", "Расчёт выполнен");
+            copyButton.disabled = false;
+            addHistory(`Результат: ${lastResultString}`);
+        } catch (e) {
+            setResult(e.message || "Неизвестная ошибка.", "error", "Ошибка");
+            if (e.message.includes("совпадает") || e.message.includes("не определён")) {
+                addHistory("Ошибка: " + e.message);
+            }
+        }
+    }
+
+    async function copyLastResult() {
+        if (!lastResultString) return;
+        try {
+            await navigator.clipboard.writeText(lastResultString);
+            if (resultStatus) resultStatus.textContent = "Скопировано";
+        } catch (e) {
+            const area = document.createElement("textarea");
+            area.value = lastResultString;
+            area.style.position = "fixed";
+            area.style.opacity = "0";
+            document.body.appendChild(area);
+            area.select();
+            try {
+                document.execCommand("copy");
+                if (resultStatus) resultStatus.textContent = "Скопировано";
+            } finally {
+                area.remove();
+            }
+        }
+    }
+
+    function clearAll() {
+        ids.forEach(id => fields[id].value = "");
+        lastResultString = "";
+        copyButton.disabled = true;
+        setResult("", "normal", "");
+        fields["az-lat1"].focus();
+    }
+
+    calculateButton.addEventListener("click", calculate);
+    copyButton.addEventListener("click", copyLastResult);
+    clearButton.addEventListener("click", clearAll);
+
+    ids.forEach(id => {
+        fields[id].addEventListener("keydown", e => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                calculate();
+            }
+        });
+    });
+
+})();
 </script>
 
 </body>
