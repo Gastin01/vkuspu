@@ -3637,3 +3637,1424 @@ html.dark-theme nav li:not(.active) a.nav-new::after {
         grid-template-columns: 1fr;
     }
 }
+/* ============================================================
+   PWA: КНОПКА + МОДАЛЬНОЕ ОКНО С ИНСТРУКЦИЕЙ
+   ============================================================ */
+
+
+
+/* ============================================================
+   PWA — FINAL DESIGN
+   ============================================================ */
+
+/* ---------- Карточка запуска ---------- */
+
+/* ============================================================
+   PWA — FINAL CLEAN LAYOUT
+   ============================================================ */
+
+/* ---------- Триггер ---------- */
+.pwa-trigger {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    min-height: 112px;
+    margin: 0 0 28px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-sizing: border-box;
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.pwa-trigger:hover {
+    transform: translateY(-2px);
+    background: var(--card-hover);
+    border-color: var(--brand-border);
+    box-shadow: var(--shadow-md);
+}
+.pwa-trigger:active { transform: translateY(0); }
+.pwa-trigger:focus-visible { outline: 2px solid var(--brand-color); outline-offset: 3px; }
+.pwa-trigger-icon {
+    width: 52px; height: 52px; flex: 0 0 52px;
+    display: grid; place-items: center;
+    border-radius: 14px;
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    color: var(--brand-color);
+}
+.pwa-trigger-icon svg { width: 26px; height: 26px; }
+.pwa-trigger-text { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.pwa-trigger-title { color: var(--brand-color); font-size: 1.08rem; font-weight: 500; line-height: 1.3; }
+.pwa-trigger-desc { color: var(--text-muted); font-size: .9rem; line-height: 1.45; }
+.pwa-trigger-arrow { width: 20px; height: 20px; flex: 0 0 20px; color: var(--brand-color); transition: transform .2s ease; }
+.pwa-trigger:hover .pwa-trigger-arrow { transform: translateX(3px); }
+
+/* ---------- Окно ---------- */
+.pwa-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(860px, calc(100vw - 32px));
+    max-width: none;
+    height: min(90vh, 920px);
+    max-height: calc(100vh - 32px);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 22px;
+    overflow: hidden;
+    background: transparent;
+    color: var(--text-primary);
+    box-shadow: 0 28px 80px rgba(0,0,0,.28), 0 8px 26px rgba(0,0,0,.14);
+}
+.pwa-modal[open] { animation: pwaModalIn .2s ease-out; }
+@keyframes pwaModalIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(.985); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+.pwa-modal::backdrop {
+    background: rgba(12, 14, 22, .56);
+    backdrop-filter: blur(7px) saturate(1.06);
+    -webkit-backdrop-filter: blur(7px) saturate(1.06);
+}
+.pwa-modal-inner {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding: 38px 48px 34px;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(24px) saturate(1.08);
+    -webkit-backdrop-filter: blur(24px) saturate(1.08);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(125,125,135,.45) transparent;
+}
+html.dark-theme .pwa-modal-inner {
+    background: rgba(30,29,36,.97);
+    scrollbar-color: rgba(190,190,200,.34) transparent;
+}
+.pwa-modal-inner::-webkit-scrollbar { width: 8px; }
+.pwa-modal-inner::-webkit-scrollbar-track { background: transparent; }
+.pwa-modal-inner::-webkit-scrollbar-thumb {
+    background: rgba(125,125,135,.42);
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background-clip: padding-box;
+}
+.pwa-modal-inner::-webkit-scrollbar-thumb:hover {
+    background: rgba(125,125,135,.58);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
+    background: rgba(190,190,200,.34);
+    background-clip: padding-box;
+}
+
+/* ---------- Заголовок ---------- */
+.pwa-modal-header {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    text-align: left;
+}
+.pwa-modal-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--text-primary) !important;
+    font-size: clamp(1.5rem, 3vw, 1.95rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.22;
+    text-align: left !important;
+}
+.pwa-modal-lead {
+    max-width: 700px;
+    margin: 10px 0 0 !important;
+    color: var(--text-secondary) !important;
+    font-size: .95rem !important;
+    line-height: 1.58;
+    text-align: left !important;
+}
+
+/* ---------- Закрыть ---------- */
+.pwa-modal-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    z-index: 5;
+    width: 36px; height: 36px;
+    padding: 0;
+    display: grid; place-items: center;
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+.pwa-modal-close:hover { background: var(--brand-light); color: var(--brand-color); transform: scale(1.04); }
+.pwa-modal-close svg { width: 16px; height: 16px; }
+
+/* ---------- Лонгрид: заголовок -> фото -> описание ---------- */
+.pwa-steps { display: flex; flex-direction: column; gap: 0; }
+.pwa-step {
+    width: 100%;
+    padding: 0 0 36px;
+    margin: 0 0 36px;
+    border-bottom: 1px solid var(--glass-border);
+}
+.pwa-step:last-child { margin-bottom: 0; }
+
+.pwa-step-title {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin: 0 0 16px !important;
+    color: var(--text-primary) !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    line-height: 1.4;
+    text-align: left !important;
+}
+.pwa-step-num {
+    width: 26px; height: 26px; flex: 0 0 26px;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    border: 1px solid var(--brand-border);
+    border-radius: 8px;
+    background: var(--brand-light);
+    color: var(--brand-color);
+    font-size: .78rem;
+    font-weight: 600;
+    line-height: 1;
+}
+.pwa-step-media {
+    width: min(100%, 560px);
+    margin: 0 auto 18px;
+    padding: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(var(--brand-color-rgb), .035);
+    box-shadow: 0 7px 22px rgba(0,0,0,.07);
+}
+.pwa-step-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+.pwa-step-body {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+.pwa-step-text {
+    margin: 0 !important;
+    color: var(--text-secondary) !important;
+    font-size: .93rem !important;
+    line-height: 1.65;
+    text-align: left !important;
+}
+
+/* ---------- Копирование ---------- */
+.pwa-copy-wrap {
+    display: flex;
+    justify-content: center;
+}
+.pwa-copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    margin: 14px 0 0;
+    padding: 10px 17px;
+    border: 1px solid var(--brand-border);
+    border-radius: 11px;
+    background: var(--brand-light);
+    color: var(--brand-color);
+    box-shadow: var(--shadow-sm);
+    font: inherit;
+    font-size: .85rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .15s ease;
+}
+.pwa-copy:hover { background: var(--brand-hover); border-color: var(--brand-border); box-shadow: var(--shadow-md); }
+.pwa-copy:active { transform: translateY(1px); }
+.pwa-copy svg { width: 15px; height: 15px; }
+
+/* ---------- Финальный блок ---------- */
+.pwa-note {
+    max-width: 760px;
+    margin: 28px auto 0;
+    padding: 13px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--brand-border);
+    border-radius: 12px;
+    background: var(--brand-light);
+    color: var(--text-secondary);
+    font-size: .83rem;
+    line-height: 1.55;
+    text-align: left;
+}
+.pwa-note svg { width: 17px; height: 17px; flex: 0 0 17px; margin-top: 2px; color: var(--brand-color); }
+.pwa-note strong { color: var(--brand-color); font-weight: 600; }
+
+.pwa-done-wrap { display: flex; justify-content: center; margin-top: 24px; }
+.pwa-done {
+    min-width: 124px; min-height: 42px;
+    padding: 10px 24px;
+    border: 1px solid var(--brand-color);
+    border-radius: 11px;
+    background: var(--brand-color);
+    color: #fff;
+    font: inherit;
+    font-size: .88rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 16px rgba(var(--brand-color-rgb), .14);
+    transition: transform .15s ease, filter .18s ease, box-shadow .18s ease;
+}
+.pwa-done:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(var(--brand-color-rgb), .18); }
+.pwa-done:active { transform: translateY(0); }
+
+/* ---------- Уведомление ---------- */
+#notification-container {
+    position: fixed !important;
+    inset: 20px 20px auto auto !important;
+    width: min(360px, calc(100vw - 40px)) !important;
+    max-width: 360px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    pointer-events: none;
+}
+#notification-container:popover-open { display: flex; flex-direction: column; gap: 10px; }
+#notification-container::backdrop { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+#notification-container .notification { width: 100%; box-sizing: border-box; pointer-events: auto; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+    .pwa-trigger {
+        min-height: 94px;
+        padding: 15px;
+        gap: 13px;
+        border-radius: 16px;
+    }
+    .pwa-trigger-icon { width: 48px; height: 48px; flex-basis: 48px; border-radius: 13px; }
+    .pwa-trigger-icon svg { width: 24px; height: 24px; }
+    .pwa-trigger-title { font-size: 1rem; }
+    .pwa-trigger-desc { font-size: .82rem; }
+    .pwa-modal {
+        width: calc(100vw - 14px);
+        max-height: calc(100dvh - 14px);
+        border-radius: 19px;
+    }
+    .pwa-modal-inner {
+        max-height: calc(100dvh - 14px);
+        padding: 28px 17px 22px;
+    }
+    .pwa-modal-header { margin-bottom: 27px; }
+    .pwa-modal-title { padding-right: 28px !important; font-size: 1.38rem !important; }
+    .pwa-modal-lead { font-size: .89rem !important; }
+    .pwa-step { padding-bottom: 29px; margin-bottom: 29px; }
+    .pwa-step-title { gap: 9px; margin-bottom: 13px !important; font-size: .99rem !important; }
+    .pwa-step-num { width: 24px; height: 24px; flex-basis: 24px; font-size: .73rem; border-radius: 7px; }
+    .pwa-step-media { width: min(100%, 390px); margin-bottom: 14px; border-radius: 14px; }
+    .pwa-step-text { font-size: .86rem !important; line-height: 1.58; }
+    .pwa-copy { min-height: 41px; padding: 10px 16px; }
+    .pwa-note { margin-top: 23px; padding: 12px 13px; font-size: .79rem; }
+    .pwa-done-wrap { margin-top: 21px; }
+    .pwa-done { min-width: 116px; min-height: 40px; }
+    #notification-container {
+        inset: 12px 12px auto auto !important;
+        width: calc(100vw - 24px) !important;
+        max-width: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pwa-modal[open] { animation: none; }
+}
+
+/* ============================================================
+   ЛРМ — разделение материалов для учеников и учителей
+   ============================================================ */
+
+.lwm-audience-switch {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 28px 0 30px;
+    padding: 6px;
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    background: var(--card-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-audience-tab {
+    appearance: none;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 18px;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    background: transparent;
+    color: var(--text-secondary);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, box-shadow .2s ease, transform .15s ease;
+}
+
+.lwm-audience-tab:hover {
+    background: var(--brand-light);
+    color: var(--text-primary);
+}
+
+.lwm-audience-tab.is-active {
+    background: var(--brand-light);
+    border-color: var(--brand-border);
+    color: var(--brand-color);
+    box-shadow: 0 4px 14px rgba(var(--brand-color-rgb), .08);
+}
+
+.lwm-audience-tab:focus-visible {
+    outline: 2px solid var(--brand-color);
+    outline-offset: 2px;
+}
+
+.lwm-audience-tab strong,
+.lwm-audience-tab small {
+    display: block;
+}
+
+.lwm-audience-tab strong {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.lwm-audience-tab small {
+    margin-top: 3px;
+    color: var(--text-muted);
+    font-size: .78rem;
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+.lwm-audience-icon {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--brand-color);
+}
+
+.lwm-audience-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.lwm-audience-panel {
+    display: none;
+    animation: lwmPanelIn .22s ease;
+}
+
+.lwm-audience-panel.is-active {
+    display: block;
+}
+
+@keyframes lwmPanelIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lwm-panel-intro {
+    margin: 0 0 18px;
+}
+
+.lwm-panel-kicker,
+.lwm-section-kicker {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--brand-color);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.lwm-panel-intro h2 {
+    margin: 0 0 7px !important;
+    text-align: left !important;
+    font-size: 1.65rem !important;
+}
+
+.lwm-panel-intro p {
+    max-width: 800px;
+    margin: 0 !important;
+    text-align: left !important;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.lwm-panel-cta {
+    margin-top: 20px;
+    margin-bottom: 32px;
+}
+
+.lwm-model-steps {
+    display: grid;
+    gap: 14px;
+    margin: 26px 0;
+}
+
+.lwm-model-step {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+    padding: 17px 18px;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    background: rgba(var(--brand-color-rgb), .025);
+}
+
+.lwm-model-step > span {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    color: var(--brand-color);
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.lwm-model-step strong {
+    display: block;
+    margin: 2px 0 6px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.lwm-model-step p {
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.lwm-model-step .theory-eq {
+    margin: 13px 0 2px;
+}
+
+.lwm-note {
+    margin-top: 20px;
+    padding: 14px 17px;
+    border-left: 3px solid var(--brand-color);
+    border-radius: 0 12px 12px 0;
+    background: var(--brand-light);
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.lwm-note strong {
+    color: var(--brand-color);
+}
+
+.lwm-teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 24px 0 34px;
+}
+
+.lwm-method-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    padding: 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-method-card-featured {
+    grid-column: 1 / -1;
+    background: var(--brand-light);
+    border-color: var(--brand-border);
+}
+
+.lwm-method-number {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    color: var(--brand-color);
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.lwm-method-card-featured .lwm-method-number {
+    background: var(--card-bg);
+}
+
+.lwm-method-card h3 {
+    margin: 1px 0 8px !important;
+    color: var(--text-primary);
+    font-size: 1.03rem;
+    text-align: left !important;
+}
+
+.lwm-method-card p {
+    margin: 0 !important;
+    color: var(--text-secondary);
+    text-align: left !important;
+    line-height: 1.6;
+}
+
+.lwm-method-card ul,
+.lwm-method-card ol {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+.lwm-method-card li + li {
+    margin-top: 5px;
+}
+
+.lwm-teacher-calculator {
+    padding-top: 4px;
+}
+
+.lwm-grid-three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lwm-grid-three .lwm-card {
+    min-width: 0;
+}
+
+.lwm-grid-three .lwm-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lwm-grid-three .lwm-fields input {
+    min-width: 0;
+}
+
+@media (max-width: 900px) {
+    .lwm-teacher-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lwm-method-card-featured {
+        grid-column: auto;
+    }
+
+    .lwm-grid-three {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .lwm-audience-switch {
+        grid-template-columns: 1fr;
+    }
+
+    .lwm-audience-tab {
+        padding: 12px 14px;
+    }
+
+    .lwm-panel-intro h2 {
+        font-size: 1.42rem !important;
+    }
+
+    .lwm-model-step,
+    .lwm-method-card {
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 11px;
+        padding: 15px;
+    }
+
+    .lwm-model-step > span,
+    .lwm-method-number {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        font-size: .72rem;
+    }
+
+    .lwm-grid-three .lwm-fields {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   ЛРМ — единая подложка раздела «Ученикам / Учителям»
+   Переключатель является верхней частью одной общей панели:
+   вся относящаяся к нему информация находится внутри неё.
+   ============================================================ */
+
+.lwm-audience-shell {
+    margin: 28px 0 34px;
+    padding: 10px 10px 30px;
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    background: var(--glass-white);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: var(--glass-shadow);
+    overflow: hidden;
+}
+
+.lwm-audience-shell .lwm-audience-switch {
+    margin: 0 0 30px;
+}
+
+.lwm-audience-shell .lwm-audience-panel {
+    padding: 0 10px;
+}
+
+.lwm-audience-shell .lwm-panel-intro {
+    padding-top: 2px;
+}
+
+/* Внутренние секции больше не являются отдельными «окнами» —
+   они визуально читаются как единый материал внутри общей подложки. */
+.lwm-audience-shell .lwm-theory,
+.lwm-audience-shell .lwm-calculator {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* На широком экране оставляем немного воздуха по краям общей панели. */
+@media (min-width: 901px) {
+    .lwm-audience-shell {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .lwm-audience-shell {
+        margin-top: 22px;
+        padding: 7px 7px 22px;
+        border-radius: 18px;
+    }
+
+    .lwm-audience-shell .lwm-audience-switch {
+        margin-bottom: 22px;
+    }
+
+    .lwm-audience-shell .lwm-audience-panel {
+        padding: 0 5px;
+    }
+}
+
+/* ============================================================
+   ЛРМ — калькулятор азимутов для учителя
+   ============================================================ */
+.lwm-teacher-calculator {
+    padding-top: 6px;
+}
+
+.lwm-az-table {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.lwm-az-point {
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-az-point-target {
+    border-color: var(--brand-border);
+    background: var(--brand-light);
+}
+
+.lwm-az-point-head {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 18px;
+}
+
+.lwm-az-point-number {
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    color: var(--brand-color);
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.lwm-az-point-target .lwm-az-point-number {
+    background: var(--card-bg);
+}
+
+.lwm-az-point-role {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--brand-color);
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .45px;
+}
+
+.lwm-az-point h3 {
+    margin: 0 !important;
+    color: var(--text-primary);
+    font-size: 1.02rem !important;
+    text-align: left !important;
+}
+
+.lwm-az-point .lwm-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.lwm-az-point .lwm-fields label {
+    font-size: .82rem;
+}
+
+.lwm-az-point .lwm-fields input {
+    min-height: 42px;
+    padding: 8px 10px;
+    font-size: .92rem;
+}
+
+/* Более компактная «консоль»: статус отдельно, результат — главным блоком,
+   история выглядит как журнал, а не как ещё одна карточка. */
+.lwm-teacher-console {
+    margin-top: 18px;
+    padding: 18px;
+}
+
+.lwm-console-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.lwm-console-kicker {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--brand-color);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.lwm-console-head h2 {
+    margin: 0 !important;
+    font-size: 1.12rem !important;
+}
+
+.lwm-console-status {
+    flex-shrink: 0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: var(--btn-bg);
+    color: var(--text-muted);
+    font-size: .76rem;
+    font-weight: 600;
+}
+
+.lwm-teacher-console .lwm-result-output {
+    min-height: 62px;
+    margin-top: 14px;
+    border-radius: 12px;
+    background: rgba(var(--brand-color-rgb), .055);
+}
+
+.lwm-console-history-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 0 2px 7px;
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: .73rem;
+    text-transform: uppercase;
+    letter-spacing: .35px;
+}
+
+.lwm-teacher-console .lwm-history {
+    margin-top: 0;
+    gap: 0;
+}
+
+.lwm-teacher-console .lwm-history-item {
+    padding: 10px 2px;
+    border-radius: 0;
+    border-bottom: 1px solid var(--glass-border);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: .82rem;
+}
+
+.lwm-teacher-console .lwm-history-item:last-child {
+    border-bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .lwm-az-table {
+        grid-template-columns: 1fr;
+    }
+
+    .lwm-az-point .lwm-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .lwm-az-point .lwm-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .lwm-console-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .lwm-console-status {
+        align-self: flex-start;
+    }
+}
+
+
+/* ============================================================
+   ЛРМ — выравнивание учительского интерфейса с общим стилем сайта
+   Здесь намеренно используются те же поверхности, радиусы, тени,
+   плотность текста и поля, что и в других разделах сайта.
+   ============================================================ */
+
+.lwm-teacher-grid .lwm-method-card,
+.lwm-az-point,
+.lwm-teacher-console {
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-teacher-grid .lwm-method-card {
+    padding: 22px;
+}
+
+.lwm-method-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.lwm-method-card p,
+.lwm-method-card li {
+    font-size: .95rem;
+    font-weight: 400;
+}
+
+.lwm-method-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: .82rem;
+    font-weight: 600;
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+}
+
+.lwm-method-card-featured {
+    background: var(--brand-light);
+    border-color: var(--brand-border);
+}
+
+/* Три объекта — единая табличная рабочая область, но без
+   визуально тяжёлой HTML-таблицы. Каждый столбец повторяет
+   привычную карточку сайта. */
+.lwm-az-table {
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.lwm-az-point {
+    padding: 20px;
+}
+
+.lwm-az-point-head {
+    min-height: 44px;
+    margin-bottom: 18px;
+}
+
+.lwm-az-point-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: .82rem;
+    font-weight: 600;
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    color: var(--brand-color);
+}
+
+.lwm-az-point-role {
+    margin-bottom: 4px;
+    font-size: .76rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+.lwm-az-point h3 {
+    font-size: 1.08rem !important;
+    font-weight: 600;
+}
+
+.lwm-az-point .lwm-fields {
+    gap: 12px;
+}
+
+.lwm-az-point .lwm-fields label {
+    gap: 7px;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.lwm-az-point .lwm-fields input {
+    min-height: 44px;
+    padding: 9px 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: 11px;
+    background: var(--btn-bg);
+    box-shadow: var(--shadow-sm);
+    font-size: .95rem;
+}
+
+.lwm-az-point .lwm-fields input:focus {
+    border-color: var(--brand-color);
+    background: rgba(255,255,255,.25);
+    box-shadow: 0 2px 12px rgba(var(--brand-color-rgb), .10);
+}
+
+.dark-theme .lwm-az-point .lwm-fields input:focus {
+    background: rgba(255,255,255,.08);
+}
+
+/* Панель действий — те же параметры, что у стандартных кнопок сайта. */
+.lwm-teacher-calculator .lwm-actions {
+    justify-content: flex-start;
+    margin: 20px 0;
+    gap: 12px;
+}
+
+.lwm-teacher-calculator .lwm-button {
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: .95rem;
+    font-weight: 600;
+    border-color: var(--glass-border);
+}
+
+/* Результат оставляем карточкой сайта, а внутреннюю «консоль»
+   делаем спокойнее: никаких отдельных тяжёлых рамок вокруг строк. */
+.lwm-teacher-console {
+    padding: 22px;
+    margin-top: 22px;
+}
+
+.lwm-console-head {
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.lwm-console-kicker {
+    font-size: .76rem;
+    font-weight: 600;
+}
+
+.lwm-console-head h2 {
+    font-size: 1.2rem !important;
+    font-weight: 600;
+}
+
+.lwm-console-status {
+    padding: 6px 11px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: var(--btn-bg);
+    font-size: .82rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.lwm-teacher-console .lwm-result-output {
+    min-height: 68px;
+    margin-top: 16px;
+    padding: 16px 18px;
+    border-radius: 13px;
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.lwm-console-history-head {
+    margin-top: 20px;
+    padding: 0 2px 8px;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: .78rem;
+    font-weight: 500;
+}
+
+.lwm-teacher-console .lwm-history-item {
+    padding: 11px 2px;
+    font-size: .88rem;
+    font-weight: 400;
+}
+
+@media (max-width: 900px) {
+    .lwm-az-table {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .lwm-teacher-grid .lwm-method-card,
+    .lwm-az-point,
+    .lwm-teacher-console {
+        padding: 18px;
+    }
+}
+
+/* ============================================================
+   ЛРМ — финальная адаптация к визуальному языку сайта
+   ============================================================ */
+
+/* Общая панель: нейтральная поверхность сайта, акцент только там,
+   где он действительно нужен — в активном состоянии. */
+.lwm-audience-shell {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-md);
+}
+
+.lwm-audience-switch {
+    background: var(--glass-white);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
+    gap: 8px;
+}
+
+.lwm-audience-tab {
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.lwm-audience-tab:hover {
+    background: var(--btn-hover-bg);
+    color: var(--text-primary);
+}
+
+.lwm-audience-tab.is-active {
+    background: var(--card-bg);
+    border-color: var(--brand-border);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-audience-tab strong {
+    color: inherit;
+    font-weight: 700;
+}
+
+.lwm-audience-tab small {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.lwm-audience-icon {
+    background: var(--brand-light);
+    border: 1px solid var(--brand-border);
+    color: var(--brand-color);
+}
+
+/* Внутренние карточки ЛРМ повторяют обычные карточки сайта. */
+.lwm-model-step,
+.lwm-method-card,
+.lwm-az-point,
+.lwm-teacher-console,
+.lwm-card,
+.lwm-result-card {
+    border-color: var(--glass-border);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-model-step > span,
+.lwm-method-number,
+.lwm-az-point-number {
+    background: var(--brand-light);
+    border-color: var(--brand-border);
+    color: var(--brand-color);
+    font-weight: 700;
+}
+
+.lwm-method-card-featured,
+.lwm-az-point-target {
+    background: var(--brand-light);
+    border-color: var(--brand-border);
+}
+
+/* Типографика не должна быть легче, чем в остальных разделах сайта. */
+.lwm-panel-kicker,
+.lwm-section-kicker,
+.lwm-panel-intro h2,
+.lwm-section-header h2,
+.lwm-method-card h3,
+.lwm-az-point h3,
+.lwm-card h2,
+.lwm-result-card h2 {
+    font-weight: 700;
+}
+
+.lwm-panel-intro p,
+.lwm-method-card p,
+.lwm-method-card li,
+.lwm-description,
+.lwm-az-point .lwm-fields label,
+.lwm-fields label {
+    color: var(--text-secondary);
+}
+
+/* Учительский калькулятор: три равноправных поля в одну рабочую строку. */
+.lwm-az-table {
+    gap: 16px;
+}
+
+.lwm-az-point {
+    padding: 22px;
+}
+
+.lwm-az-point .lwm-fields input {
+    border: 1px solid var(--glass-border);
+    background: var(--btn-bg);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-az-point .lwm-fields input:hover {
+    background: var(--card-hover);
+}
+
+.lwm-az-point .lwm-fields input:focus {
+    border-color: var(--brand-color);
+    background: rgba(255,255,255,.22);
+    box-shadow: 0 3px 14px rgba(var(--brand-color-rgb), .12);
+}
+
+.dark-theme .lwm-az-point .lwm-fields input:focus {
+    background: rgba(255,255,255,.08);
+}
+
+/* Кнопки — строго по центру, как CTA и другие группы действий сайта. */
+.lwm-teacher-calculator .lwm-actions {
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0;
+    gap: 12px;
+}
+
+.lwm-teacher-calculator .lwm-button {
+    min-height: 42px;
+    padding: 9px 17px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    font-size: .95rem;
+    font-weight: 600;
+}
+
+/* Блок результата — обычная карточка сайта без лишней «консольной»
+   мета-информации. */
+.lwm-teacher-console {
+    padding: 22px;
+    margin-top: 20px;
+}
+
+.lwm-teacher-console .lwm-result-heading h2 {
+    color: var(--text-secondary);
+    font-size: 1.25rem !important;
+    font-weight: 700;
+}
+
+.lwm-teacher-console .lwm-result-output {
+    min-height: 72px;
+    margin-top: 16px;
+    padding: 16px 18px;
+    border: 1px solid var(--brand-border);
+    border-radius: 13px;
+    background: var(--brand-light);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.lwm-console-history-head {
+    display: block;
+    margin-top: 20px;
+    padding: 0 2px 8px;
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: .78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .35px;
+}
+
+.lwm-teacher-console .lwm-history-item {
+    padding: 11px 2px;
+    border-bottom: 1px solid var(--glass-border);
+    border-radius: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: .88rem;
+    font-weight: 400;
+}
+
+.lwm-teacher-console .lwm-history-item:last-child {
+    border-bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .lwm-az-table {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .lwm-audience-shell {
+        border-radius: 18px;
+    }
+
+    .lwm-teacher-calculator .lwm-actions {
+        justify-content: center;
+    }
+
+    .lwm-teacher-calculator .lwm-button {
+        flex: 0 1 auto;
+    }
+}
+
+/* ЛРМ — приглушённые поверхности для тёмных цветовых схем */
+.dark-theme .lwm-audience-shell,
+.dark-theme .lwm-model-step,
+.dark-theme .lwm-method-card,
+.dark-theme .lwm-az-point,
+.dark-theme .lwm-teacher-console,
+.dark-theme .lwm-card,
+.dark-theme .lwm-result-card {
+    background: rgba(255, 255, 255, .055);
+    border-color: rgba(255, 255, 255, .11);
+}
+
+.dark-theme .lwm-audience-switch {
+    background: rgba(255, 255, 255, .045);
+    border-color: rgba(255, 255, 255, .10);
+}
+
+.dark-theme .lwm-audience-tab.is-active {
+    background: rgba(255, 255, 255, .075);
+    border-color: rgba(var(--brand-color-rgb), .22);
+}
+
+.dark-theme .lwm-audience-icon,
+.dark-theme .lwm-model-step > span,
+.dark-theme .lwm-method-number,
+.dark-theme .lwm-az-point-number,
+.dark-theme .lwm-method-card-featured,
+.dark-theme .lwm-az-point-target {
+    background: rgba(var(--brand-color-rgb), .075);
+    border-color: rgba(var(--brand-color-rgb), .20);
+}
+
+.dark-theme .lwm-teacher-console .lwm-result-output {
+    background: rgba(var(--brand-color-rgb), .075);
+    border-color: rgba(var(--brand-color-rgb), .20);
+}
+
+.dark-theme .lwm-az-point .lwm-fields input {
+    background: rgba(255, 255, 255, .055);
+    border-color: rgba(255, 255, 255, .12);
+}
+
+.dark-theme .lwm-az-point .lwm-fields input:hover {
+    background: rgba(255, 255, 255, .075);
+}
+
+.dark-theme .lwm-az-point .lwm-fields input:focus {
+    background: rgba(255, 255, 255, .07);
+    border-color: rgba(var(--brand-color-rgb), .48);
+    box-shadow: 0 3px 14px rgba(var(--brand-color-rgb), .08);
+}

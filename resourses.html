@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
+
+<div id="notification-container" popover="manual" aria-live="polite" aria-atomic="true"></div>
+
 <script>
 (function () {
     var color = localStorage.getItem('themeColor') || 'purple';
@@ -11,8 +14,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="/manifest.json">
-	<link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="vk-uspu">
@@ -22,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
 </head>
 <body>
-	<div id="page">
+    <div id="page">
 <header>
     <div class="header-top">
         <!-- Слайдер переключения темы -->
@@ -60,16 +63,33 @@
             <li><a href="index.html">Главная</a></li>
             <li><a href="science.html">Наука</a></li>
             <li class="active"><a href="resourses.html">Ресурсы</a></li>
-			<li><a href="lwm.html" class="nav-new">ЛРМ</a></li>
+            <li><a href="lwm.html" class="nav-new">ЛРМ</a></li>
             <li class="rght"><a href="contacts.html">Контакты</a></li>
         </ul>
     </nav>
 </header>
-	
-	<section id="content">
-	
-	
+
+    <section id="content">
+
 <br>
+
+<!-- Кнопка-триггер -->
+<button type="button" class="pwa-trigger" id="pwaTrigger" aria-haspopup="dialog" aria-controls="pwaModal">
+    <span class="pwa-trigger-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="2" width="12" height="20" rx="3"/>
+            <path d="M11 18h2"/>
+        </svg>
+    </span>
+    <span class="pwa-trigger-text">
+        <span class="pwa-trigger-title">Установить сайт как приложение</span>
+        <span class="pwa-trigger-desc">Пошаговая инструкция для iPhone и iPad</span>
+    </span>
+    <svg class="pwa-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 6l6 6-6 6"/>
+    </svg>
+</button>
+
     <h1>Общедоступные ресурсы:</h1>
 
 <div class="contacts-container">
@@ -143,12 +163,12 @@
 </div>
 
  </section>
-	
+
     <footer>
         <div class="footer-content">
             <div class="copyright">
                 © 2026 г. Красноперов Вячеслав Андреевич. <br>
-				version 6.6.6.2.
+                version 6.6.8.1.
             </div>
             <div class="social-links">
                 <a href="mailto:vk.uspu@ya.ru" class="social-icon">
@@ -163,13 +183,113 @@
             </div>
         </div>
     </footer>
-	</div>
-	</div>
-	<script>
+    </div><!-- /#page -->
+
+<!-- ============================================================
+     МОДАЛЬНОЕ ОКНО PWA — вынесено ЗА пределы #page.
+     Родитель #page имеет backdrop-filter, который создаёт
+     containing block для fixed/absolute — из-за этого <dialog>
+     позиционировался относительно страницы, а не окна,
+     и «прилипал» к левому верхнему углу. Здесь он в топ-слое.
+     ============================================================ -->
+<dialog class="pwa-modal" id="pwaModal" aria-labelledby="pwaModalTitle">
+    <button type="button" class="pwa-modal-close" id="pwaModalClose" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+    </button>
+
+    <div class="pwa-modal-inner">
+        <header class="pwa-modal-header">
+            <h2 id="pwaModalTitle" class="pwa-modal-title">Установка сайта на iPhone</h2>
+            <p class="pwa-modal-lead">Добавьте сайт на домашний экран, чтобы открывать его как отдельное приложение — без адресной строки Safari.</p>
+        </header>
+
+        <div class="pwa-steps">
+
+            <article class="pwa-step">
+                <h3 class="pwa-step-title">
+                    <span class="pwa-step-num" aria-hidden="true">1</span>
+                    <span>Откройте сайт в Safari</span>
+                </h3>
+                <figure class="pwa-step-media">
+                    <img src="assets/pwa/step-1.png" alt="Адрес сайта в Safari" loading="lazy" decoding="async">
+                </figure>
+                <div class="pwa-step-body">
+                    <p class="pwa-step-text">Установка на iPhone выполняется через Safari. Если сайт открыт в другом браузере, сначала откройте эту же страницу в Safari.</p>
+                    <div class="pwa-copy-wrap">
+                        <button type="button" class="pwa-copy" id="pwaCopyLink">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                            <span>Скопировать ссылку</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="pwa-step">
+                <h3 class="pwa-step-title">
+                    <span class="pwa-step-num" aria-hidden="true">2</span>
+                    <span>Откройте меню «Поделиться»</span>
+                </h3>
+                <figure class="pwa-step-media">
+                    <img src="assets/pwa/step-2.png" alt="Меню «Поделиться» в Safari" loading="lazy" decoding="async">
+                </figure>
+                <div class="pwa-step-body">
+                    <p class="pwa-step-text">В нижней панели Safari нажмите кнопку «Поделиться» — квадрат со стрелкой вверх. Откроется системное меню действий для текущей страницы.</p>
+                </div>
+            </article>
+
+            <article class="pwa-step">
+                <h3 class="pwa-step-title">
+                    <span class="pwa-step-num" aria-hidden="true">3</span>
+                    <span>Выберите «На экран "Домой"»</span>
+                </h3>
+                <figure class="pwa-step-media">
+                    <img src="assets/pwa/step-3.png" alt="Пункт «На экран Домой»" loading="lazy" decoding="async">
+                </figure>
+                <div class="pwa-step-body">
+                    <p class="pwa-step-text">Пролистайте список действий вниз и найдите пункт «На экран "Домой"». Нажмите его, чтобы перейти к настройке добавления сайта.</p>
+                </div>
+            </article>
+
+            <article class="pwa-step">
+                <h3 class="pwa-step-title">
+                    <span class="pwa-step-num" aria-hidden="true">4</span>
+                    <span>Нажмите «Добавить»</span>
+                </h3>
+                <figure class="pwa-step-media">
+                    <img src="assets/pwa/step-4.png" alt="Кнопка «Добавить» в Safari" loading="lazy" decoding="async">
+                </figure>
+                <div class="pwa-step-body">
+                    <p class="pwa-step-text">В правом верхнем углу нажмите «Добавить». Иконка сайта появится на домашнем экране, после чего его можно запускать как обычное приложение.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <aside class="pwa-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4M12 8h.01"/>
+            </svg>
+            <span><strong>iPad:</strong> порядок действий такой же. <strong>Android:</strong> в меню браузера используйте «Установить приложение» или «Добавить на главный экран».</span>
+        </aside>
+
+        <div class="pwa-done-wrap">
+            <button type="button" class="pwa-done" id="pwaDone">Готово</button>
+        </div>
+    </div>
+</dialog>
+
+<script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register('sw.js');
   }
 </script>
+
 <script>
     // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ: цвет (5 акцентов) + режим (светлый/тёмный) =====
 (function() {
@@ -259,6 +379,139 @@
             }
         });
     }
+})();
+</script>
+
+<script>
+(function () {
+    const trigger  = document.getElementById('pwaTrigger');
+    const modal    = document.getElementById('pwaModal');
+    const closeBtn = document.getElementById('pwaModalClose');
+    const doneBtn  = document.getElementById('pwaDone');
+    const copyBtn  = document.getElementById('pwaCopyLink');
+    const toastBox = document.getElementById('notification-container');
+
+    if (!trigger || !modal || !closeBtn || !doneBtn || !copyBtn || !toastBox) return;
+
+    let toastTimer = null;
+
+    function clearToast() {
+        if (toastTimer) {
+            clearTimeout(toastTimer);
+            toastTimer = null;
+        }
+
+        toastBox.querySelectorAll('.notification').forEach(el => el.remove());
+
+        if (typeof toastBox.hidePopover === 'function') {
+            try { toastBox.hidePopover(); } catch (_) {}
+        }
+        toastBox.classList.remove('pwa-notification-fallback');
+    }
+
+    function openModal() {
+        clearToast();
+        if (!modal.open) {
+            modal.showModal();
+            document.body.classList.add('pwa-modal-open');
+        }
+    }
+
+    function closeModal() {
+        clearToast();
+        if (modal.open) modal.close();
+    }
+
+    function showNotification(type, title, message) {
+        clearToast();
+
+        const notification = document.createElement('div');
+        notification.className = 'notification ' + type;
+
+        const icon = document.createElement('div');
+        icon.className = 'notification-icon';
+        icon.textContent = type === 'success' ? '✓' : '×';
+
+        const text = document.createElement('div');
+        text.className = 'notification-text';
+
+        const titleEl = document.createElement('div');
+        titleEl.className = 'notification-title';
+        titleEl.textContent = title;
+
+        const messageEl = document.createElement('div');
+        messageEl.className = 'notification-message';
+        messageEl.textContent = message;
+
+        text.append(titleEl, messageEl);
+        notification.append(icon, text);
+        toastBox.appendChild(notification);
+
+        const reveal = () => {
+            if (typeof toastBox.showPopover === 'function') {
+                try { toastBox.showPopover(); } catch (_) {}
+            } else {
+                toastBox.classList.add('pwa-notification-fallback');
+            }
+            requestAnimationFrame(() => notification.classList.add('show'));
+        };
+
+        reveal();
+
+        toastTimer = setTimeout(() => {
+            notification.classList.remove('show');
+            notification.classList.add('hide');
+
+            setTimeout(() => {
+                notification.remove();
+                if (!toastBox.querySelector('.notification')) {
+                    if (typeof toastBox.hidePopover === 'function') {
+                        try { toastBox.hidePopover(); } catch (_) {}
+                    }
+                    toastBox.classList.remove('pwa-notification-fallback');
+                }
+            }, 300);
+        }, 4000);
+    }
+
+    trigger.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    doneBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal();
+    });
+
+    modal.addEventListener('close', () => {
+        document.body.classList.remove('pwa-modal-open');
+        clearToast();
+    });
+
+    copyBtn.addEventListener('click', async () => {
+        const url = location.href;
+        let copied = false;
+
+        try {
+            await navigator.clipboard.writeText(url);
+            copied = true;
+        } catch (_) {
+            const area = document.createElement('textarea');
+            area.value = url;
+            area.setAttribute('readonly', '');
+            area.style.position = 'fixed';
+            area.style.left = '-9999px';
+            document.body.appendChild(area);
+            area.select();
+            try { copied = document.execCommand('copy'); } catch (_) {}
+            area.remove();
+        }
+
+        if (copied) {
+            showNotification('success', 'Скопировано', 'Ссылка на сайт в буфере обмена.');
+        } else {
+            showNotification('error', 'Не удалось скопировать', 'Скопируйте ссылку вручную из адресной строки.');
+        }
+    });
 })();
 </script>
 </body>

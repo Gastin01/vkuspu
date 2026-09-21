@@ -1,53 +1,52 @@
-const CACHE_NAME = 'site-cache-v6.6.6.2';
+const CACHE_NAME = 'site-cache-v6.6.8.1.';
 
 const urlsToCache = [
-  '/',
+  './',
 
   // Страницы
-  '/index.html',
-  '/science.html',
-  '/resourses.html',
-  '/contacts.html',
-  '/lwm.html',
+  './index.html',
+  './science.html',
+  './resourses.html',
+  './contacts.html',
+  './lwm.html',
 
   // Стили и скрипты
-  '/style.css',
-  '/papers-data.js',
+  './style.css',
+  './papers-data.js',
 
   // Фотографии
-  '/assets/images/myphoto.jpg',
-  '/assets/images/lwm-scheme.png',
-  '/assets/images/primer-line-normal.png',
-  '/assets/images/primer-line-vector.png',
-  '/assets/images/primer-parametric-line.gif',
-  '/assets/images/proof-step-1.png',
-  '/assets/images/proof-step-2.png',
-  '/assets/images/proof-step-3.png',
-  '/assets/images/proof-step-4.png',
+  './assets/images/myphoto.jpg',
+  './assets/images/primer-line-normal.png',
+  './assets/images/primer-line-vector.png',
+  './assets/images/primer-parametric-line.gif',
+  './assets/images/proof-step-1.png',
+  './assets/images/proof-step-2.png',
+  './assets/images/proof-step-3.png',
+  './assets/images/proof-step-4.png',
   
   // Логотипы
-  '/assets/logos/logo-light.png',
-  '/assets/logos/logo-dark.png',
-  '/assets/logos/email-logo.png',
-  '/assets/logos/vk-logo.webp',
-  '/assets/logos/elibrary-logo.png',
-  '/assets/logos/telegram-logo.png',
-  '/assets/logos/max-logo.png',
-  '/assets/logos/orcid-logo.png',
-  '/assets/logos/github-logo.png',
-  '/assets/logos/yadisk-logo.png',
+  './assets/logos/logo-light.png',
+  './assets/logos/logo-dark.png',
+  './assets/logos/email-logo.png',
+  './assets/logos/vk-logo.webp',
+  './assets/logos/elibrary-logo.png',
+  './assets/logos/telegram-logo.png',
+  './assets/logos/max-logo.png',
+  './assets/logos/orcid-logo.png',
+  './assets/logos/github-logo.png',
+  './assets/logos/yadisk-logo.png',
 
   // Иконки
-  '/assets/icons/favicon.ico',
-  '/assets/icons/apple-icon-180.png',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
+  './assets/icons/favicon.ico',
+  './assets/icons/apple-icon-180.png',
+  './assets/icons/icon-192.png',
+  './assets/icons/icon-512.png',
 
   // Фоновые паттерны
-  '/assets/patterns/pattern-purple.jpg',
-  '/assets/patterns/pattern-orange.jpg',
-  '/assets/patterns/pattern-ocean.jpg',
-  '/assets/patterns/pattern-emerald.jpg',
+  './assets/patterns/pattern-purple.jpg',
+  './assets/patterns/pattern-orange.jpg',
+  './assets/patterns/pattern-ocean.jpg',
+  './assets/patterns/pattern-emerald.jpg',
   '/assets/patterns/pattern-rose.jpg'
 ];
 
@@ -115,7 +114,7 @@ self.addEventListener('fetch', event => {
         .catch(() =>
           caches.match(request)
             .then(cached =>
-              cached || caches.match('/index.html')
+              cached || caches.match('./index.html')
             )
         )
     );
