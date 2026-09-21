@@ -5058,3 +5058,70 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     border-color: rgba(var(--brand-color-rgb), .48);
     box-shadow: 0 3px 14px rgba(var(--brand-color-rgb), .08);
 }
+
+
+/* ============================================================
+   ЛРМ — уведомление об учебном разделе в разработке
+   ============================================================ */
+.lwm-teacher-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 22px 0 26px;
+    padding: 16px 18px;
+    background: rgba(198, 40, 40, 0.08);
+    border: 1px solid rgba(198, 40, 40, 0.28);
+    border-radius: 16px;
+    color: #a51f1f;
+    box-shadow: var(--shadow-sm);
+}
+
+.lwm-teacher-notice-icon {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(198, 40, 40, 0.14);
+    border: 1px solid rgba(198, 40, 40, 0.24);
+    color: #c62828;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.lwm-teacher-notice strong {
+    display: block;
+    margin: 1px 0 5px;
+    color: #9f1d1d;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.lwm-teacher-notice p {
+    margin: 0;
+    color: #8f2a2a;
+    line-height: 1.55;
+}
+
+/* В тёмной теме красный акцент делаем светлее для читаемости. */
+.dark-theme .lwm-teacher-notice {
+    background: rgba(239, 83, 80, 0.10);
+    border-color: rgba(239, 83, 80, 0.28);
+    color: #f3b1ae;
+}
+
+.dark-theme .lwm-teacher-notice-icon {
+    background: rgba(239, 83, 80, 0.16);
+    border-color: rgba(239, 83, 80, 0.30);
+    color: #ef5350;
+}
+
+.dark-theme .lwm-teacher-notice strong {
+    color: #ffb3b0;
+}
+
+.dark-theme .lwm-teacher-notice p {
+    color: #e5b2af;
+}
