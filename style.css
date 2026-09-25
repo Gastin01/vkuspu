@@ -6544,3 +6544,40 @@ html:not(.dark-theme) .lwm-audience-tab:not(.is-active):hover {
         border-radius: 16px !important;
     }
 }
+
+
+/* ============================================================
+   FIX — выпадающий список «Наука»
+   Точечное исправление без изменения остальной дизайн-системы.
+   ============================================================ */
+
+/* У выбранного элемента уже есть цветовое выделение.
+   Убираем дополнительную точку слева. */
+.lg-select-option[aria-selected="true"]::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* После удаления маркера текст остаётся на общей линии. */
+.lg-select-option {
+    padding-left: 12px !important;
+}
+
+/* Выпадающее меню должно перекрывать контент под ним,
+   а не просвечивать через него. */
+html:not(.dark-theme) .lg-select-menu {
+    background: #f7f8fa !important;
+    background-image: none !important;
+}
+
+html.dark-theme .lg-select-menu {
+    background: #252b35 !important;
+    background-image: none !important;
+}
+
+/* На самом popup убираем прозрачность стеклянного слоя,
+   но не затрагиваем остальные Liquid Glass-компоненты. */
+.lg-select-menu::before,
+.lg-select-menu::after {
+    background: transparent !important;
+}
