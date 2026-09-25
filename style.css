@@ -113,7 +113,7 @@ html.color-purple {
     --brand-border: rgba(74, 44, 122, 0.25);
     --btn-hover-bg: rgba(74, 44, 122, 0.12);
     --bg-body: linear-gradient(145deg, #e8e4f0, #f5f2fa);
-	--bg-pattern: url('assets/patterns/pattern-purple.jpg');
+	--bg-pattern: url("assets/patterns/pattern-purple.jpg");
     --bg-pattern-opacity: 0.2;
 	}
 html.color-purple.dark-theme {
@@ -127,7 +127,7 @@ html.color-purple.dark-theme {
     /* без явного none тут светлый паттерн "просвечивал" даже в тёмном режиме —
        правила html.color-X и html.dark-theme имели равный приоритет,
        и по порядку в файле побеждал светлый вариант */
-    --bg-pattern: url('assets/patterns/pattern-purple.jpg');
+    --bg-pattern: url("assets/patterns/pattern-purple.jpg");
     --bg-pattern-opacity: 0.6;
 }
 
@@ -140,7 +140,7 @@ html.color-orange {
     --brand-border: rgba(193, 86, 10, 0.25);
     --btn-hover-bg: rgba(193, 86, 10, 0.12);
     --bg-body: linear-gradient(145deg, #f5e6d8, #fbf3ea);
-	--bg-pattern: url('assets/patterns/pattern-orange.jpg');
+	--bg-pattern: url("assets/patterns/pattern-orange.jpg");
     --bg-pattern-opacity: 0.2;
 }
 html.color-orange.dark-theme {
@@ -151,7 +151,7 @@ html.color-orange.dark-theme {
     --brand-border: rgba(255, 117, 20, 0.28);
     --btn-hover-bg: rgba(255, 117, 20, 0.20);
     --bg-body: linear-gradient(145deg, #2b2622, #40342c);
-    --bg-pattern: url('assets/patterns/pattern-orange.jpg');
+    --bg-pattern: url("assets/patterns/pattern-orange.jpg");
     --bg-pattern-opacity: 0.5;
 }
 
@@ -164,7 +164,7 @@ html.color-ocean {
     --brand-border: rgba(20, 108, 148, 0.25);
     --btn-hover-bg: rgba(20, 108, 148, 0.12);
     --bg-body: linear-gradient(145deg, #dbe9f0, #eef6f9);
-	--bg-pattern: url('assets/patterns/pattern-ocean.jpg');
+	--bg-pattern: url("assets/patterns/pattern-ocean.jpg");
     --bg-pattern-opacity: 0.3;
 	}
 html.color-ocean.dark-theme {
@@ -175,7 +175,7 @@ html.color-ocean.dark-theme {
     --brand-border: rgba(94, 200, 232, 0.30);
     --btn-hover-bg: rgba(94, 200, 232, 0.18);
     --bg-body: linear-gradient(145deg, #16232c, #1f3541);
-    --bg-pattern: url('assets/patterns/pattern-ocean.jpg');
+    --bg-pattern: url("assets/patterns/pattern-ocean.jpg");
     --bg-pattern-opacity: 0.3;
 }
 
@@ -188,7 +188,7 @@ html.color-emerald {
     --brand-border: rgba(28, 124, 84, 0.25);
     --btn-hover-bg: rgba(28, 124, 84, 0.12);
     --bg-body: linear-gradient(145deg, #dcf0e4, #eef9f2);
-	--bg-pattern: url('assets/patterns/pattern-emerald.jpg');
+	--bg-pattern: url("assets/patterns/pattern-emerald.jpg");
     --bg-pattern-opacity: 0.5;
 	}
 html.color-emerald.dark-theme {
@@ -199,7 +199,7 @@ html.color-emerald.dark-theme {
     --brand-border: rgba(79, 212, 138, 0.30);
     --btn-hover-bg: rgba(79, 212, 138, 0.18);
     --bg-body: linear-gradient(145deg, #16241d, #1f3527);
-    --bg-pattern: url('assets/patterns/pattern-emerald.jpg');
+    --bg-pattern: url("assets/patterns/pattern-emerald.jpg");
     --bg-pattern-opacity: 0.6;
 }
 
@@ -212,7 +212,7 @@ html.color-rose {
     --brand-border: rgba(176, 51, 92, 0.25);
     --btn-hover-bg: rgba(176, 51, 92, 0.12);
     --bg-body: linear-gradient(145deg, #f3dde6, #faeef2);
-	--bg-pattern: url('assets/patterns/pattern-rose.jpg');
+	--bg-pattern: url("assets/patterns/pattern-rose.jpg");
     --bg-pattern-opacity: 0.4;
 	}
 html.color-rose.dark-theme {
@@ -223,7 +223,7 @@ html.color-rose.dark-theme {
     --brand-border: rgba(242, 120, 154, 0.30);
     --btn-hover-bg: rgba(242, 120, 154, 0.18);
     --bg-body: linear-gradient(145deg, #2a1c24, #3d2733);
-    --bg-pattern: url('assets/patterns/pattern-rose.jpg');
+    --bg-pattern: url("assets/patterns/pattern-rose.jpg");
     --bg-pattern-opacity: 0.5;
 }
 
@@ -266,7 +266,7 @@ body {
     padding-right: max(30px, env(safe-area-inset-right));
     padding-bottom: max(30px, env(safe-area-inset-bottom));
     background: var(--bg-body);
-    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
     color: var(--text-primary);
     position: relative;
     transition: background 0.3s ease, color 0.3s ease;
@@ -302,9 +302,7 @@ html.dark-theme body::before {
 /* На тач-устройствах без реального ховера убираем "залипающие"
    hover-эффекты (transform/scale), которые остаются висеть после тапа */
 @media (hover: none) {
-    .achievements-list li:hover,
-    .numbered-list li:hover,
-    .achievements-list ul li:hover,
+    
     .contact-item:hover,
     .contact-card:hover,
     .stats-grid .contact-card:hover,
@@ -602,7 +600,7 @@ nav ul {
 
 nav li {
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
     font-weight: 500;
 }
 
@@ -739,140 +737,32 @@ main a:hover {
 /* ============================================================
    СПИСКИ (достижения)
    ============================================================ */
-.achievements-list,
-.numbered-list {
-    list-style: none;
-    padding: 0;
-    margin: 25px 0;
-}
 
-.achievements-list li,
-.numbered-list li {
-    padding: 16px 20px 16px 55px;
-    margin-bottom: 12px;
-    background: var(--card-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 14px;
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--shadow-sm);
-    font-size: 1rem;
-    color: var(--text-primary);
-    position: relative;
-    transition: all 0.25s ease;
-}
 
-.achievements-list li:hover,
-.numbered-list li:hover {
-    transform: translateX(6px);
-    background: var(--card-hover);
-    box-shadow: 0 6px 20px rgba(var(--brand-color-rgb), 0.08);
-    border-color: rgba(var(--brand-color-rgb), 0.20);
-}
 
-.dark-theme .achievements-list li:hover,
-.dark-theme .numbered-list li:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
 
-.achievements-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    background: var(--brand-light);
-    backdrop-filter: blur(4px);
-    color: var(--brand-color);
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(var(--brand-color-rgb), 0.2);
-}
 
-.numbered-list li::before {
-    content: counter(list-counter);
-    position: absolute;
-    left: 18px;
-    top: 18px;
-    transform: none;
-    width: 24px;
-    height: 24px;
-    background: var(--brand-light);
-    backdrop-filter: blur(4px);
-    color: var(--brand-color);
-    font-size: 13px;
-    font-weight: bold;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(var(--brand-color-rgb), 0.2);
-    pointer-events: none;
-}
 
-.numbered-list {
-    counter-reset: list-counter;
-}
-.numbered-list li {
-    counter-increment: list-counter;
-}
 
-.achievements-list ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 15px 0 5px 0;
-}
 
-.achievements-list ul li {
-    padding: 10px 15px 10px 40px;
-    margin-bottom: 6px;
-    background: rgba(255, 255, 255, 0.20);
-    backdrop-filter: blur(4px);
-    border-radius: 10px;
-    border-left: 3px solid rgba(var(--brand-color-rgb), 0.3);
-    font-size: 0.95rem;
-    color: var(--text-light);
-    box-shadow: none;
-    position: relative;
-    transform: none !important;
-}
 
-.dark-theme .achievements-list ul li {
-    background: rgba(255, 255, 255, 0.05);
-    border-left-color: rgba(var(--brand-color-rgb), 0.5);
-}
 
-.achievements-list ul li::before {
-    content: "•";
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
-    height: auto;
-    background: transparent;
-    color: var(--brand-color);
-    font-size: 20px;
-    border-radius: 0;
-    display: block;
-    border: none;
-}
 
-.achievements-list ul li:hover {
-    background: rgba(255, 255, 255, 0.35);
-    transform: translateX(4px) !important;
-    border-left-color: var(--brand-color);
-}
 
-.dark-theme .achievements-list ul li:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ============================================================
    КОНТАКТЫ и РЕСУРСЫ
@@ -1012,13 +902,7 @@ main a:hover {
     color: #241d17;
 }
 
-.contacts-list-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 800px;
-    margin: 30px auto;
-}
+
 
 /* ============================================================
    ПОДВАЛ
@@ -1041,7 +925,7 @@ footer {
 }
 
 .copyright {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
     color: var(--text-muted);
     padding: 10px;
     font-size: 0.9rem;
@@ -1216,7 +1100,7 @@ footer {
 .publications-table .btn-sm:hover{
     background:var(--btn-hover-bg);
     color:var(--brand-color);
-    box-shadow:0 4px 12px rgba(var(--brand-color-rgb),.12);
+    box-shadow:0 4px 12px rgba(var(--brand-color-rgb),.065);
 }
 
 .publications-table .btn-sm:active{
@@ -1348,12 +1232,7 @@ footer {
     flex: 1 1 200px;
 }
 
-.result-count {
-    font-weight: 500;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    white-space: nowrap;
-}
+
 
 #clearFilters {
     display: inline-flex;
@@ -1442,12 +1321,8 @@ footer {
     color: white;
 }
 
-.notification.success .notification-icon {
-    background: #2e7d32;
-}
-.notification.error .notification-icon {
-    background: #c62828;
-}
+
+
 
 .notification-text {
     flex: 1;
@@ -1694,21 +1569,9 @@ footer {
         display: block;
     }
 
-    .achievements-list li,
-    .numbered-list li {
-        padding: 12px 15px 12px 45px;
-        font-size: 0.9rem;
-    }
-    .achievements-list li::before,
-    .numbered-list li::before {
-        width: 20px;
-        height: 20px;
-        font-size: 11px;
-        left: 14px;
-    }
-    .numbered-list li::before {
-        top: 14px;
-    }
+    
+    
+    
 
     .contacts-container {
         grid-template-columns: 1fr;
@@ -1816,10 +1679,7 @@ footer {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23b8aea5' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
     }
 
-    .result-count {
-        margin-left: 0;
-        text-align: center;
-    }
+    
     /* сброс — компактная ссылка-кнопка справа, а не растянутый блок */
     #clearFilters {
         justify-self: end;
@@ -2908,10 +2768,7 @@ footer {
     gap: 14px;
     margin: 14px 0 20px;
 }
-.lwm-image-slots-single {
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 420px;
-}
+
 
 .lwm-image-slot {
     margin: 0;
@@ -2925,9 +2782,7 @@ footer {
     box-shadow: var(--shadow-sm);
     overflow: hidden;
 }
-.lwm-image-slots-single .lwm-image-slot-media {
-    aspect-ratio: 4 / 3;
-}
+
 .lwm-image-slot-media img {
     display: block;
     width: 100%;
@@ -3167,58 +3022,21 @@ footer {
 }
 
 /* ----- Кнопка сворачивания секции ----- */
-.lwm-collapse-toggle {
-    -webkit-appearance: none;
-    appearance: none;
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 12px;
-    border: 1px solid var(--glass-border);
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 2px;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
 
-.lwm-collapse-toggle:hover {
-    background: var(--brand-light);
-}
 
-.lwm-collapse-toggle svg {
-    width: 18px;
-    height: 18px;
-    transition: transform 0.25s ease;
-}
 
-.lwm-collapse-toggle[aria-expanded="false"] svg {
-    transform: rotate(-90deg);
-}
+
+
+
+
 
 /* ----- Тело секции: сворачивается плавно через grid-template-rows,
    без JS-измерения высоты (0fr/1fr — надёжный CSS-приём) ----- */
-.lwm-collapse {
-    display: grid;
-    grid-template-rows: 1fr;
-    transition: grid-template-rows 0.3s ease;
-}
 
-.lwm-collapse-inner {
-    overflow: hidden;
-    min-height: 0;
-}
 
-.lwm-theory.is-collapsed .lwm-collapse,
-.lwm-calculator.is-collapsed .lwm-collapse {
-    grid-template-rows: 0fr;
-}
+
+
+
 
 /* ----- Условие задачи: "Дано / Нужно найти" ----- */
 .lwm-task {
@@ -3265,12 +3083,7 @@ footer {
    попасть туда, где нужно, сворачивание — чтобы убрать то, что сейчас
    не нужно. Разные задачи, обе полезны на длинной странице.
    Кнопки — те же .btn-primary/.btn-secondary, что и на главной. */
-.lwm-jumplinks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 0 0 28px;
-}
+
 
 /* Поля формы */
 
@@ -4104,8 +3917,7 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     margin: 0 0 18px;
 }
 
-.lwm-panel-kicker,
-.lwm-section-kicker {
+.lwm-panel-kicker{
     display: block;
     margin-bottom: 7px;
     color: var(--brand-color);
@@ -4129,173 +3941,60 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     line-height: 1.6;
 }
 
-.lwm-panel-cta {
-    margin-top: 20px;
-    margin-bottom: 32px;
-}
 
-.lwm-model-steps {
-    display: grid;
-    gap: 14px;
-    margin: 26px 0;
-}
 
-.lwm-model-step {
-    display: grid;
-    grid-template-columns: 38px minmax(0, 1fr);
-    gap: 14px;
-    align-items: start;
-    padding: 17px 18px;
-    border: 1px solid var(--glass-border);
-    border-radius: 14px;
-    background: rgba(var(--brand-color-rgb), .025);
-}
 
-.lwm-model-step > span {
-    display: grid;
-    place-items: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 11px;
-    background: var(--brand-light);
-    border: 1px solid var(--brand-border);
-    color: var(--brand-color);
-    font-size: .78rem;
-    font-weight: 700;
-}
 
-.lwm-model-step strong {
-    display: block;
-    margin: 2px 0 6px;
-    color: var(--text-primary);
-    font-weight: 600;
-}
 
-.lwm-model-step p {
-    margin: 0 !important;
-    text-align: left !important;
-}
 
-.lwm-model-step .theory-eq {
-    margin: 13px 0 2px;
-}
 
-.lwm-note {
-    margin-top: 20px;
-    padding: 14px 17px;
-    border-left: 3px solid var(--brand-color);
-    border-radius: 0 12px 12px 0;
-    background: var(--brand-light);
-    color: var(--text-secondary);
-    line-height: 1.55;
-}
 
-.lwm-note strong {
-    color: var(--brand-color);
-}
 
-.lwm-teacher-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin: 24px 0 34px;
-}
 
-.lwm-method-card {
-    position: relative;
-    display: grid;
-    grid-template-columns: 38px minmax(0, 1fr);
-    gap: 14px;
-    padding: 20px;
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    background: var(--card-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: var(--shadow-sm);
-}
 
-.lwm-method-card-featured {
-    grid-column: 1 / -1;
-    background: var(--brand-light);
-    border-color: var(--brand-border);
-}
 
-.lwm-method-number {
-    display: grid;
-    place-items: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 11px;
-    background: var(--brand-light);
-    border: 1px solid var(--brand-border);
-    color: var(--brand-color);
-    font-size: .78rem;
-    font-weight: 700;
-}
 
-.lwm-method-card-featured .lwm-method-number {
-    background: var(--card-bg);
-}
 
-.lwm-method-card h3 {
-    margin: 1px 0 8px !important;
-    color: var(--text-primary);
-    font-size: 1.03rem;
-    text-align: left !important;
-}
 
-.lwm-method-card p {
-    margin: 0 !important;
-    color: var(--text-secondary);
-    text-align: left !important;
-    line-height: 1.6;
-}
 
-.lwm-method-card ul,
-.lwm-method-card ol {
-    margin: 0;
-    padding-left: 20px;
-    color: var(--text-secondary);
-    line-height: 1.65;
-}
 
-.lwm-method-card li + li {
-    margin-top: 5px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .lwm-teacher-calculator {
     padding-top: 4px;
 }
 
-.lwm-grid-three {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 
-.lwm-grid-three .lwm-card {
-    min-width: 0;
-}
 
-.lwm-grid-three .lwm-fields {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 
-.lwm-grid-three .lwm-fields input {
-    min-width: 0;
-}
+
+
+
+
 
 @media (max-width: 900px) {
-    .lwm-teacher-grid {
-        grid-template-columns: 1fr;
-    }
+    
 
-    .lwm-method-card-featured {
-        grid-column: auto;
-    }
+    
 
-    .lwm-grid-three {
-        grid-template-columns: 1fr;
-    }
+    
 }
 
 @media (max-width: 640px) {
@@ -4311,24 +4010,11 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
         font-size: 1.42rem !important;
     }
 
-    .lwm-model-step,
-    .lwm-method-card {
-        grid-template-columns: 32px minmax(0, 1fr);
-        gap: 11px;
-        padding: 15px;
-    }
+    
 
-    .lwm-model-step > span,
-    .lwm-method-number {
-        width: 32px;
-        height: 32px;
-        border-radius: 9px;
-        font-size: .72rem;
-    }
+    
 
-    .lwm-grid-three .lwm-fields {
-        grid-template-columns: 1fr;
-    }
+    
 }
 
 /* ============================================================
@@ -4487,38 +4173,13 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     padding: 18px;
 }
 
-.lwm-console-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-}
 
-.lwm-console-kicker {
-    display: block;
-    margin-bottom: 3px;
-    color: var(--brand-color);
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .5px;
-    text-transform: uppercase;
-}
 
-.lwm-console-head h2 {
-    margin: 0 !important;
-    font-size: 1.12rem !important;
-}
 
-.lwm-console-status {
-    flex-shrink: 0;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--glass-border);
-    background: var(--btn-bg);
-    color: var(--text-muted);
-    font-size: .76rem;
-    font-weight: 600;
-}
+
+
+
+
 
 .lwm-teacher-console .lwm-result-output {
     min-height: 62px;
@@ -4573,14 +4234,9 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
         grid-template-columns: 1fr;
     }
 
-    .lwm-console-head {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+    
 
-    .lwm-console-status {
-        align-self: flex-start;
-    }
+    
 }
 
 
@@ -4590,7 +4246,7 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
    плотность текста и поля, что и в других разделах сайта.
    ============================================================ */
 
-.lwm-teacher-grid .lwm-method-card,
+
 .lwm-az-point,
 .lwm-teacher-console {
     border: 1px solid var(--glass-border);
@@ -4601,35 +4257,15 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     box-shadow: var(--shadow-sm);
 }
 
-.lwm-teacher-grid .lwm-method-card {
-    padding: 22px;
-}
 
-.lwm-method-card h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-}
 
-.lwm-method-card p,
-.lwm-method-card li {
-    font-size: .95rem;
-    font-weight: 400;
-}
 
-.lwm-method-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    font-size: .82rem;
-    font-weight: 600;
-    background: var(--brand-light);
-    border: 1px solid var(--brand-border);
-}
 
-.lwm-method-card-featured {
-    background: var(--brand-light);
-    border-color: var(--brand-border);
-}
+
+
+
+
+
 
 /* Три объекта — единая табличная рабочая область, но без
    визуально тяжёлой HTML-таблицы. Каждый столбец повторяет
@@ -4724,30 +4360,13 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     margin-top: 22px;
 }
 
-.lwm-console-head {
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--glass-border);
-}
 
-.lwm-console-kicker {
-    font-size: .76rem;
-    font-weight: 600;
-}
 
-.lwm-console-head h2 {
-    font-size: 1.2rem !important;
-    font-weight: 600;
-}
 
-.lwm-console-status {
-    padding: 6px 11px;
-    border-radius: 10px;
-    border: 1px solid var(--glass-border);
-    background: var(--btn-bg);
-    font-size: .82rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-}
+
+
+
+
 
 .lwm-teacher-console .lwm-result-output {
     min-height: 68px;
@@ -4775,13 +4394,11 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 900px) {
-    .lwm-az-table {
-        grid-template-columns: 1fr;
-    }
+    
 }
 
 @media (max-width: 640px) {
-    .lwm-teacher-grid .lwm-method-card,
+    
     .lwm-az-point,
     .lwm-teacher-console {
         padding: 18px;
@@ -4842,8 +4459,7 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
 }
 
 /* Внутренние карточки ЛРМ повторяют обычные карточки сайта. */
-.lwm-model-step,
-.lwm-method-card,
+
 .lwm-az-point,
 .lwm-teacher-console,
 .lwm-card,
@@ -4853,8 +4469,7 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     box-shadow: var(--shadow-sm);
 }
 
-.lwm-model-step > span,
-.lwm-method-number,
+
 .lwm-az-point-number {
     background: var(--brand-light);
     border-color: var(--brand-border);
@@ -4862,7 +4477,7 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     font-weight: 700;
 }
 
-.lwm-method-card-featured,
+
 .lwm-az-point-target {
     background: var(--brand-light);
     border-color: var(--brand-border);
@@ -4870,10 +4485,8 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
 
 /* Типографика не должна быть легче, чем в остальных разделах сайта. */
 .lwm-panel-kicker,
-.lwm-section-kicker,
 .lwm-panel-intro h2,
 .lwm-section-header h2,
-.lwm-method-card h3,
 .lwm-az-point h3,
 .lwm-card h2,
 .lwm-result-card h2 {
@@ -4881,8 +4494,6 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
 }
 
 .lwm-panel-intro p,
-.lwm-method-card p,
-.lwm-method-card li,
 .lwm-description,
 .lwm-az-point .lwm-fields label,
 .lwm-fields label {
@@ -4915,9 +4526,7 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     box-shadow: 0 3px 14px rgba(var(--brand-color-rgb), .12);
 }
 
-.dark-theme .lwm-az-point .lwm-fields input:focus {
-    background: rgba(255,255,255,.08);
-}
+
 
 /* Кнопки — строго по центру, как CTA и другие группы действий сайта. */
 .lwm-teacher-calculator .lwm-actions {
@@ -4983,14 +4592,10 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
     font-weight: 400;
 }
 
-.lwm-teacher-console .lwm-history-item:last-child {
-    border-bottom: 0;
-}
+
 
 @media (max-width: 900px) {
-    .lwm-az-table {
-        grid-template-columns: 1fr;
-    }
+    
 }
 
 @media (max-width: 640px) {
@@ -5009,8 +4614,6 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
 
 /* ЛРМ — приглушённые поверхности для тёмных цветовых схем */
 .dark-theme .lwm-audience-shell,
-.dark-theme .lwm-model-step,
-.dark-theme .lwm-method-card,
 .dark-theme .lwm-az-point,
 .dark-theme .lwm-teacher-console,
 .dark-theme .lwm-card,
@@ -5030,10 +4633,7 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
 }
 
 .dark-theme .lwm-audience-icon,
-.dark-theme .lwm-model-step > span,
-.dark-theme .lwm-method-number,
 .dark-theme .lwm-az-point-number,
-.dark-theme .lwm-method-card-featured,
 .dark-theme .lwm-az-point-target {
     background: rgba(var(--brand-color-rgb), .075);
     border-color: rgba(var(--brand-color-rgb), .20);
@@ -5124,4 +4724,1823 @@ html.dark-theme .pwa-modal-inner::-webkit-scrollbar-thumb {
 
 .dark-theme .lwm-teacher-notice p {
     color: #e5b2af;
+}
+
+/* ============================================================
+   ЛРМ — расширенный методический текст учительского раздела
+   ============================================================ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 640px) {
+    
+
+    
+}
+
+/* ============================================================
+   ЛРМ — переработанный учительский раздел
+   Структура построена вокруг сценария занятия, а не вокруг
+   длинной последовательности одинаковых текстовых карточек.
+   ============================================================ */
+.lwm-teacher-lead,
+.lwm-teacher-section,
+.lwm-teacher-sources-card {
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.lwm-teacher-lead {display:block;margin:24px 0 18px;padding:24px 26px;border-color:var(--brand-border);background:var(--brand-light)}
+.lwm-teacher-lead h3 {margin:0 0 12px!important}
+.lwm-teacher-lead>p {padding-top:0}
+.lwm-teacher-label {display:block;margin-bottom:7px;color:var(--brand-color);font-size:.74rem;font-weight:700;letter-spacing:.08em;line-height:1.3;text-transform:uppercase}
+.lwm-teacher-lead h3,.lwm-teacher-section-head h3,.lwm-teacher-info-card h3,.lwm-teacher-sources-card h3 {margin:0!important;color:var(--text-primary);text-align:left!important;font-size:1.25rem;line-height:1.3;font-weight:700}
+.lwm-teacher-lead>p,.lwm-teacher-section-head>p,.lwm-teacher-info-card p,.lwm-teacher-section p,.lwm-teacher-sources-card p {margin:0!important;color:var(--text-secondary);font-size:.95rem;line-height:1.68;text-align:left!important}
+.lwm-teacher-lead>p{padding-top:3px}
+.lwm-teacher-section{margin:18px 0;padding:24px 26px}
+.lwm-teacher-section-head{display:block;margin-bottom:20px}
+.lwm-teacher-section-head>p{padding:0;margin-top:10px!important}
+.lwm-teacher-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.lwm-teacher-flow-card{min-width:0;padding:18px;border:1px solid var(--glass-border);border-radius:14px;background:rgba(var(--brand-color-rgb),.025)}
+.lwm-teacher-flow-number{display:grid;place-items:center;width:34px;height:34px;margin-bottom:15px;border-radius:10px;background:var(--brand-light);border:1px solid var(--brand-border);color:var(--brand-color);font-size:.76rem;font-weight:700}
+.lwm-teacher-flow-card h4,.lwm-teacher-focus h4{margin:0 0 8px!important;color:var(--text-primary);font-size:.98rem;line-height:1.35;font-weight:700;text-align:left!important}
+.lwm-teacher-flow-card p,.lwm-teacher-focus p{margin:0!important;color:var(--text-secondary);font-size:.88rem;line-height:1.6;text-align:left!important}
+
+.lwm-teacher-formation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.lwm-teacher-formation .lwm-teacher-info-card{height:100%;box-sizing:border-box}.lwm-teacher-career{margin-top:12px;padding:20px 22px;border:1px solid var(--brand-border);border-radius:16px;background:var(--brand-light)}.lwm-teacher-career h3{margin:0 0 9px!important;color:var(--text-primary);font-size:1.05rem;line-height:1.35}.lwm-teacher-career p{margin:0!important;color:var(--text-secondary);font-size:.92rem;line-height:1.65;text-align:left!important}
+.lwm-teacher-info-card{padding:23px 24px;border:1px solid var(--glass-border);border-radius:18px;background:var(--card-bg);box-shadow:var(--shadow-sm)}
+.lwm-teacher-info-card p+p{margin-top:12px!important}.lwm-teacher-info-card h3{margin-bottom:12px!important}.lwm-teacher-info-card-accent{border-color:var(--brand-border);background:var(--brand-light)}
+.lwm-teacher-focus{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.lwm-teacher-focus article{padding:18px 18px 17px;border-top:2px solid var(--brand-color);border-radius:0 0 14px 14px;background:rgba(var(--brand-color-rgb),.025)}
+.lwm-teacher-checks{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}.lwm-teacher-checks p{padding:15px 0;border-top:1px solid var(--glass-border)}.lwm-teacher-checks strong{color:var(--text-primary);font-weight:700}
+.lwm-teacher-rubric{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:4px 0 16px}.lwm-teacher-rubric div{min-width:0;padding:13px 12px;border-radius:12px;background:var(--brand-light);border:1px solid var(--brand-border)}.lwm-teacher-rubric strong{display:block;margin-bottom:5px;color:var(--brand-color);font-size:.76rem;font-weight:700}.lwm-teacher-rubric span{display:block;color:var(--text-secondary);font-size:.8rem;line-height:1.45}.lwm-teacher-assessment-note{padding-top:15px;border-top:1px solid var(--glass-border)}
+.lwm-teacher-results{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:28px;align-items:center}.lwm-teacher-result-main p{margin-top:12px!important}.lwm-teacher-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.lwm-teacher-stats div{padding:14px 15px;border-radius:13px;background:rgba(var(--brand-color-rgb),.035);border:1px solid var(--glass-border)}.lwm-teacher-stats strong{display:block;color:var(--brand-color);font-size:1.25rem;line-height:1.1}.lwm-teacher-stats span{display:block;margin-top:5px;color:var(--text-secondary);font-size:.78rem;line-height:1.4}
+.lwm-teacher-sources-card{display:flex;justify-content:space-between;align-items:center;gap:24px;margin:18px 0 34px;padding:20px 22px;border-color:var(--brand-border);background:var(--brand-light)}.lwm-teacher-sources-card h3{font-size:1.05rem;margin-bottom:7px!important}.lwm-teacher-sources-card p{font-size:.88rem;max-width:780px}.lwm-teacher-science-link{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:9px 15px;border:1px solid var(--brand-border);border-radius:11px;background:var(--card-bg);color:var(--brand-color);font-size:.88rem;font-weight:700;text-decoration:none;transition:transform .18s ease,background .18s ease}.lwm-teacher-science-link:hover{transform:translateY(-1px);background:var(--card-hover)}
+.dark-theme .lwm-teacher-lead,.dark-theme .lwm-teacher-info-card-accent,.dark-theme .lwm-teacher-sources-card{background:rgba(var(--brand-color-rgb),.04)}.dark-theme .lwm-teacher-flow-card,.dark-theme .lwm-teacher-focus article,.dark-theme .lwm-teacher-stats div{background:rgba(255,255,255,.025)}.dark-theme .lwm-teacher-rubric div{background:rgba(var(--brand-color-rgb),.07)}
+@media (max-width:980px){.lwm-teacher-results{grid-template-columns:1fr}.lwm-teacher-formation{grid-template-columns:1fr 1fr}.lwm-teacher-rubric{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){.lwm-teacher-section,.lwm-teacher-lead,.lwm-teacher-info-card{padding:18px}.lwm-teacher-formation,.lwm-teacher-focus,.lwm-teacher-checks{grid-template-columns:1fr}.lwm-teacher-flow{grid-template-columns:1fr}.lwm-teacher-rubric{grid-template-columns:1fr 1fr}.lwm-teacher-sources-card{align-items:flex-start;flex-direction:column}}
+
+
+/* ЛРМ — точечная настройка методического раздела */
+.lwm-teacher-flow-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.lwm-teacher-flow-number{flex:0 0 34px;margin:0;display:grid;place-items:center;width:34px;height:34px}
+.lwm-teacher-flow-card h4{margin:0!important}
+.lwm-teacher-checks{gap:10px 18px}
+.lwm-teacher-checks p{margin:0!important;padding:14px 16px;border:1px solid var(--glass-border);border-radius:12px;background:rgba(var(--brand-color-rgb),.025);line-height:1.6}
+.dark-theme .lwm-teacher-checks p{background:rgba(255,255,255,.025)}
+.lwm-teacher-rubric div{display:grid;grid-template-columns:28px minmax(0,1fr);align-items:center;gap:5px;padding:11px 10px}
+.lwm-teacher-rubric strong{display:flex;align-items:center;justify-content:flex-start;margin:0;color:var(--brand-color);font-size:.76rem;font-weight:700}
+.lwm-teacher-rubric span{margin:0}
+@media (max-width:700px){.lwm-teacher-checks{gap:8px}.lwm-teacher-rubric div{grid-template-columns:28px minmax(0,1fr);gap:5px}}
+
+
+/* ============================================================
+   LIQUID GLASS — REFINED 2026
+   Идея исходного варианта сохранена: спокойный фон + aurora-свечение,
+   полупрозрачные поверхности, blur, тонкая световая кромка и мягкая
+   глубина. Здесь это собрано в единый слой без изменения разметки.
+   ============================================================ */
+
+:root {
+    --bg-page: rgba(255,255,255,.50);
+    --card-bg: rgba(255,255,255,.42);
+    --card-hover: rgba(255,255,255,.58);
+    --glass-border: rgba(255,255,255,.58);
+    --table-row-hover: rgba(255,255,255,.48);
+    --notif-bg: rgba(255,255,255,.78);
+    --notif-border: rgba(255,255,255,.62);
+    --liquid-stroke: rgba(255,255,255,.52);
+    --liquid-highlight: rgba(255,255,255,.72);
+    --shadow-sm: 0 8px 24px rgba(15,23,42,.055), inset 0 1px 0 rgba(255,255,255,.62);
+    --shadow-md: 0 16px 44px rgba(15,23,42,.085), inset 0 1px 0 rgba(255,255,255,.66);
+    --shadow-lg: 0 28px 80px rgba(15,23,42,.13), inset 0 1px 0 rgba(255,255,255,.70);
+}
+
+html.dark-theme {
+    --bg-page: rgba(12,17,27,.62);
+    --card-bg: rgba(255,255,255,.065);
+    --card-hover: rgba(255,255,255,.105);
+    --glass-border: rgba(255,255,255,.13);
+    --table-row-hover: rgba(255,255,255,.075);
+    --notif-bg: rgba(15,19,28,.86);
+    --notif-border: rgba(255,255,255,.14);
+    --text-primary: #f5f7fb;
+    --text-secondary: #dce2ec;
+    --text-muted: #a4adbd;
+    --text-light: #d4dbe6;
+    --liquid-stroke: rgba(255,255,255,.13);
+    --liquid-highlight: rgba(255,255,255,.10);
+    --shadow-sm: 0 10px 28px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.06);
+    --shadow-md: 0 16px 50px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.07);
+    --shadow-lg: 0 28px 90px rgba(0,0,0,.40), inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background:rgba(var(--brand-color-rgb),.22); color:var(--text-primary); }
+:focus-visible { outline:2px solid rgba(var(--brand-color-rgb),.68); outline-offset:3px; }
+
+/* Aurora остаётся за стеклом, а не превращается в ещё один контентный слой. */
+body::after {
+    content:"";
+    position:fixed;
+    inset:-14vmax;
+    z-index:-1;
+    pointer-events:none;
+    opacity:.58;
+    background:
+        radial-gradient(circle at 16% 10%, rgba(var(--brand-color-rgb),.20), transparent 30%),
+        radial-gradient(circle at 88% 16%, rgba(94,200,232,.14), transparent 29%),
+        radial-gradient(circle at 72% 88%, rgba(242,120,154,.10), transparent 31%),
+        radial-gradient(circle at 10% 82%, rgba(79,212,138,.09), transparent 30%);
+    filter:blur(42px) saturate(1.15);
+}
+html.dark-theme body::after { opacity:.28; filter:blur(46px) saturate(1.2) brightness(.72); }
+
+/* Страница — не слишком узкая: стекло должно обрамлять контент, а не сжимать его. */
+#page {
+    background:linear-gradient(145deg, rgba(255,255,255,.52), rgba(255,255,255,.32));
+    border-color:rgba(255,255,255,.58);
+    box-shadow:
+        0 30px 90px rgba(15,23,42,.13),
+        0 2px 12px rgba(15,23,42,.045),
+        inset 0 1px 0 rgba(255,255,255,.78),
+        inset 0 -1px 0 rgba(15,23,42,.025);
+    backdrop-filter:blur(30px) saturate(1.35);
+    -webkit-backdrop-filter:blur(30px) saturate(1.35);
+}
+html.dark-theme #page {
+    background:linear-gradient(145deg, rgba(17,24,39,.66), rgba(17,24,39,.46));
+    border-color:rgba(255,255,255,.14);
+    box-shadow:0 30px 90px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.09);
+}
+
+/* Единая поверхность. Не задаём здесь transform — карточки остаются в своих
+   исходных layout-контекстах. */
+.contact-card,
+.contact-item,
+.stats-grid .contact-card,
+.research-grid .contact-card,
+.page-tile,
+.result-count-header,
+.theme-panel,
+.filter-bar,
+.table-wrapper,
+.lwm-card,
+.theory-card,
+.pwa-trigger,
+.pwa-modal-inner,
+.lwm-teacher-section,
+.lwm-teacher-info-card,
+.lwm-teacher-flow-card,
+.lwm-teacher-checks p,
+.lwm-teacher-stats div,
+.lwm-teacher-rubric div,
+.lwm-teacher-focus article {
+    background:linear-gradient(145deg, rgba(255,255,255,.44), rgba(255,255,255,.22));
+    border-color:var(--liquid-stroke);
+    box-shadow:var(--shadow-sm), inset 0 1px 0 var(--liquid-highlight);
+    backdrop-filter:blur(16px) saturate(1.28);
+    -webkit-backdrop-filter:blur(16px) saturate(1.28);
+}
+
+html.dark-theme .contact-card,
+html.dark-theme .contact-item,
+html.dark-theme .stats-grid .contact-card,
+html.dark-theme .research-grid .contact-card,
+html.dark-theme .page-tile,
+html.dark-theme .result-count-header,
+html.dark-theme .theme-panel,
+html.dark-theme .filter-bar,
+html.dark-theme .table-wrapper,
+html.dark-theme .lwm-card,
+html.dark-theme .theory-card,
+html.dark-theme .pwa-trigger,
+html.dark-theme .pwa-modal-inner,
+html.dark-theme .lwm-teacher-section,
+html.dark-theme .lwm-teacher-info-card,
+html.dark-theme .lwm-teacher-flow-card,
+html.dark-theme .lwm-teacher-checks p,
+html.dark-theme .lwm-teacher-stats div,
+html.dark-theme .lwm-teacher-rubric div,
+html.dark-theme .lwm-teacher-focus article {
+    background:linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.038));
+    border-color:rgba(255,255,255,.12);
+    box-shadow:var(--shadow-sm);
+}
+
+/* Навигация остаётся компактной панелью, а не гигантской pill-капсулой. */
+nav {
+    background:rgba(255,255,255,.28);
+    border-color:var(--liquid-stroke);
+    box-shadow:var(--shadow-sm), inset 0 1px 0 var(--liquid-highlight);
+    backdrop-filter:blur(18px) saturate(1.3);
+    -webkit-backdrop-filter:blur(18px) saturate(1.3);
+}
+html.dark-theme nav { background:rgba(255,255,255,.045); border-color:rgba(255,255,255,.11); }
+
+nav ul { border:0; background:transparent; box-shadow:none; }
+nav li a { border-radius:12px; }
+nav li.active a {
+    background:rgba(var(--brand-color-rgb),.11);
+    border:1px solid rgba(var(--brand-color-rgb),.24);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.42), 0 7px 20px rgba(var(--brand-color-rgb),.045);
+}
+html.dark-theme nav li.active a {
+    background:rgba(var(--brand-color-rgb),.15);
+    border-color:rgba(var(--brand-color-rgb),.30);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 8px 22px rgba(0,0,0,.20);
+}
+
+/* Основная кнопка — насыщенное стекло, вторичная — нейтральное стекло. */
+#content .btn-primary {
+    border:1px solid rgba(255,255,255,.25);
+    background:linear-gradient(135deg,
+        color-mix(in srgb, var(--brand-color) 76%, white),
+        var(--brand-color) 54%,
+        color-mix(in srgb, var(--brand-color) 84%, black));
+    box-shadow:0 12px 30px rgba(var(--brand-color-rgb),.25), inset 0 1px 0 rgba(255,255,255,.32);
+}
+#content .btn-secondary {
+    background:rgba(255,255,255,.30);
+    border-color:var(--liquid-stroke);
+    box-shadow:var(--shadow-sm), inset 0 1px 0 var(--liquid-highlight);
+    backdrop-filter:blur(14px) saturate(1.25);
+    -webkit-backdrop-filter:blur(14px) saturate(1.25);
+}
+html.dark-theme #content .btn-secondary { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.12); }
+
+/* Текст не должен становиться «стеклянным»: контраст важнее эффекта. */
+main h1, .content-header h1, .hero-name { letter-spacing:-.045em; line-height:1.08; text-wrap:balance; }
+main h2, main h3, .contacts-container .contact-info h3, .lwm-section-header { letter-spacing:-.025em; text-wrap:balance; }
+main p, .hero-info p, .contact-info p, .lwm-teacher-info-card p { line-height:1.72; }
+main a { border-bottom-style:solid; border-color:rgba(var(--brand-color-rgb),.28); text-underline-offset:3px; }
+
+/* Поля — стекло, но с нормальным focus state. */
+.filter-group select,
+.filter-group input,
+.lwm-fields input,
+.lwm-fields select,
+.lwm-audience-tab,
+.lwm-button-ghost {
+    background-color:rgba(255,255,255,.28);
+    border-color:var(--liquid-stroke);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.48), var(--shadow-sm);
+}
+html.dark-theme .filter-group select,
+html.dark-theme .filter-group input,
+html.dark-theme .lwm-fields input,
+html.dark-theme .lwm-fields select,
+html.dark-theme .lwm-audience-tab,
+html.dark-theme .lwm-button-ghost {
+    background-color:rgba(255,255,255,.055);
+    border-color:rgba(255,255,255,.12);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05), var(--shadow-sm);
+}
+.filter-group select:focus,
+.filter-group input:focus,
+.lwm-fields input:focus,
+.lwm-fields select:focus {
+    border-color:rgba(var(--brand-color-rgb),.58);
+    box-shadow:0 0 0 4px rgba(var(--brand-color-rgb),.065), inset 0 1px 0 rgba(255,255,255,.5), var(--shadow-sm);
+}
+
+.logo img { filter:drop-shadow(0 7px 16px rgba(15,23,42,.09)) saturate(1.03); }
+.social-icon img, .contact-icon img, .page-tile-icon img { filter:drop-shadow(0 4px 9px rgba(15,23,42,.09)); }
+html.dark-theme .social-icon img, html.dark-theme .contact-icon img, html.dark-theme .page-tile-icon img { filter:drop-shadow(0 4px 9px rgba(0,0,0,.30)); }
+
+footer {
+    border-top:1px solid transparent;
+    background:linear-gradient(90deg, transparent, rgba(var(--brand-color-rgb),.16), transparent) top / 100% 1px no-repeat;
+}
+
+@media (hover:hover) and (pointer:fine) {
+    .contact-card:hover,
+    .contact-item:hover,
+    .stats-grid .contact-card:hover,
+    .research-grid .contact-card:hover,
+    .page-tile:hover,
+    .lwm-card:hover,
+    .theory-card:hover,
+    .pwa-trigger:hover,
+    .lwm-teacher-info-card:hover,
+    .lwm-teacher-flow-card:hover {
+        background:linear-gradient(145deg, rgba(255,255,255,.54), rgba(255,255,255,.30));
+        border-color:rgba(var(--brand-color-rgb),.22);
+        box-shadow:var(--shadow-md), inset 0 1px 0 var(--liquid-highlight);
+    }
+    html.dark-theme .contact-card:hover,
+    html.dark-theme .contact-item:hover,
+    html.dark-theme .stats-grid .contact-card:hover,
+    html.dark-theme .research-grid .contact-card:hover,
+    html.dark-theme .page-tile:hover,
+    html.dark-theme .lwm-card:hover,
+    html.dark-theme .theory-card:hover,
+    html.dark-theme .pwa-trigger:hover,
+    html.dark-theme .lwm-teacher-info-card:hover,
+    html.dark-theme .lwm-teacher-flow-card:hover {
+        background:linear-gradient(145deg, rgba(255,255,255,.105), rgba(255,255,255,.052));
+        border-color:rgba(var(--brand-color-rgb),.26);
+        box-shadow:var(--shadow-md);
+    }
+    #content .btn-primary:hover { box-shadow:0 16px 38px rgba(var(--brand-color-rgb),.32), inset 0 1px 0 rgba(255,255,255,.38); }
+}
+
+@media (max-width:768px) {
+    #page {
+        background:linear-gradient(145deg, rgba(255,255,255,.48), rgba(255,255,255,.27));
+        box-shadow:0 18px 58px rgba(15,23,42,.11), inset 0 1px 0 rgba(255,255,255,.58);
+        backdrop-filter:blur(20px) saturate(1.22);
+        -webkit-backdrop-filter:blur(20px) saturate(1.22);
+    }
+    html.dark-theme #page { background:linear-gradient(145deg, rgba(17,24,39,.62), rgba(17,24,39,.42)); }
+    .contact-card, .contact-item, .stats-grid .contact-card, .research-grid .contact-card,
+    .page-tile, .lwm-card, .theory-card, .pwa-trigger, .lwm-teacher-section,
+    .lwm-teacher-info-card, .lwm-teacher-flow-card {
+        backdrop-filter:blur(10px) saturate(1.22);
+        -webkit-backdrop-filter:blur(10px) saturate(1.22);
+    }
+}
+
+@media (max-width:480px) {
+    body { padding:10px; }
+    #page { border-radius:20px; }
+}
+
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
+    :root { --bg-page:rgba(255,255,255,.90); --card-bg:rgba(255,255,255,.86); --card-hover:rgba(255,255,255,.94); }
+    html.dark-theme { --bg-page:rgba(17,24,39,.93); --card-bg:rgba(31,41,55,.88); --card-hover:rgba(31,41,55,.95); }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+    *,*::before,*::after { animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important; }
+}
+
+
+/* ============================================================
+   CALM GLASS — второй проход
+   Стекло используется как материал для крупных UI-поверхностей,
+   а не как эффект на каждом блоке.
+   ============================================================ */
+
+:root {
+    --glass-opacity: .42;
+    --glass-border-soft: rgba(255,255,255,.52);
+
+    --glass-shadow-soft:
+        0 10px 30px rgba(30,38,52,.055),
+        inset 0 1px 0 rgba(255,255,255,.62);
+}
+
+html.dark-theme {
+    --glass-opacity: .065;
+    --glass-border-soft: rgba(255,255,255,.105);
+
+    --glass-shadow-soft:
+        0 12px 34px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.055);
+}
+
+/* Фон теперь атмосферный, а не светящийся */
+body::after {
+    opacity: .55;
+}
+
+body::before {
+    opacity: calc(var(--bg-pattern-opacity) * .55);
+}
+
+/* Главный лист — спокойное матовое стекло */
+#page {
+    background: rgba(255,255,255,var(--glass-opacity));
+    border-color: var(--glass-border-soft);
+    box-shadow: var(--glass-shadow-soft);
+    backdrop-filter: blur(24px) saturate(1.04);
+    -webkit-backdrop-filter: blur(24px) saturate(1.04);
+}
+
+/* Убираем сильный блик */
+#page::before {
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,.10),
+        transparent 28%,
+        transparent 72%,
+        rgba(255,255,255,.025)
+    );
+}
+
+/* Навигация — одно из мест, где стекло действительно уместно */
+nav {
+    background: rgba(255,255,255,.30);
+    border-color: var(--glass-border-soft);
+    box-shadow: var(--glass-shadow-soft);
+    backdrop-filter: blur(18px) saturate(1.06);
+    -webkit-backdrop-filter: blur(18px) saturate(1.06);
+}
+
+.dark-theme nav {
+    background: rgba(255,255,255,.045);
+}
+
+nav li.active a {
+    background: rgba(255,255,255,.46);
+    border-color: rgba(255,255,255,.60);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+}
+
+.dark-theme nav li.active a {
+    background: rgba(255,255,255,.075);
+    border-color: rgba(255,255,255,.12);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+/* Карточки: меньше blur, меньше прозрачности и почти никакого glow */
+.stats-grid .contact-card,
+.research-grid .contact-card,
+.page-tile,
+.contacts-container .contact-item,
+.contacts-container .contact-card {
+    background: rgba(255,255,255,.28);
+    border-color: var(--glass-border-soft);
+    box-shadow: var(--glass-shadow-soft);
+    backdrop-filter: blur(13px) saturate(1.03);
+    -webkit-backdrop-filter: blur(13px) saturate(1.03);
+}
+
+.dark-theme .stats-grid .contact-card,
+.dark-theme .research-grid .contact-card,
+.dark-theme .page-tile,
+.dark-theme .contacts-container .contact-item,
+.dark-theme .contacts-container .contact-card {
+    background: rgba(255,255,255,.045);
+}
+
+.stats-grid .contact-card:hover,
+.research-grid .contact-card:hover,
+.page-tile:hover,
+.contacts-container .contact-item:hover,
+.contacts-container .contact-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.38);
+    border-color: rgba(var(--brand-color-rgb),.12);
+    box-shadow:
+        0 12px 30px rgba(30,38,52,.07),
+        inset 0 1px 0 rgba(255,255,255,.60);
+}
+
+.dark-theme .stats-grid .contact-card:hover,
+.dark-theme .research-grid .contact-card:hover,
+.dark-theme .page-tile:hover,
+.dark-theme .contacts-container .contact-item:hover,
+.dark-theme .contacts-container .contact-card:hover {
+    background: rgba(255,255,255,.075);
+    box-shadow:
+        0 14px 34px rgba(0,0,0,.24),
+        inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+/* Внутренние блики карточек почти незаметны */
+.stats-grid .contact-card::before,
+.research-grid .contact-card::before,
+.page-tile::before,
+.contacts-container .contact-item::before,
+.contacts-container .contact-card::before {
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.085),
+        transparent 32%
+    );
+}
+
+/* Контакты */
+.contact-icon {
+    background: rgba(var(--brand-color-rgb),.055);
+    border-right-color: rgba(var(--brand-color-rgb),.09);
+}
+
+/* Списки возвращаем ближе к обычному документу */
+
+
+
+
+/* Фильтры — функциональная панель, здесь стекло оправдано */
+.filter-bar {
+    background: rgba(255,255,255,.28);
+    border-color: var(--glass-border-soft);
+    box-shadow: var(--glass-shadow-soft);
+    backdrop-filter: blur(15px) saturate(1.04);
+    -webkit-backdrop-filter: blur(15px) saturate(1.04);
+}
+
+.dark-theme .filter-bar {
+    background: rgba(255,255,255,.045);
+}
+
+/* Таблица должна оставаться таблицей */
+.table-wrapper {
+    background: rgba(255,255,255,.13);
+    border-color: var(--glass-border-soft);
+    box-shadow: 0 8px 25px rgba(30,38,52,.045);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+}
+
+.dark-theme .table-wrapper {
+    background: rgba(255,255,255,.025);
+}
+
+.publications-table thead th {
+    background: rgba(255,255,255,.34);
+}
+
+.dark-theme .publications-table thead th {
+    background: rgba(255,255,255,.055);
+}
+
+/* Поля ввода */
+.filter-group select,
+.filter-group input,
+#clearFilters {
+    background: rgba(255,255,255,.24);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.38);
+}
+
+.dark-theme .filter-group select,
+.dark-theme .filter-group input,
+.dark-theme #clearFilters {
+    background: rgba(255,255,255,.045);
+}
+
+/* Кнопки: материал оставляем, ореол убираем */
+#content .btn-primary {
+    box-shadow:
+        0 6px 16px rgba(var(--brand-color-rgb),.12),
+        inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+#content .btn-primary:hover {
+    box-shadow:
+        0 8px 20px rgba(var(--brand-color-rgb),.16),
+        inset 0 1px 0 rgba(255,255,255,.24);
+}
+
+/* Фото — обычный объект */
+.hero-image .profile-photo {
+    box-shadow: 0 16px 34px rgba(25,35,55,.10);
+}
+
+.dark-theme .hero-image .profile-photo {
+    box-shadow: 0 18px 38px rgba(0,0,0,.24);
+}
+
+/* CTA — слегка акцентирован, но без сияния */
+.cta-band {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(var(--brand-color-rgb),.055),
+            rgba(255,255,255,.12)
+        );
+    border-color: rgba(var(--brand-color-rgb),.12);
+}
+
+/* Убираем лишнее свечение */
+nav li a:hover {
+    box-shadow: none;
+}
+
+nav li.active a:hover {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+/* На мобильном — ещё спокойнее */
+@media (max-width: 768px) {
+    #page {
+        backdrop-filter: blur(18px) saturate(1.02);
+        -webkit-backdrop-filter: blur(18px) saturate(1.02);
+    }
+
+    nav {
+        backdrop-filter: blur(13px) saturate(1.03);
+        -webkit-backdrop-filter: blur(13px) saturate(1.03);
+    }
+
+    .stats-grid .contact-card,
+    .research-grid .contact-card,
+    .page-tile,
+    .contacts-container .contact-item,
+    .contacts-container .contact-card {
+        backdrop-filter: blur(9px) saturate(1.02);
+        -webkit-backdrop-filter: blur(9px) saturate(1.02);
+    }
+}
+
+
+/* ============================================================
+   FINAL POLISH — публикации и выпадающие списки
+   Здесь стекло возвращается туда, где оно действительно уместно.
+   ============================================================ */
+
+/* Кнопки действий в таблице:
+   не белые/серые плашки, а компактные матовые стеклянные кнопки. */
+.publications-table .btn-sm {
+    position: relative;
+    height: 36px;
+    min-width: 100px;
+    padding: 0 15px;
+    border: 1px solid rgba(255,255,255,.15) !important;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.145),
+            rgba(255,255,255,.075)
+        ) !important;
+    color: var(--text-primary);
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.13),
+        inset 0 -1px 0 rgba(0,0,0,.07);
+    backdrop-filter: blur(14px) saturate(1.08);
+    -webkit-backdrop-filter: blur(14px) saturate(1.08);
+    transition:
+        background .18s ease,
+        border-color .18s ease,
+        color .18s ease,
+        transform .15s ease,
+        box-shadow .18s ease;
+}
+
+html:not(.dark-theme) .publications-table .btn-sm {
+    border-color: rgba(255,255,255,.55) !important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.64),
+            rgba(255,255,255,.38)
+        ) !important;
+    box-shadow:
+        0 5px 14px rgba(25,35,55,.07),
+        inset 0 1px 0 rgba(255,255,255,.78),
+        inset 0 -1px 0 rgba(30,40,55,.035);
+}
+
+.publications-table .btn-sm:hover {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.20),
+            rgba(255,255,255,.105)
+        ) !important;
+    border-color: rgba(var(--brand-color-rgb),.24) !important;
+    color: var(--brand-color);
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.16),
+        0 0 0 1px rgba(var(--brand-color-rgb),.025),
+        inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+html:not(.dark-theme) .publications-table .btn-sm:hover {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.76),
+            rgba(255,255,255,.48)
+        ) !important;
+    box-shadow:
+        0 8px 18px rgba(25,35,55,.09),
+        inset 0 1px 0 rgba(255,255,255,.86);
+}
+
+.publications-table .btn-sm:active {
+    transform: translateY(1px) scale(.985);
+}
+
+/* Уровень и действия теперь визуально принадлежат одной системе */
+.publications-table .level-badge {
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.14),
+        0 2px 7px rgba(0,0,0,.08);
+}
+
+/* ------------------------------------------------------------
+   SELECT / FILTERS
+   ------------------------------------------------------------ */
+
+/* Закрытое состояние select */
+.filter-group select,
+.lwm-fields select {
+    position: relative;
+    min-height: 38px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.115),
+            rgba(255,255,255,.055)
+        ) !important;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.10);
+    backdrop-filter: blur(14px) saturate(1.06);
+    -webkit-backdrop-filter: blur(14px) saturate(1.06);
+    color: var(--text-primary);
+    color-scheme: dark;
+}
+
+html:not(.dark-theme) .filter-group select,
+html:not(.dark-theme) .lwm-fields select {
+    border-color: rgba(255,255,255,.60);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.64),
+            rgba(255,255,255,.38)
+        ) !important;
+    box-shadow:
+        0 4px 12px rgba(25,35,55,.055),
+        inset 0 1px 0 rgba(255,255,255,.78);
+    color-scheme: light;
+}
+
+.filter-group select:hover,
+.lwm-fields select:hover {
+    border-color: rgba(var(--brand-color-rgb),.22);
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.12),
+        inset 0 1px 0 rgba(255,255,255,.13);
+}
+
+.filter-group select:focus,
+.lwm-fields select:focus {
+    border-color: rgba(var(--brand-color-rgb),.46) !important;
+    box-shadow:
+        0 0 0 3px rgba(var(--brand-color-rgb),.075),
+        0 6px 16px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.14);
+}
+
+/*
+ * Важно: открытый список <select> рисуется операционной системой /
+ * браузером. backdrop-filter на <option> практически нигде не
+ * поддерживается. Поэтому делаем native popup спокойным и
+ * согласованным с темой, вместо попытки имитировать стекло там,
+ * где движок его не даёт.
+ */
+.filter-group select option,
+.lwm-fields select option {
+    background: #252b35;
+    color: #f3f5f8;
+    padding: 8px 12px;
+}
+
+html:not(.dark-theme) .filter-group select option,
+html:not(.dark-theme) .lwm-fields select option {
+    background: #f7f8fa;
+    color: #20242b;
+}
+
+/* В браузерах, которые поддерживают стилизацию checked option */
+.filter-group select option:checked,
+.lwm-fields select option:checked {
+    background: var(--brand-color);
+    color: #fff;
+}
+
+/* Убираем старую коричнево-фиолетовую окраску */
+.dark-theme .filter-group select option {
+    background: #252b35;
+    color: #f3f5f8;
+}
+
+/* Кастомная стрелка остаётся нейтральной и тонкой */
+.filter-group select {
+    background-image:
+        linear-gradient(45deg, transparent 50%, currentColor 50%),
+        linear-gradient(135deg, currentColor 50%, transparent 50%),
+        linear-gradient(145deg, rgba(255,255,255,.115), rgba(255,255,255,.055)) !important;
+    background-position:
+        calc(100% - 16px) 50%,
+        calc(100% - 11px) 50%,
+        0 0;
+    background-size:
+        5px 5px,
+        5px 5px,
+        100% 100%;
+    background-repeat: no-repeat;
+    padding-right: 34px;
+}
+
+html:not(.dark-theme) .filter-group select {
+    background-image:
+        linear-gradient(45deg, transparent 50%, currentColor 50%),
+        linear-gradient(135deg, currentColor 50%, transparent 50%),
+        linear-gradient(145deg, rgba(255,255,255,.64), rgba(255,255,255,.38)) !important;
+}
+
+/* Поле поиска и сброс фильтров должны визуально совпадать с select */
+.filter-group input,
+#clearFilters {
+    min-height: 38px;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.05)
+        ) !important;
+    border-color: rgba(255,255,255,.15);
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.09),
+        inset 0 1px 0 rgba(255,255,255,.09);
+}
+
+html:not(.dark-theme) .filter-group input,
+html:not(.dark-theme) #clearFilters {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.62),
+            rgba(255,255,255,.38)
+        ) !important;
+    border-color: rgba(255,255,255,.58);
+    box-shadow:
+        0 4px 12px rgba(25,35,55,.05),
+        inset 0 1px 0 rgba(255,255,255,.76);
+}
+
+/* Фильтр-бар чуть более выраженный: это отдельная функциональная
+   поверхность, а не обычный контент */
+.filter-bar {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.18),
+            rgba(255,255,255,.075)
+        ) !important;
+    border-color: rgba(255,255,255,.14);
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.11);
+    backdrop-filter: blur(18px) saturate(1.08);
+    -webkit-backdrop-filter: blur(18px) saturate(1.08);
+}
+
+html:not(.dark-theme) .filter-bar {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.52),
+            rgba(255,255,255,.28)
+        ) !important;
+    border-color: rgba(255,255,255,.56);
+    box-shadow:
+        0 12px 30px rgba(25,35,55,.065),
+        inset 0 1px 0 rgba(255,255,255,.72);
+}
+
+/* Не превращаем native popup в странную цветную подсветку */
+
+
+@media (max-width: 768px) {
+    .publications-table .btn-sm {
+        min-width: 94px;
+        height: 35px;
+    }
+
+    .filter-group select,
+    .filter-group input,
+    #clearFilters {
+        min-height: 40px;
+    }
+}
+
+
+/* ============================================================
+   LIQUID GLASS DROPDOWNS
+   Нативные <select> оставляем источником значения, но визуально
+   показываем собственный dropdown: это позволяет сделать меню
+   настоящим Liquid Glass и открывать его при наведении.
+   ============================================================ */
+
+.filter-bar {
+    position: relative;
+    overflow: visible !important;
+    z-index: 20;
+}
+
+.filter-group {
+    position: relative;
+    z-index: 30;
+}
+
+.lg-select {
+    position: relative;
+    width: 174px;
+    flex: 0 0 174px;
+    z-index: 40;
+}
+
+.lg-select-trigger {
+    width: 100%;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 12px 7px 14px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,.065)
+        );
+    color: var(--text-primary);
+    font: inherit;
+    font-size: .95rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.11),
+        inset 0 1px 0 rgba(255,255,255,.11);
+    backdrop-filter: blur(16px) saturate(1.08);
+    -webkit-backdrop-filter: blur(16px) saturate(1.08);
+    transition:
+        background .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
+}
+
+html:not(.dark-theme) .lg-select-trigger {
+    border-color: rgba(255,255,255,.60);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.68),
+            rgba(255,255,255,.40)
+        );
+    box-shadow:
+        0 5px 14px rgba(25,35,55,.065),
+        inset 0 1px 0 rgba(255,255,255,.80);
+}
+
+.lg-select-trigger:hover,
+.lg-select.open .lg-select-trigger,
+.lg-select:focus-within .lg-select-trigger {
+    border-color: rgba(var(--brand-color-rgb),.28);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.17),
+            rgba(255,255,255,.08)
+        );
+}
+
+html:not(.dark-theme) .lg-select-trigger:hover,
+html:not(.dark-theme) .lg-select.open .lg-select-trigger,
+html:not(.dark-theme) .lg-select:focus-within .lg-select-trigger {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.76),
+            rgba(255,255,255,.47)
+        );
+}
+
+.lg-select-trigger:focus-visible {
+    outline: 2px solid rgba(var(--brand-color-rgb),.42);
+    outline-offset: 2px;
+}
+
+.lg-select-chevron {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    opacity: .72;
+    transition: transform .18s ease;
+}
+
+.lg-select.open .lg-select-chevron {
+    transform: rotate(225deg) translate(-1px, -1px);
+}
+
+.lg-native-select {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    min-width: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.lg-select-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 7px);
+    width: 100%;
+    min-width: 174px;
+    padding: 6px;
+    margin: 0;
+    list-style: none;
+    border: 1px solid rgba(255,255,255,.17);
+    border-radius: 15px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38,45,56,.96),
+            rgba(25,31,40,.93)
+        );
+    box-shadow:
+        0 18px 42px rgba(0,0,0,.24),
+        0 4px 14px rgba(0,0,0,.13),
+        inset 0 1px 0 rgba(255,255,255,.10);
+    backdrop-filter: blur(24px) saturate(1.12);
+    -webkit-backdrop-filter: blur(24px) saturate(1.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-4px) scale(.985);
+    transform-origin: top center;
+    transition:
+        opacity .14s ease,
+        transform .14s ease,
+        visibility .14s ease;
+    z-index: 999;
+}
+
+html:not(.dark-theme) .lg-select-menu {
+    border-color: rgba(255,255,255,.68);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.94),
+            rgba(238,242,248,.90)
+        );
+    box-shadow:
+        0 18px 42px rgba(25,35,55,.13),
+        0 4px 14px rgba(25,35,55,.07),
+        inset 0 1px 0 rgba(255,255,255,.88);
+}
+
+.lg-select:hover .lg-select-menu,
+.lg-select.open .lg-select-menu,
+.lg-select:focus-within .lg-select-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.lg-select-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    color: #eef2f7;
+    font-size: .95rem;
+    line-height: 1.2;
+    cursor: pointer;
+    user-select: none;
+    transition:
+        background .12s ease,
+        color .12s ease;
+}
+
+html:not(.dark-theme) .lg-select-option {
+    color: #252a33;
+}
+
+.lg-select-option:hover,
+.lg-select-option[aria-selected="true"] {
+    background: rgba(255,255,255,.115);
+    color: #fff;
+}
+
+html:not(.dark-theme) .lg-select-option:hover,
+html:not(.dark-theme) .lg-select-option[aria-selected="true"] {
+    background: rgba(255,255,255,.64);
+    color: var(--brand-color);
+}
+
+.lg-select-option[aria-selected="true"] {
+    font-weight: 650;
+}
+
+.lg-select-option[aria-selected="true"]::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--brand-color);
+    box-shadow: 0 0 7px rgba(var(--brand-color-rgb),.30);
+}
+
+.lg-select-option:focus-visible {
+    outline: 2px solid rgba(var(--brand-color-rgb),.35);
+    outline-offset: -2px;
+}
+
+/* Чтобы выпадающий список второго фильтра был поверх соседнего поиска */
+.filter-bar .filter-group:nth-child(2) {
+    z-index: 50;
+}
+
+/* На мобильных hover не используется: открытие остаётся по тапу */
+@media (hover: none), (max-width: 768px) {
+    .lg-select-menu {
+        top: calc(100% + 6px);
+    }
+
+    .lg-select {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .lg-select-trigger {
+        min-height: 42px;
+        font-size: 16px;
+    }
+
+    .lg-select-option {
+        min-height: 40px;
+        font-size: 16px;
+    }
+}
+
+
+/* ============================================================
+   PWA MODAL — финальная настройка Liquid Glass
+   ============================================================ */
+
+/* Подложка страницы: в светлой теме она должна быть светлой,
+   а не серой/тёмной. Blur оставляем сильным, затемнение минимальным. */
+.pwa-modal::backdrop {
+    background: rgba(24, 31, 40, .18);
+    backdrop-filter: blur(13px) saturate(1.05);
+    -webkit-backdrop-filter: blur(13px) saturate(1.05);
+}
+
+html:not(.dark-theme) .pwa-modal::backdrop {
+    background: rgba(255, 255, 255, .16);
+    backdrop-filter: blur(14px) saturate(1.04);
+    -webkit-backdrop-filter: blur(14px) saturate(1.04);
+}
+
+/* Само модальное окно — светлое матовое стекло */
+.pwa-modal {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.70),
+            rgba(248,250,252,.58)
+        ) !important;
+    border: 1px solid rgba(255,255,255,.72) !important;
+    box-shadow:
+        0 28px 80px rgba(30,38,52,.16),
+        0 8px 26px rgba(30,38,52,.08),
+        inset 0 1px 0 rgba(255,255,255,.88) !important;
+    backdrop-filter: blur(28px) saturate(1.08);
+    -webkit-backdrop-filter: blur(28px) saturate(1.08);
+}
+
+html.dark-theme .pwa-modal {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35,42,52,.84),
+            rgba(23,29,38,.78)
+        ) !important;
+    border-color: rgba(255,255,255,.13) !important;
+    box-shadow:
+        0 30px 85px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+/* Кнопка «Готово»: теперь тоже glass, а не обычная зелёная кнопка */
+.pwa-modal .pwa-done,
+.pwa-modal button[class*="done"],
+.pwa-modal button[id*="Done"],
+.pwa-modal button[id*="done"] {
+    border: 1px solid rgba(255,255,255,.46) !important;
+    border-radius: 14px !important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.22),
+            rgba(255,255,255,.09)
+        ) !important;
+    color: var(--text-primary) !important;
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.22),
+        inset 0 -1px 0 rgba(0,0,0,.045) !important;
+    backdrop-filter: blur(16px) saturate(1.08);
+    -webkit-backdrop-filter: blur(16px) saturate(1.08);
+    transition:
+        transform .16s ease,
+        background .16s ease,
+        border-color .16s ease,
+        box-shadow .16s ease;
+}
+
+html:not(.dark-theme) .pwa-modal .pwa-done,
+html:not(.dark-theme) .pwa-modal button[class*="done"],
+html:not(.dark-theme) .pwa-modal button[id*="Done"],
+html:not(.dark-theme) .pwa-modal button[id*="done"] {
+    border-color: rgba(255,255,255,.72) !important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.70),
+            rgba(255,255,255,.42)
+        ) !important;
+    color: #26303a !important;
+    box-shadow:
+        0 7px 18px rgba(30,38,52,.075),
+        inset 0 1px 0 rgba(255,255,255,.84),
+        inset 0 -1px 0 rgba(30,38,52,.035) !important;
+}
+
+.pwa-modal .pwa-done:hover,
+.pwa-modal button[class*="done"]:hover,
+.pwa-modal button[id*="Done"]:hover,
+.pwa-modal button[id*="done"]:hover {
+    transform: translateY(-1px);
+    border-color: rgba(var(--brand-color-rgb),.25) !important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.28),
+            rgba(255,255,255,.13)
+        ) !important;
+    box-shadow:
+        0 9px 22px rgba(0,0,0,.12),
+        inset 0 1px 0 rgba(255,255,255,.26) !important;
+}
+
+html:not(.dark-theme) .pwa-modal .pwa-done:hover,
+html:not(.dark-theme) .pwa-modal button[class*="done"]:hover,
+html:not(.dark-theme) .pwa-modal button[id*="Done"]:hover,
+html:not(.dark-theme) .pwa-modal button[id*="done"]:hover {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.82),
+            rgba(255,255,255,.52)
+        ) !important;
+    box-shadow:
+        0 9px 22px rgba(30,38,52,.09),
+        inset 0 1px 0 rgba(255,255,255,.90) !important;
+}
+
+/* Если у кнопки есть зелёный inline/background из старого CSS,
+   этот слой намеренно перекрывает его. */
+.pwa-modal .pwa-done *{
+    color: inherit !important;
+}
+
+
+/* ============================================================
+   ЛРМ — audience switch / ученики ↔ учителя
+   Переключатель больше не состоит из "карточки в карточке".
+   Внешней рамки нет: активный пункт сам является стеклянной
+   поверхностью, неактивный остаётся частью страницы.
+   ============================================================ */
+
+.lwm-audience-switch {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 24px 0 30px;
+    padding: 0;
+    border: 0;
+    border-radius: 20px;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Обе вкладки становятся лёгкими зонами управления */
+.lwm-audience-tab {
+    position: relative;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 17px;
+    border: 1px solid transparent;
+    border-radius: 17px;
+    background: transparent;
+    color: var(--text-secondary);
+    box-shadow: none;
+    transform: none;
+    overflow: hidden;
+    transition:
+        background .20s ease,
+        border-color .20s ease,
+        box-shadow .20s ease,
+        color .20s ease,
+        transform .18s ease;
+}
+
+/* Очень лёгкий ambient hover */
+.lwm-audience-tab:hover {
+    background: rgba(255,255,255,.055);
+    border-color: rgba(255,255,255,.10);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+html:not(.dark-theme) .lwm-audience-tab:hover {
+    background: rgba(255,255,255,.34);
+    border-color: rgba(255,255,255,.48);
+}
+
+/* Активная вкладка — единственная полноценная стеклянная
+   поверхность в этом control */
+.lwm-audience-tab.is-active {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.48),
+            rgba(255,255,255,.22)
+        );
+    border-color: rgba(255,255,255,.60);
+    color: var(--brand-color);
+    box-shadow:
+        0 8px 24px rgba(30,38,52,.055),
+        inset 0 1px 0 rgba(255,255,255,.72);
+    backdrop-filter: blur(17px) saturate(1.06);
+    -webkit-backdrop-filter: blur(17px) saturate(1.06);
+}
+
+html.dark-theme .lwm-audience-tab.is-active {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.095),
+            rgba(255,255,255,.045)
+        );
+    border-color: rgba(255,255,255,.12);
+    box-shadow:
+        0 10px 26px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.075);
+}
+
+/* Едва заметный specular highlight только на активной вкладке */
+.lwm-audience-tab.is-active::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            125deg,
+            rgba(255,255,255,.12),
+            transparent 34%,
+            transparent 72%
+        );
+}
+
+/* Иконка больше не отдельная карточка.
+   Это просто цветовой акцент вокруг пиктограммы. */
+.lwm-audience-icon {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    border: 0;
+    background: rgba(var(--brand-color-rgb),.075);
+    color: var(--brand-color);
+    box-shadow: none;
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+html.dark-theme .lwm-audience-icon {
+    background: rgba(var(--brand-color-rgb),.11);
+}
+
+.lwm-audience-tab.is-active .lwm-audience-icon {
+    background: rgba(var(--brand-color-rgb),.12);
+    transform: scale(1.015);
+}
+
+html.dark-theme .lwm-audience-tab.is-active .lwm-audience-icon {
+    background: rgba(var(--brand-color-rgb),.15);
+}
+
+
+
+/* Текст находится поверх декоративного слоя */
+.lwm-audience-tab > span:last-child {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.lwm-audience-tab strong {
+    font-size: 1rem;
+    font-weight: 680;
+    letter-spacing: -.02em;
+}
+
+.lwm-audience-tab small {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: .78rem;
+    line-height: 1.3;
+}
+
+/* Неактивная вкладка должна быть заметной, но не карточкой */
+.lwm-audience-tab:not(.is-active) .lwm-audience-icon {
+    opacity: .78;
+}
+
+.lwm-audience-tab:not(.is-active) strong {
+    color: var(--text-secondary);
+}
+
+.lwm-audience-tab:focus-visible {
+    outline: 2px solid rgba(var(--brand-color-rgb),.42);
+    outline-offset: 2px;
+}
+
+/* На узких экранах оставляем control компактным */
+@media (max-width: 640px) {
+    .lwm-audience-switch {
+        gap: 4px;
+        margin-top: 20px;
+        margin-bottom: 24px;
+    }
+
+    .lwm-audience-tab {
+        min-height: 64px;
+        padding: 11px 12px;
+        gap: 9px;
+        border-radius: 15px;
+    }
+
+    .lwm-audience-icon {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+        border-radius: 11px;
+    }
+
+    .lwm-audience-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .lwm-audience-tab strong {
+        font-size: .93rem;
+    }
+
+    .lwm-audience-tab small {
+        font-size: .72rem;
+    }
+}
+
+
+/* ============================================================
+   ЛРМ — окончательная чистка переключателя
+   Убираем лишнюю "подложку" и исключаем растягивание вкладок.
+   ============================================================ */
+
+/* Контейнер раздела не должен выглядеть как ещё одно окно */
+.lwm-audience-shell {
+    margin: 24px 0 32px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    overflow: visible !important;
+}
+
+/* Панели контента не получают дополнительных внутренних отступов
+   от оболочки */
+.lwm-audience-shell .lwm-audience-panel {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Сам переключатель — просто две зоны управления */
+.lwm-audience-switch {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: minmax(72px, auto) !important;
+    align-items: start !important;
+    gap: 8px !important;
+    margin: 0 0 28px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Вкладки больше никогда не растягиваются до высоты родителя */
+.lwm-audience-tab,
+.lwm-audience-switch > .lwm-audience-tab {
+    width: 100% !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+    align-self: start !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 12px 16px !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 16px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none;
+    overflow: hidden;
+}
+
+/* Только активная вкладка получает стеклянную поверхность */
+.lwm-audience-tab.is-active {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.46),
+            rgba(255,255,255,.19)
+        ) !important;
+    border-color: rgba(255,255,255,.56) !important;
+    box-shadow:
+        0 7px 20px rgba(30,38,52,.055),
+        inset 0 1px 0 rgba(255,255,255,.70) !important;
+    backdrop-filter: blur(16px) saturate(1.05) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(1.05) !important;
+}
+
+html.dark-theme .lwm-audience-tab.is-active {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.085),
+            rgba(255,255,255,.035)
+        ) !important;
+    border-color: rgba(255,255,255,.11) !important;
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.07) !important;
+}
+
+/* Неактивная — буквально часть фона */
+.lwm-audience-tab:not(.is-active) {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Hover только слегка обозначает область */
+.lwm-audience-tab:not(.is-active):hover {
+    background: rgba(255,255,255,.045) !important;
+    border-color: rgba(255,255,255,.07) !important;
+}
+
+html:not(.dark-theme) .lwm-audience-tab:not(.is-active):hover {
+    background: rgba(255,255,255,.24) !important;
+    border-color: rgba(255,255,255,.34) !important;
+}
+
+/* Иконка — без собственной рамки/карточки */
+.lwm-audience-icon,
+.lwm-audience-tab.is-active .lwm-audience-icon {
+    width: 42px !important;
+    height: 42px !important;
+    flex: 0 0 42px !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: rgba(var(--brand-color-rgb),.075) !important;
+    box-shadow: none !important;
+}
+
+html.dark-theme .lwm-audience-icon {
+    background: rgba(var(--brand-color-rgb),.10) !important;
+}
+
+html.dark-theme .lwm-audience-tab.is-active .lwm-audience-icon {
+    background: rgba(var(--brand-color-rgb),.13) !important;
+}
+
+/* Убираем декоративный псевдоэлемент, который усиливал ощущение
+   ещё одного слоя */
+.lwm-audience-tab.is-active::before {
+    display: none !important;
+}
+
+@media (max-width: 640px) {
+    .lwm-audience-switch {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: 64px !important;
+        gap: 5px !important;
+    }
+
+    .lwm-audience-tab,
+    .lwm-audience-switch > .lwm-audience-tab {
+        height: 64px !important;
+        min-height: 64px !important;
+        max-height: 64px !important;
+        border-radius: 14px !important;
+    }
+
+    .lwm-audience-icon,
+    .lwm-audience-tab.is-active .lwm-audience-icon {
+        width: 36px !important;
+        height: 36px !important;
+        flex-basis: 36px !important;
+        border-radius: 10px !important;
+    }
+}
+
+
+/* ============================================================
+   ЛРМ — баланс поверхностей
+   Возвращаем общую подложку, но делаем её спокойной.
+   Внутри неё переключатель остаётся лёгким, без "карточки
+   внутри карточки".
+   ============================================================ */
+
+/* Общая поверхность всего блока ЛРМ */
+.lwm-audience-shell {
+    margin: 24px 0 32px !important;
+    padding: 10px 10px 28px !important;
+
+    border: 1px solid rgba(255,255,255,.34) !important;
+    border-radius: 22px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.34),
+            rgba(255,255,255,.18)
+        ) !important;
+
+    box-shadow:
+        0 12px 32px rgba(30,38,52,.055),
+        inset 0 1px 0 rgba(255,255,255,.55) !important;
+
+    backdrop-filter: blur(20px) saturate(1.04) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.04) !important;
+
+    overflow: visible !important;
+}
+
+html.dark-theme .lwm-audience-shell {
+    border-color: rgba(255,255,255,.09) !important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        ) !important;
+    box-shadow:
+        0 14px 34px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.055) !important;
+}
+
+/* Сам переключатель получает очень лёгкую общую поверхность.
+   Это не отдельная карточка — только "материал" под control. */
+.lwm-audience-switch {
+    margin: 0 0 26px !important;
+    padding: 4px !important;
+    gap: 4px !important;
+
+    border: 1px solid rgba(255,255,255,.25) !important;
+    border-radius: 19px !important;
+
+    background: rgba(255,255,255,.16) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.28) !important;
+
+    backdrop-filter: blur(14px) saturate(1.03) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.03) !important;
+}
+
+html.dark-theme .lwm-audience-switch {
+    border-color: rgba(255,255,255,.075) !important;
+    background: rgba(255,255,255,.025) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.045) !important;
+}
+
+/* Активная вкладка остаётся визуально выше track */
+.lwm-audience-tab.is-active {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.56),
+            rgba(255,255,255,.28)
+        ) !important;
+    border-color: rgba(255,255,255,.58) !important;
+    box-shadow:
+        0 5px 16px rgba(30,38,52,.06),
+        inset 0 1px 0 rgba(255,255,255,.72) !important;
+}
+
+html.dark-theme .lwm-audience-tab.is-active {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.045)
+        ) !important;
+    border-color: rgba(255,255,255,.11) !important;
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.17),
+        inset 0 1px 0 rgba(255,255,255,.07) !important;
+}
+
+/* Неактивная вкладка остаётся частью track, но не превращается
+   в отдельную серую карточку */
+
+
+html:not(.dark-theme) .lwm-audience-tab:not(.is-active):hover {
+    background: rgba(255,255,255,.24) !important;
+    border-color: rgba(255,255,255,.30) !important;
+}
+
+/* Контент внутри общей поверхности получает нормальный воздух */
+.lwm-audience-shell .lwm-audience-panel {
+    padding: 0 10px !important;
+}
+
+@media (max-width: 640px) {
+    .lwm-audience-shell {
+        padding: 7px 7px 22px !important;
+        border-radius: 18px !important;
+    }
+
+    .lwm-audience-shell .lwm-audience-panel {
+        padding: 0 5px !important;
+    }
+
+    .lwm-audience-switch {
+        padding: 3px !important;
+        border-radius: 16px !important;
+    }
 }

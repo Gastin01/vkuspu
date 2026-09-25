@@ -132,7 +132,7 @@
         <div class="footer-content">
             <div class="copyright">
                 © 2026 г. Красноперов Вячеслав Андреевич. <br>
-				version 6.6.8.1.
+				version 6.6.9.
             </div>
             <div class="social-links">
                 <a href="mailto:vk.uspu@ya.ru" class="social-icon">
@@ -448,6 +448,205 @@ function showNotification(type, title, message) {
                 }, 150);
             }
         });
+    }
+})();
+</script>
+
+
+<script>
+/* ============================================================
+   LIQUID GLASS DROPDOWNS
+   Визуальная оболочка над существующими select.
+   Значения по-прежнему меняются в оригинальных select, поэтому
+   существующий фильтр публикаций продолжает работать.
+   ============================================================ */
+(function () {
+    function initLiquidSelect(select) {
+        if (!select || select.dataset.liquidReady === 'true') return;
+
+        select.dataset.liquidReady = 'true';
+        select.classList.add('lg-native-select');
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'lg-select';
+        wrapper.dataset.for = select.id;
+
+        const trigger = document.createElement('button');
+        trigger.type = 'button';
+        trigger.className = 'lg-select-trigger';
+        trigger.setAttribute('aria-haspopup', 'listbox');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.setAttribute('aria-controls', select.id + '-liquid-menu');
+
+        const text = document.createElement('span');
+        text.className = 'lg-select-value';
+
+        const chevron = document.createElement('span');
+        chevron.className = 'lg-select-chevron';
+        chevron.setAttribute('aria-hidden', 'true');
+
+        trigger.append(text, chevron);
+
+        const menu = document.createElement('ul');
+        menu.className = 'lg-select-menu';
+        menu.id = select.id + '-liquid-menu';
+        menu.setAttribute('role', 'listbox');
+        menu.setAttribute('aria-label', select.getAttribute('aria-label') || '');
+
+        Array.from(select.options).forEach((option, index) => {
+            const item = document.createElement('li');
+            item.className = 'lg-select-option';
+            item.textContent = option.textContent;
+            item.dataset.value = option.value;
+            item.dataset.index = String(index);
+            item.setAttribute('role', 'option');
+            item.tabIndex = -1;
+
+            item.addEventListener('mouseenter', function () {
+                Array.from(menu.children).forEach(el => el.classList.remove('lg-hover'));
+                item.classList.add('lg-hover');
+            });
+
+            item.addEventListener('click', function (event) {
+                event.preventDefault();
+                select.value = option.value;
+
+                Array.from(menu.children).forEach(el => {
+                    el.setAttribute('aria-selected', 'false');
+                });
+                item.setAttribute('aria-selected', 'true');
+
+                text.textContent = option.textContent;
+                select.dispatchEvent(new Event('change', { bubbles: true }));
+
+                close();
+                trigger.focus({ preventScroll: true });
+            });
+
+            menu.appendChild(item);
+        });
+
+        wrapper.append(trigger, menu);
+        select.parentNode.insertBefore(wrapper, select);
+        wrapper.appendChild(select);
+
+        function sync() {
+            const selected = select.options[select.selectedIndex];
+            text.textContent = selected ? selected.textContent : '';
+
+            Array.from(menu.children).forEach(item => {
+                const active = item.dataset.value === select.value;
+                item.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+        }
+
+        function open() {
+            wrapper.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+        }
+
+        function close() {
+            wrapper.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+
+        trigger.addEventListener('click', function () {
+            wrapper.classList.toggle('open');
+            trigger.setAttribute(
+                'aria-expanded',
+                wrapper.classList.contains('open') ? 'true' : 'false'
+            );
+        });
+
+        /* Десктоп: открываем сразу при наведении. */
+        if (window.matchMedia('(hover: hover)').matches) {
+            wrapper.addEventListener('mouseenter', open);
+            wrapper.addEventListener('mouseleave', close);
+        }
+
+        /* Клавиатура. */
+        trigger.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                open();
+                const first = menu.querySelector('[aria-selected="true"]') || menu.firstElementChild;
+                if (first) first.focus();
+            }
+
+            if (event.key === 'Escape') {
+                close();
+            }
+        });
+
+        menu.addEventListener('keydown', function (event) {
+            const items = Array.from(menu.children);
+            const current = document.activeElement;
+            const index = items.indexOf(current);
+
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                (items[index + 1] || items[0]).focus();
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                (items[index - 1] || items[items.length - 1]).focus();
+            } else if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                current?.click();
+            } else if (event.key === 'Escape') {
+                event.preventDefault();
+                close();
+                trigger.focus();
+            }
+        });
+
+        select.addEventListener('change', sync);
+        sync();
+    }
+
+    function init() {
+        document.querySelectorAll('#filterYear, #filterLevel').forEach(initLiquidSelect);
+
+        /* Существующая кнопка «Сбросить» меняет select программно,
+           поэтому после неё вручную синхронизируем подписи. */
+        const clear = document.getElementById('clearFilters');
+        if (clear) {
+            clear.addEventListener('click', function () {
+                requestAnimationFrame(function () {
+                    document.querySelectorAll('#filterYear, #filterLevel').forEach(function (select) {
+                        const wrapper = document.querySelector('.lg-select[data-for="' + select.id + '"]');
+                        if (!wrapper) return;
+
+                        const value = wrapper.querySelector('.lg-select-value');
+                        const selected = select.options[select.selectedIndex];
+
+                        if (value && selected) value.textContent = selected.textContent;
+
+                        wrapper.querySelectorAll('.lg-select-option').forEach(function (item) {
+                            item.setAttribute(
+                                'aria-selected',
+                                item.dataset.value === select.value ? 'true' : 'false'
+                            );
+                        });
+                    });
+                });
+            });
+        }
+
+        document.addEventListener('click', function (event) {
+            document.querySelectorAll('.lg-select.open').forEach(function (wrapper) {
+                if (!wrapper.contains(event.target)) {
+                    wrapper.classList.remove('open');
+                    const trigger = wrapper.querySelector('.lg-select-trigger');
+                    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
 })();
 </script>

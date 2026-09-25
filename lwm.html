@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="ru">
- <script>
+<script>
   (function () {
     var color = localStorage.getItem('themeColor') || 'purple';
     var mode = localStorage.getItem('themeMode') || 'light';
@@ -8,200 +9,199 @@
     if (mode === 'dark') document.documentElement.classList.add('dark-theme');
 })();
  </script>
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link href="/manifest.json" rel="manifest"/>
-  <link href="assets/icons/favicon.ico" rel="icon" type="image/x-icon"/>
-  <meta content="yes" name="apple-mobile-web-app-capable"/>
-  <meta content="default" name="apple-mobile-web-app-status-bar-style"/>
-  <meta content="vk-uspu" name="apple-mobile-web-app-title"/>
-  <link href="assets/icons/apple-icon-180.png" rel="apple-touch-icon"/>
-  <title>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="assets/icons/favicon.ico" rel="icon" type="image/x-icon"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="vk-uspu" name="apple-mobile-web-app-title"/>
+<link href="assets/icons/apple-icon-180.png" rel="apple-touch-icon"/>
+<title>
    сайт Вячеслава Красноперова
   </title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-  <link href="style.css" media="screen" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" media="screen" rel="stylesheet" type="text/css"/>
 <!-- KaTeX — отрисовка математических формул -->
-  <link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet">
-   <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-   </script>
-   <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js">
-   </script>
-  </link>
- </head>
- <body>
-  <div id="page">
-   <header>
-    <div class="header-top">
-     <!-- Слайдер переключения темы -->
-     <!-- ===== НОВЫЙ БЛОК theme-menu ===== -->
-     <div class="theme-menu" id="themeMenu">
-      <button aria-expanded="false" aria-haspopup="true" aria-label="Настройки темы оформления" class="theme-trigger" id="themeTrigger" title="Тема оформления" type="button">
-       <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
-        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z">
-        </path>
-        <circle cx="13.5" cy="6.5" fill="currentColor" r="1" stroke="none">
-        </circle>
-        <circle cx="17.5" cy="10.5" fill="currentColor" r="1" stroke="none">
-        </circle>
-        <circle cx="8.5" cy="7.5" fill="currentColor" r="1" stroke="none">
-        </circle>
-        <circle cx="6.5" cy="12.5" fill="currentColor" r="1" stroke="none">
-        </circle>
-       </svg>
-      </button>
-      <div aria-label="Выбор темы оформления" class="theme-panel" id="themePanel" role="group">
-       <button aria-label="Фиолетовый акцент" class="theme-dot" data-color="purple" title="Фиолетовый" type="button">
-       </button>
-       <button aria-label="Оранжевый акцент" class="theme-dot" data-color="orange" title="Оранжевый" type="button">
-       </button>
-       <button aria-label="Акцент «Океан»" class="theme-dot" data-color="ocean" title="Океан" type="button">
-       </button>
-       <button aria-label="Акцент «Изумруд»" class="theme-dot" data-color="emerald" title="Изумруд" type="button">
-       </button>
-       <button aria-label="Акцент «Роза»" class="theme-dot" data-color="rose" title="Роза" type="button">
-       </button>
-       <span aria-hidden="true" class="theme-divider">
-       </span>
-       <button aria-label="Переключить светлый или тёмный режим" aria-pressed="false" class="mode-toggle" id="modeToggle" title="Светлый / тёмный режим" type="button">
-        <svg class="icon-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
-         <circle cx="12" cy="12" r="4">
-         </circle>
-         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
-         </path>
-        </svg>
-        <svg class="icon-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
-         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z">
-         </path>
-        </svg>
-       </button>
-      </div>
-     </div>
-     <!-- ===== КОНЕЦ НОВОГО БЛОКА ===== -->
-     <a class="logo" href="index.html">
-      <img alt="сайт Вячеслава Красноперова" id="logo" src="assets/logos/logo-light.png"/>
-     </a>
-    </div>
-    <nav>
-     <ul>
-      <li>
-       <a href="index.html">
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+</script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js">
+</script>
+</head>
+<body>
+<div id="page">
+<header>
+<div class="header-top">
+<!-- Слайдер переключения темы -->
+<!-- ===== НОВЫЙ БЛОК theme-menu ===== -->
+<div class="theme-menu" id="themeMenu">
+<button aria-expanded="false" aria-haspopup="true" aria-label="Настройки темы оформления" class="theme-trigger" id="themeTrigger" title="Тема оформления" type="button">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+<path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z">
+</path>
+<circle cx="13.5" cy="6.5" fill="currentColor" r="1" stroke="none">
+</circle>
+<circle cx="17.5" cy="10.5" fill="currentColor" r="1" stroke="none">
+</circle>
+<circle cx="8.5" cy="7.5" fill="currentColor" r="1" stroke="none">
+</circle>
+<circle cx="6.5" cy="12.5" fill="currentColor" r="1" stroke="none">
+</circle>
+</svg>
+</button>
+<div aria-label="Выбор темы оформления" class="theme-panel" id="themePanel" role="group">
+<button aria-label="Фиолетовый акцент" class="theme-dot" data-color="purple" title="Фиолетовый" type="button">
+</button>
+<button aria-label="Оранжевый акцент" class="theme-dot" data-color="orange" title="Оранжевый" type="button">
+</button>
+<button aria-label="Акцент «Океан»" class="theme-dot" data-color="ocean" title="Океан" type="button">
+</button>
+<button aria-label="Акцент «Изумруд»" class="theme-dot" data-color="emerald" title="Изумруд" type="button">
+</button>
+<button aria-label="Акцент «Роза»" class="theme-dot" data-color="rose" title="Роза" type="button">
+</button>
+<span aria-hidden="true" class="theme-divider">
+</span>
+<button aria-label="Переключить светлый или тёмный режим" aria-pressed="false" class="mode-toggle" id="modeToggle" title="Светлый / тёмный режим" type="button">
+<svg class="icon-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="4">
+</circle>
+<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+</path>
+</svg>
+<svg class="icon-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z">
+</path>
+</svg>
+</button>
+</div>
+</div>
+<!-- ===== КОНЕЦ НОВОГО БЛОКА ===== -->
+<a class="logo" href="index.html">
+<img alt="сайт Вячеслава Красноперова" id="logo" src="assets/logos/logo-light.png"/>
+</a>
+</div>
+<nav>
+<ul>
+<li>
+<a href="index.html">
         Главная
        </a>
-      </li>
-      <li>
-       <a href="science.html">
+</li>
+<li>
+<a href="science.html">
         Наука
        </a>
-      </li>
-      <li>
-       <a href="resourses.html">
+</li>
+<li>
+<a href="resourses.html">
         Ресурсы
        </a>
-      </li>
-      <li class="active">
-       <a class="nav-new" href="lwm.html">
+</li>
+<li class="active">
+<a class="nav-new" href="lwm.html">
         ЛРМ
        </a>
-      </li>
-      <li class="rght">
-       <a href="contacts.html">
+</li>
+<li class="rght">
+<a href="contacts.html">
         Контакты
        </a>
-      </li>
-     </ul>
-    </nav>
-   </header>
-   <section id="content">
-    <h1 id="lwm-title">
+</li>
+</ul>
+</nav>
+</header>
+<section id="content">
+<h1 id="lwm-title">
      ЛРММ «Арт-объект»
     </h1>
-    <p class="lwm-fullname">
+<p class="lwm-fullname">
      «Поиск неизвестного объекта на местности по азимутам от двух точек с определёнными географическими координатами»
     </p>
-    <!-- ========== УСЛОВИЕ ЗАДАЧИ ========== -->
-    <div class="lwm-task">
-     <div class="lwm-task-item">
-      <span class="lwm-task-label">
+<!-- ========== УСЛОВИЕ ЗАДАЧИ ========== -->
+<div class="lwm-task">
+<div class="lwm-task-item">
+<span class="lwm-task-label">
        Дано
       </span>
-      <p>
-       Две точки — A и B — с известными координатами. Из каждой из них измерен азимут: направление на некоторый третий, пока неизвестный объект C.
+<p>
+       Две точки — A и B — с известными координатами. Для каждой точки задан азимут на третий, пока неизвестный объект C.
       </p>
-     </div>
-     <div class="lwm-task-item">
-      <span class="lwm-task-label">
+</div>
+<div class="lwm-task-item">
+<span class="lwm-task-label">
        Нужно найти
       </span>
-      <p>
+<p>
        Координаты точки C — того самого объекта, на который указывают оба азимута.
       </p>
-     </div>
-    </div>
-    <div class="lwm-audience-shell">
-     <div aria-label="Выбор раздела" class="lwm-audience-switch" role="tablist">
-      <button aria-controls="studentPanel" aria-selected="true" class="lwm-audience-tab is-active" data-panel="studentPanel" id="studentTab" role="tab" type="button">
-       <span aria-hidden="true" class="lwm-audience-icon">
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
-         <path d="M3 10.5 12 5l9 5.5-9 5-9-5Z">
-         </path>
-         <path d="M7 13.2V17c2.8 2.1 7.2 2.1 10 0v-3.8">
-         </path>
-         <path d="M21 10.5V16">
-         </path>
-        </svg>
-       </span>
-       <span>
-        <strong>
+</div>
+</div>
+<div class="lwm-audience-shell">
+<div aria-label="Выбор раздела" class="lwm-audience-switch" role="tablist">
+<button aria-controls="studentPanel" aria-selected="true" class="lwm-audience-tab is-active" data-panel="studentPanel" id="studentTab" role="tab" type="button">
+<span aria-hidden="true" class="lwm-audience-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M3 10.5 12 5l9 5.5-9 5-9-5Z">
+</path>
+<path d="M7 13.2V17c2.8 2.1 7.2 2.1 10 0v-3.8">
+</path>
+<path d="M21 10.5V16">
+</path>
+</svg>
+</span>
+<span>
+<strong>
          Ученикам
         </strong>
-        <small>
+<small>
          Модель и практический расчёт
         </small>
-       </span>
-      </button>
-      <button aria-controls="teacherPanel" aria-selected="false" class="lwm-audience-tab" data-panel="teacherPanel" id="teacherTab" role="tab" tabindex="-1" type="button">
-       <span aria-hidden="true" class="lwm-audience-icon">
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
-         <path d="M4 19.5V5.8a1.8 1.8 0 0 1 1.8-1.8H20v13.2H5.8A1.8 1.8 0 0 0 4 19.5Z">
-         </path>
-         <path d="M4 19.5A1.8 1.8 0 0 0 5.8 21H20">
-         </path>
-         <path d="M8 7h8M8 10h6">
-         </path>
-        </svg>
-       </span>
-       <span>
-        <strong>
+</span>
+</button>
+<button aria-controls="teacherPanel" aria-selected="false" class="lwm-audience-tab" data-panel="teacherPanel" id="teacherTab" role="tab" tabindex="-1" type="button">
+<span aria-hidden="true" class="lwm-audience-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M4 19.5V5.8a1.8 1.8 0 0 1 1.8-1.8H20v13.2H5.8A1.8 1.8 0 0 0 4 19.5Z">
+</path>
+<path d="M4 19.5A1.8 1.8 0 0 0 5.8 21H20">
+</path>
+<path d="M8 7h8M8 10h6">
+</path>
+</svg>
+</span>
+<span>
+<strong>
          Учителям
         </strong>
-        <small>
+<small>
          Методические материалы и инструменты
         </small>
-       </span>
-      </button>
-     </div>
-     <div aria-labelledby="studentTab" class="lwm-audience-panel is-active" id="studentPanel" role="tabpanel">
-      <div class="lwm-panel-intro">
-       <span class="lwm-panel-kicker">
+</span>
+</button>
+</div>
+<div aria-labelledby="studentTab" class="lwm-audience-panel is-active" id="studentPanel" role="tabpanel">
+<div class="lwm-panel-intro">
+<span class="lwm-panel-kicker">
         Ученический раздел
        </span>
-       <h2>
+<h2>
         От задачи к координатам
        </h2>
-       <p>
+<p>
         Здесь собраны необходимые материалы: математическая модель, её вывод и практический расчёт.
        </p>
-      </div>
-      <section aria-labelledby="lwm-theory-title" class="lwm-theory" id="theorySection">
-       <div class="lwm-section-header">
-        <h2 id="lwm-theory-title">
+</div>
+<section aria-labelledby="lwm-theory-title" class="lwm-theory" id="theorySection">
+<div class="lwm-section-header">
+<h2 id="lwm-theory-title">
          Вывод математической модели
         </h2>
-       </div>
-       <div class="theory-card">
-        <p>
+</div>
+<div class="theory-card">
+<p>
          Построим математическую модель ЛРМ. Пусть даны две точки \(A(x_A,\ y_A)\)
                     и \(B(x_B,\ y_B)\), для этих точек даны азимуты \(\alpha\) и \(\beta\) до
                     некой точки \(C(x,\ y)\). Задача состоит в нахождении координат точки
@@ -210,59 +210,59 @@
          </em>
          на основе имеющихся данных.
          <br/>
-         <i>
+<i>
           Примечание:
          </i>
          Азимут определяется как угол между направлением на север и направлением на любой
                     объект по ходу часовой стрелки.
         </p>
-        <!-- ========== ПОЛЗУНОК: ХОД ПОСТРОЕНИЯ (в духе слайдера громкости iOS) ========== -->
-        <div class="proof-slider" id="proofSlider">
-         <p class="proof-caption" id="proofCaption">
+<!-- ========== ПОЛЗУНОК: ХОД ПОСТРОЕНИЯ (в духе слайдера громкости iOS) ========== -->
+<div class="proof-slider" id="proofSlider">
+<p class="proof-caption" id="proofCaption">
           Шаг 1. Координатная плоскость
          </p>
-         <div class="proof-stage">
-          <div class="proof-slide-media">
-           <img alt="Шаг 1: координатная плоскость" id="proofImage" loading="lazy" src="assets/images/proof-step-1.png"/>
-          </div>
-         </div>
-         <br/>
-         <div class="proof-scrubber">
-          <span aria-hidden="true" class="proof-scrubber-end">
-          </span>
-          <div class="proof-track-wrap">
-           <input aria-label="Шаг построения" class="proof-range" id="proofRange" max="3" min="0" step="1" type="range" value="0"/>
-           <div aria-hidden="true" class="proof-ticks">
-            <span>
-            </span>
-            <span>
-            </span>
-            <span>
-            </span>
-            <span>
-            </span>
-           </div>
-          </div>
-          <span aria-hidden="true" class="proof-scrubber-end">
-          </span>
-         </div>
-        </div>
-        <!-- ========== СПРАВКА ДЛЯ НЕЗНАКОМЫХ С АНАЛИТИЧЕСКОЙ ГЕОМЕТРИЕЙ ========== -->
-        <details class="lwm-primer">
-         <summary>
-          <span>
+<div class="proof-stage">
+<div class="proof-slide-media">
+<img alt="Шаг 1: координатная плоскость" id="proofImage" loading="lazy" src="assets/images/proof-step-1.png"/>
+</div>
+</div>
+<br/>
+<div class="proof-scrubber">
+<span aria-hidden="true" class="proof-scrubber-end">
+</span>
+<div class="proof-track-wrap">
+<input aria-label="Шаг построения" class="proof-range" id="proofRange" max="3" min="0" step="1" type="range" value="0"/>
+<div aria-hidden="true" class="proof-ticks">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</div>
+<span aria-hidden="true" class="proof-scrubber-end">
+</span>
+</div>
+</div>
+<!-- ========== СПРАВКА ДЛЯ НЕЗНАКОМЫХ С АНАЛИТИЧЕСКОЙ ГЕОМЕТРИЕЙ ========== -->
+<details class="lwm-primer">
+<summary>
+<span>
            Не знакомы с параметрическим уравнением прямой? Коротко объясним
           </span>
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
-           <path d="M6 9l6 6 6-6">
-           </path>
-          </svg>
-         </summary>
-         <div class="lwm-primer-body">
-          <h3>
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 9l6 6 6-6">
+</path>
+</svg>
+</summary>
+<div class="lwm-primer-body">
+<h3>
            Как задать прямую на плоскости
           </h3>
-          <p>
+<p>
            Прямую можно задать по-разному — например, точкой на ней и вектором,
                             указывающим её направление (
            <em>
@@ -289,64 +289,64 @@
            </em>
            , заданное азимутом.
           </p>
-          <div class="lwm-image-slots">
-           <figure class="lwm-image-slot">
-            <div class="lwm-image-slot-media">
-             <img alt="Точка и направляющий вектор" loading="lazy" onerror="this.style.display='none'" src="assets/images/primer-line-vector.png"/>
-            </div>
-            <figcaption>
+<div class="lwm-image-slots">
+<figure class="lwm-image-slot">
+<div class="lwm-image-slot-media">
+<img alt="Точка и направляющий вектор" loading="lazy" onerror="this.style.display='none'" src="assets/images/primer-line-vector.png"/>
+</div>
+<figcaption>
              Точка и направляющий вектор
             </figcaption>
-           </figure>
-           <figure class="lwm-image-slot">
-            <div class="lwm-image-slot-media">
-             <img alt="Точка и нормальный вектор" loading="lazy" onerror="this.style.display='none'" src="assets/images/primer-line-normal.png"/>
-            </div>
-            <figcaption>
+</figure>
+<figure class="lwm-image-slot">
+<div class="lwm-image-slot-media">
+<img alt="Точка и нормальный вектор" loading="lazy" onerror="this.style.display='none'" src="assets/images/primer-line-normal.png"/>
+</div>
+<figcaption>
              Точка и нормальный вектор
             </figcaption>
-           </figure>
-          </div>
-          <h3>
+</figure>
+</div>
+<h3>
            Параметрическое уравнение прямой
           </h3>
-          <p>
+<p>
            Пусть прямая \(m = (M_0,\ \vec{a})\), где \(M_0(x_0,\ y_0)\) и
                             \(\vec{a} = (a_1,\ a_2)\) — некие точка и вектор. Тогда произвольная
                             точка \(M(x,\ y)\) лежит на прямой \(m\) тогда и только тогда, когда
                             \(\overrightarrow{MM_0} = t \cdot \vec{a}\). То есть при:
           </p>
-          <div class="theory-eq">
+<div class="theory-eq">
            $$\overrightarrow{MM_0} = (x - x_0,\ y - y_0)$$
           </div>
-          <p>
+<p>
            Имеем:
           </p>
-          <div class="theory-eq">
+<div class="theory-eq">
            $$\overrightarrow{MM_0} = t \cdot \vec{a} \iff \left\{\begin{array}{l} x - x_0 = t\cdot a_1 \\ y - y_0 = t \cdot a_2\end{array}\right. \iff m:\left\{\begin{array}{l}x = x_0 + t\cdot a_1\\ y = y_0 + t \cdot a_2\end{array}\right.$$
           </div>
-          <p>
+<p>
            Меняя \(t\), мы "пробегаем" всю прямую: разным значениям \(t\)
                             соответствуют разные точки на ней. Именно эту идею мы и используем
                             ниже — только направляющим вектором служит направление по азимуту.
           </p>
-          <figure class="lwm-image-slot">
-           <div class="lwm-image-slot-media">
-            <img alt="Параметрическое уравнение прямой — анимация" loading="lazy" onerror="this.style.display='none'" src="assets/images/primer-parametric-line.gif"/>
-           </div>
-           <figcaption>
+<figure class="lwm-image-slot">
+<div class="lwm-image-slot-media">
+<img alt="Параметрическое уравнение прямой — анимация" loading="lazy" onerror="this.style.display='none'" src="assets/images/primer-parametric-line.gif"/>
+</div>
+<figcaption>
             Точка M движется по прямой при изменении параметра t
            </figcaption>
-          </figure>
-         </div>
-        </details>
-        <p>
-         <b>
-          <i>
+</figure>
+</div>
+</details>
+<p>
+<b>
+<i>
            Доказательство:
           </i>
-         </b>
-         <br/>
+</b>
+<br/>
          Рассмотрим точку
          <em>
           A
@@ -367,11 +367,11 @@
          с направляющим
                     вектором \(\vec{u_A}\), имеет следующий вид:
         </p>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$a:\ \left\{\begin{array}{l} x = x_A + t_A \cdot \sin\alpha \\ y = y_A + t_A \cdot \cos\alpha, \end{array}\right.$$
         </div>
-        <p>
-         где \(t_A\) — параметр, \(t_A > 0\) для точки
+<p>
+         где \(t_A\) — параметр, \(t_A &gt; 0\) для точки
          <em>
           C
          </em>
@@ -390,11 +390,11 @@
          :
                     \(\vec{u_B} = (\sin\beta,\ \cos\beta)\),
         </p>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$b:\ \left\{\begin{array}{l} x = x_B + t_B \cdot \sin\beta \\ y = y_B + t_B \cdot \cos\beta, \end{array}\right.$$
         </div>
-        <p>
-         где \(t_B\) — параметр, \(t_B > 0\) для точки
+<p>
+         где \(t_B\) — параметр, \(t_B &gt; 0\) для точки
          <em>
           C
          </em>
@@ -408,7 +408,7 @@
          </em>
          ).
         </p>
-        <p>
+<p>
          Точка
          <em>
           C
@@ -424,47 +424,47 @@
          , тогда её координаты
                     соответствуют уравнениям:
         </p>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$\left\{\begin{array}{l} x_A + t_A \cdot \sin\alpha = x_B + t_B \cdot \sin\beta \\ y_A + t_A \cdot \cos\alpha = y_B + t_B \cdot \cos\beta. \end{array}\right.$$
         </div>
-        <p>
+<p>
          Выразим \(t_B\) из первого уравнения:
         </p>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$t_B = \frac{x_A - x_B + t_A \cdot \sin\alpha}{\sin\beta},$$
         </div>
-        <p>
+<p>
          и подставим \(t_B\) во второе уравнение:
         </p>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$y_A + t_A \cdot \cos\alpha = y_B + \frac{x_A - x_B + t_A \cdot \sin\alpha}{\sin\beta} \cdot \cos\beta.$$
         </div>
-        <p>
+<p>
          Преобразуем выражение, выразим \(t_A\):
         </p>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$\left( y_A + t_A \cdot \cos\alpha \right)\sin\beta = y_B \cdot \sin\beta + \left( x_A - x_B + t_A \cdot \sin\alpha \right) \cdot \cos\beta$$
         </div>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$t_A \cdot \cos\alpha \cdot \sin\beta - t_A \cdot \sin\alpha \cdot \cos\beta = y_B \cdot \sin\beta - y_A \cdot \sin\beta - \left( x_A - x_B \right)\cos\beta$$
         </div>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$t_A = \frac{y_B \cdot \sin\beta - y_A \cdot \sin\beta + \left( x_A - x_B \right)\cos\beta}{\cos\alpha \cdot \sin\beta - \sin\alpha \cdot \cos\beta}$$
         </div>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$t_A = \frac{\left( y_B - y_A \right)\sin\beta + \left( x_A - x_B \right)\cos\beta}{\sin(\beta - \alpha)}.$$
         </div>
-        <p>
+<p>
          Тогда координаты точки
          <em>
           C
          </em>
          имеют вид:
         </p>
-        <div class="theory-eq">
+<div class="theory-eq">
          $$C:\ \left\{\begin{array}{l} x = x_A + \dfrac{\left( x_A - x_B \right)\cos\beta + \left( y_B - y_A \right)\sin\beta}{\sin(\beta - \alpha)} \cdot \sin\alpha \\[10pt] y = y_A + \dfrac{\left( x_A - x_B \right)\cos\beta + \left( y_B - y_A \right)\sin\beta}{\sin(\beta - \alpha)} \cdot \cos\alpha. \end{array}\right.$$
         </div>
-        <p>
+<p>
          Случай, когда \(\sin(\beta - \alpha) = 0\) (при \(\alpha = \beta\)) тривиален.
                     Здесь т.
          <em>
@@ -477,331 +477,258 @@
          </em>
          определена неоднозначно (лучи совпадают).
         </p>
-        <p align="right">
-         <i>
+<p align="right">
+<i>
           Что и требовалось доказать.
          </i>
-        </p>
-       </div>
-      </section>
-      <section aria-labelledby="lwm-calc-title" class="lwm-calculator" id="studentCalculatorSection">
-       <div class="lwm-section-header">
-        <div>
-         <h2 id="lwm-calc-title">
+</p>
+</div>
+</section>
+<section aria-labelledby="lwm-calc-title" class="lwm-calculator" id="studentCalculatorSection">
+<div class="lwm-section-header">
+<div>
+<h2 id="lwm-calc-title">
           Калькулятор
          </h2>
-         <p class="lwm-description">
+<p class="lwm-description">
           Тот же расчёт — введите данные и получите координаты точки C.
          </p>
-        </div>
-       </div>
-       <div class="lwm-grid">
-        <article class="lwm-card">
-         <h2>
+</div>
+</div>
+<div class="lwm-grid">
+<article class="lwm-card">
+<h2>
           Первая точка
          </h2>
-         <div class="lwm-fields">
-          <label>
-           <span>
+<div class="lwm-fields">
+<label>
+<span>
             Широта, °
            </span>
-           <input autocomplete="off" id="latA" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/>
-          </label>
-          <label>
-           <span>
+<input autocomplete="off" id="latA" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/>
+</label>
+<label>
+<span>
             Долгота, °
            </span>
-           <input autocomplete="off" id="lonA" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/>
-          </label>
-          <label>
-           <span>
+<input autocomplete="off" id="lonA" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/>
+</label>
+<label>
+<span>
             Азимут, °
            </span>
-           <input autocomplete="off" id="azA" inputmode="decimal" placeholder="0–360" type="text"/>
-          </label>
-         </div>
-        </article>
-        <article class="lwm-card">
-         <h2>
+<input autocomplete="off" id="azA" inputmode="decimal" placeholder="0–360" type="text"/>
+</label>
+</div>
+</article>
+<article class="lwm-card">
+<h2>
           Вторая точка
          </h2>
-         <div class="lwm-fields">
-          <label>
-           <span>
+<div class="lwm-fields">
+<label>
+<span>
             Широта, °
            </span>
-           <input autocomplete="off" id="latB" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/>
-          </label>
-          <label>
-           <span>
+<input autocomplete="off" id="latB" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/>
+</label>
+<label>
+<span>
             Долгота, °
            </span>
-           <input autocomplete="off" id="lonB" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/>
-          </label>
-          <label>
-           <span>
+<input autocomplete="off" id="lonB" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/>
+</label>
+<label>
+<span>
             Азимут, °
            </span>
-           <input autocomplete="off" id="azB" inputmode="decimal" placeholder="0–360" type="text"/>
-          </label>
-         </div>
-        </article>
-       </div>
-       <div class="lwm-actions">
-        <button class="lwm-button lwm-button-primary" id="calculateButton" type="button">
+<input autocomplete="off" id="azB" inputmode="decimal" placeholder="0–360" type="text"/>
+</label>
+</div>
+</article>
+</div>
+<div class="lwm-actions">
+<button class="lwm-button lwm-button-primary" id="calculateButton" type="button">
          Вычислить
         </button>
-        <button class="lwm-button" disabled="" id="copyButton" type="button">
+<button class="lwm-button" disabled="" id="copyButton" type="button">
          Скопировать последний результат
         </button>
-        <button class="lwm-button lwm-button-ghost" id="clearButton" type="button">
+<button class="lwm-button lwm-button-ghost" id="clearButton" type="button">
          Очистить
         </button>
-       </div>
-       <article class="lwm-result-card">
-        <div class="lwm-result-heading">
-         <h2>
+</div>
+<article class="lwm-result-card">
+<div class="lwm-result-heading">
+<h2>
           Результаты вычислений
          </h2>
-        </div>
-        <div aria-live="polite" class="lwm-result-output" id="resultOutput" role="status">
-        </div>
-        <div aria-label="История вычислений" class="lwm-history" id="history">
-        </div>
-       </article>
-      </section>
-     </div>
-     <div aria-labelledby="teacherTab" class="lwm-audience-panel" hidden id="teacherPanel" role="tabpanel">
-      <div class="lwm-panel-intro">
-       <span class="lwm-panel-kicker">
-        Учительский раздел
-       </span>
-       <h2>
-        Методические материалы
-       </h2>
-       <p>
-        Методическая опора для объяснения задания, организации практической работы и проверки исходных данных.
-       </p>
-      </div>
-      <div class="lwm-teacher-notice" role="note">
-       <span aria-hidden="true" class="lwm-teacher-notice-icon">i</span>
-       <div>
-        <strong>Раздел находится в разработке</strong>
-        <p>Содержание ещё дорабатывается и может содержать неточности. При использовании материалов рекомендуется учитывать их предварительный характер.</p>
-       </div>
-      </div>
-      <div class="lwm-teacher-grid">
-       <article class="lwm-method-card lwm-method-card-featured">
-        <span class="lwm-method-number">
-         1
-        </span>
-        <div>
-         <h3>
-          Методическая идея
-         </h3>
-         <p>
-          Задание связывает географические координаты, азимуты и аналитическую геометрию. Учащийся переводит реальную ситуацию «две точки наблюдения — два направления — неизвестный объект» в математическую модель и получает координаты точки пересечения.
-         </p>
-        </div>
-       </article>
-       <article class="lwm-method-card">
-        <span class="lwm-method-number">
-         2
-        </span>
-        <div>
-         <h3>
-          Цель занятия
-         </h3>
-         <p>
-          Показать практическое применение системы параметрических уравнений прямых для решения задачи позиционирования объекта по двум направлениям.
-         </p>
-        </div>
-       </article>
-       <article class="lwm-method-card">
-        <span class="lwm-method-number">
-         3
-        </span>
-        <div>
-         <h3>
-          Что отрабатывается
-         </h3>
-         <ul>
-          <li>
-           чтение и запись географических координат;
-          </li>
-          <li>
-           понимание азимута как направления от севера по часовой стрелке;
-          </li>
-          <li>
-           построение направляющего вектора по углу;
-          </li>
-          <li>
-           составление и решение системы уравнений;
-          </li>
-          <li>
-           проверка результата с помощью вычислительного инструмента.
-          </li>
-         </ul>
-        </div>
-       </article>
-       <article class="lwm-method-card">
-        <span class="lwm-method-number">
-         4
-        </span>
-        <div>
-         <h3>
-          Рекомендуемый ход работы
-         </h3>
-         <ol>
-          <li>
-           Разобрать условие и определить известные величины.
-          </li>
-          <li>
-           Построить схему двух направлений от точек A и B.
-          </li>
-          <li>
-           Перевести направления в параметрические уравнения.
-          </li>
-          <li>
-           Решить систему и получить координаты C.
-          </li>
-          <li>
-           Сравнить ручной расчёт с результатом калькулятора.
-          </li>
-         </ol>
-        </div>
-       </article>
-       <article class="lwm-method-card">
-        <span class="lwm-method-number">
-         5
-        </span>
-        <div>
-         <h3>
-          На что обратить внимание
-         </h3>
-         <p>
-          Азимут отсчитывается от направления на север по часовой стрелке. При практической работе координаты следует вводить в десятичных градусах. Калькулятор использует локальное приближение поверхности Земли к плоскости, поэтому модель предназначена прежде всего для учебных задач и небольших расстояний.
-         </p>
-        </div>
-       </article>
-       <article class="lwm-method-card">
-        <span class="lwm-method-number">
-         6
-        </span>
-        <div>
-         <h3>
-          Обсуждение результата
-         </h3>
-         <p>
-          Полезно попросить учащихся объяснить, почему изменение одного из азимутов меняет положение точки пересечения, и в каком случае объект нельзя однозначно определить. Это позволяет перейти от механического вычисления к анализу модели.
-         </p>
-        </div>
-       </article>
-      </div>
-     
-   <!-- ========== КАЛЬКУЛЯТОР АЗИМУТОВ ДЛЯ УЧИТЕЛЕЙ ========== -->
-   <section aria-labelledby="az-calc-title" class="lwm-calculator lwm-teacher-calculator" id="azCalculatorSection">
-    <div class="lwm-section-header">
-     <div>
-      <h2 id="az-calc-title">Калькулятор азимутов по трём точкам</h2>
-      <p class="lwm-description">Введите координаты двух опорных объектов и искомого объекта — калькулятор определит азимуты на искомый объект.</p>
-     </div>
-    </div>
-
-    <div class="lwm-az-table" role="group" aria-label="Координаты объектов">
-     <article class="lwm-az-point">
-      <div class="lwm-az-point-head">
-       <span class="lwm-az-point-number">1</span>
-       <div>
-        <span class="lwm-az-point-role">Опорный объект</span>
-        <h3>Опорный объект 1</h3>
-       </div>
-      </div>
-      <div class="lwm-fields lwm-fields-two">
-       <label><span>Широта, °</span><input id="az-lat1" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
-       <label><span>Долгота, °</span><input id="az-lon1" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
-      </div>
-     </article>
-
-     <article class="lwm-az-point">
-      <div class="lwm-az-point-head">
-       <span class="lwm-az-point-number">2</span>
-       <div>
-        <span class="lwm-az-point-role">Опорный объект</span>
-        <h3>Опорный объект 2</h3>
-       </div>
-      </div>
-      <div class="lwm-fields lwm-fields-two">
-       <label><span>Широта, °</span><input id="az-lat2" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
-       <label><span>Долгота, °</span><input id="az-lon2" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
-      </div>
-     </article>
-
-     <article class="lwm-az-point lwm-az-point-target">
-      <div class="lwm-az-point-head">
-       <span class="lwm-az-point-number">3</span>
-       <div>
-        <span class="lwm-az-point-role">Искомый объект</span>
-        <h3>Искомый объект</h3>
-       </div>
-      </div>
-      <div class="lwm-fields lwm-fields-two">
-       <label><span>Широта, °</span><input id="az-lat3" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
-       <label><span>Долгота, °</span><input id="az-lon3" type="text" inputmode="decimal" autocomplete="off" placeholder="xx.xxxxxx"></label>
-      </div>
-     </article>
-    </div>
-
-    <div class="lwm-actions">
-     <button class="lwm-button lwm-button-primary" id="az-calculateButton" type="button">Вычислить азимуты</button>
-     <button class="lwm-button" disabled id="az-copyButton" type="button">Скопировать результат</button>
-     <button class="lwm-button lwm-button-ghost" id="az-clearButton" type="button">Очистить</button>
-    </div>
-
-    <article class="lwm-result-card lwm-teacher-console">
-     <div class="lwm-result-heading">
-      <h2>Результат</h2>
-     </div>
-     <div class="lwm-result-output" id="az-resultOutput" role="status" aria-live="polite"></div>
-     <div class="lwm-console-history-head">
-      <span>Последние расчёты</span>
-     </div>
-     <div aria-label="История вычислений" class="lwm-history" id="az-history"></div>
-    </article>
-   </section>
 </div>
-    </div>
-    <!-- ========== БЫСТРЫЕ ПЕРЕХОДЫ ========== -->
-    <!-- ========== МАТЕМАТИЧЕСКАЯ МОДЕЛЬ ========== -->
-    <!-- ========== КАЛЬКУЛЯТОР ========== -->
-   </section>
-   <footer>
-    <div class="footer-content">
-     <div class="copyright">
+<div aria-live="polite" class="lwm-result-output" id="resultOutput" role="status">
+</div>
+<div aria-label="История вычислений" class="lwm-history" id="history">
+</div>
+</article>
+</section>
+</div>
+<div aria-labelledby="teacherTab" class="lwm-audience-panel" hidden="" id="teacherPanel" role="tabpanel"><div class="lwm-panel-intro">
+<span class="lwm-panel-kicker">Учительский раздел</span>
+<h2>Как провести ЛРММ «Арт-объект»</h2>
+<p>Готовая методическая схема занятия: от постановки практической задачи и построения математической модели до полевых измерений, проверки расчёта и обсуждения погрешности.</p>
+</div>
+<div class="lwm-teacher-notice" role="note">
+<span aria-hidden="true" class="lwm-teacher-notice-icon">i</span>
+<div><strong>Раздел находится в разработке</strong><p>Содержание ещё дорабатывается и может содержать неточности. При использовании материалов рекомендуется учитывать их предварительный характер.</p></div>
+</div>
+<section class="lwm-teacher-lead">
+<span class="lwm-teacher-label">Суть работы</span>
+<h3>Не решить задачу, а пройти весь путь от реального объекта до математического вывода и обратно.</h3>
+<p>Учащиеся получают две опорные точки с известными координатами и направления на неизвестный объект. Их задача — построить математическую модель, вычислить положение объекта, а затем проверить, насколько хорошо расчёт соответствует реальности. Такой формат превращает привычную работу с уравнениями в практическое исследование, где математический результат имеет непосредственный смысл.</p>
+</section>
+<section class="lwm-teacher-section">
+<div class="lwm-teacher-section-head"><div><span class="lwm-teacher-label">Логика занятия</span><h3>Два академических часа — четыре последовательных шага</h3></div><p>В апробированном варианте работа проходила в малых группах, преимущественно в парах. Первый час посвящён модели и расчёту, второй — её проверке на местности.</p></div>
+<div class="lwm-teacher-flow">
+<article class="lwm-teacher-flow-card"><div class="lwm-teacher-flow-head"><span class="lwm-teacher-flow-number">1</span><h4>Поставить проблему</h4></div><p>Начните не с формулы, а с ситуации: есть две опорные точки, известны их координаты и два азимута на один неизвестный объект. Азимуты заранее определяет и предоставляет учитель; учащиеся не должны знать положение объекта до начала расчёта. Предложите им сформулировать, что требуется найти и как из этих данных получить координаты объекта.</p></article>
+<article class="lwm-teacher-flow-card"><div class="lwm-teacher-flow-head"><span class="lwm-teacher-flow-number">2</span><h4>Построить модель</h4></div><p>От схемы местности перейдите к координатной модели. Азимут задаёт направление луча, проходящего через соответствующую опорную точку. Два луча приводят к системе уравнений, из которой находятся координаты искомой точки.</p></article>
+<article class="lwm-teacher-flow-card"><div class="lwm-teacher-flow-head"><span class="lwm-teacher-flow-number">3</span><h4>Выполнить измерения</h4></div><p>На местности учащиеся фиксируют координаты двух реперных объектов и заносят их в расчётное средство вместе с азимутами, заранее выданными учителем. Такой порядок принципиален: направление на искомый объект не измеряется учащимися, иначе задача перестаёт быть задачей поиска неизвестного объекта. Здесь важно отделять исходные данные от уже вычисленного результата.</p></article>
+<article class="lwm-teacher-flow-card"><div class="lwm-teacher-flow-head"><span class="lwm-teacher-flow-number">4</span><h4>Проверить модель</h4></div><p>После получения координат учащиеся отправляются к рассчитанной точке и сопоставляют результат с реальным объектом. Финальный вопрос — не только «нашли ли мы объект?», но и «почему расчёт отличается от реального положения и насколько это существенно?»</p></article>
+</div>
+</section>
+<section class="lwm-teacher-section">
+<div class="lwm-teacher-section-head"><div><span class="lwm-teacher-label">Что здесь формируется</span><h3>Результаты, которые выходят за пределы одного вычисления</h3></div><p>ЛРММ позволяет одновременно работать с предметным содержанием математики и с более широкими учебными умениями. Ниже — три направления, которые можно сделать явными при постановке и обсуждении работы.</p></div>
+<div class="lwm-teacher-formation">
+<article class="lwm-teacher-info-card lwm-teacher-info-card-accent"><h3>Умение математического моделирования</h3><p>Учащийся проходит путь от реальной ситуации к математической модели, решению и интерпретации результата. Важно не только получить координаты, но и объяснить, почему выбранная модель описывает ситуацию и в каких условиях её результат можно считать приемлемым.</p></article>
+<article class="lwm-teacher-info-card"><h3>Межпредметные связи</h3><p>Математическая модель опирается на географические координаты и азимуты, а цифровые инструменты помогают организовать вычисления. Благодаря этому математика связывается с географией и информатикой не формально, а через общую практическую задачу.</p></article>
+<article class="lwm-teacher-info-card"><h3>Метапредметные связи</h3><p>В работе естественно возникают постановка проблемы, планирование действий, работа с данными, проверка результата, анализ погрешности и аргументированный вывод. Групповая организация дополнительно создаёт условия для распределения ролей и обсуждения способов решения.</p></article>
+</div>
+<div class="lwm-teacher-career"><span class="lwm-teacher-label">Профориентационный потенциал</span><h3>Показать математику как рабочий инструмент</h3><p>Практический контекст позволяет показать учащимся, что математическая модель используется не только внутри учебника. В работе появляются элементы деятельности, связанной с измерениями на местности, геопространственными данными, алгоритмами и цифровыми инструментами. Это можно использовать как основу для разговора о направлениях, где подобные умения применяются профессионально.</p></div>
+</section>
+<section class="lwm-teacher-section">
+<div class="lwm-teacher-section-head"><div><span class="lwm-teacher-label">На что обратить внимание</span><h3>Три места, где особенно полезно остановиться</h3></div></div>
+<div class="lwm-teacher-focus">
+<article><h4>1. Переход от азимута к уравнению</h4><p>Учащийся должен понимать, почему измеренный угол становится направлением луча на координатной плоскости. Это содержательно важнее, чем просто получить численный ответ с помощью калькулятора.</p></article>
+<article><h4>2. Условия применимости</h4><p>Если два направления параллельны или совпадают, однозначного пересечения нет. Выбор опорных точек поэтому является частью постановки задачи, а не формальной подготовкой к вычислению.</p></article>
+<article><h4>3. Погрешность</h4><p>Расчётная точка не обязана совпасть с фактической. На результат влияют точность геолокации, особенности местности и ошибки человека при измерении и вводе данных. Именно обсуждение этих причин завершает цикл моделирования.</p></article>
+</div>
+</section>
+<section class="lwm-teacher-section lwm-teacher-practice">
+<div class="lwm-teacher-section-head"><div><span class="lwm-teacher-label">Практическая подготовка</span><h3>Что проверить до выхода с классом</h3></div></div>
+<div class="lwm-teacher-checks">
+<p><strong>Реперные точки.</strong> Выберите два объекта, которые легко однозначно описать и найти на местности. Проверьте, что их конфигурация вместе с искомым объектом не создаёт вырожденного случая.</p>
+<p><strong>Измерения.</strong> Заранее протестируйте способ получения координат и азимутов на тех устройствах, которыми будут пользоваться учащиеся. Ошибка исходных данных непосредственно переходит в расчёт.</p>
+<p><strong>Расчётное средство.</strong> Проверьте несколько тестовых наборов данных до занятия. Для младших участников можно использовать готовую программу, а для старших — предложить реализовать алгоритм самостоятельно.</p>
+<p><strong>Финальная проверка.</strong> Заранее определите, как будет фиксироваться фактическое положение объекта, чтобы после расчёта можно было обсуждать не только факт нахождения, но и величину расхождения.</p>
+</div>
+</section>
+<section class="lwm-teacher-section lwm-teacher-assessment">
+<div class="lwm-teacher-section-head"><div><span class="lwm-teacher-label">Отчёт учащегося</span><h3>Оценивать стоит не только правильный ответ</h3></div><p>В апробации использовались пять критериев. На сайте эта схема приведена как <strong>рекомендательный вариант</strong>: учитель может использовать её полностью, адаптировать под формат занятия или заменить собственными критериями.</p></div>
+<div class="lwm-teacher-rubric"><div><strong>К1</strong><span>оформление и структура отчёта</span></div><div><strong>К2</strong><span>схема математической задачи</span></div><div><strong>К3</strong><span>теоретическое обоснование модели</span></div><div><strong>К4</strong><span>расчёты и их оформление</span></div><div><strong>К5</strong><span>выводы и анализ погрешности</span></div></div>
+<p class="lwm-teacher-assessment-note">Последний критерий особенно полезно включать в оценивание: в описанной апробации именно выводы о погрешности оказались наиболее слабой частью отчётов. Поэтому полезно заранее сформулировать для учащихся вопрос: «Почему рассчитанная точка отличается от фактической и влияет ли это отличие на решение практической задачи?»</p>
+</section>
+<section class="lwm-teacher-section lwm-teacher-results">
+<div class="lwm-teacher-result-main"><span class="lwm-teacher-label">Пример апробации</span><h3>Один из вариантов реализации занятия</h3><p>Описанный ниже опыт — не обязательный сценарий, а пример апробации работы в реальной школьной среде. В ней участвовали 30 учащихся 10–11 классов. Было собрано 15 парных отчётов; средний результат составил 4,4 из 5. Все группы смогли по рассчитанным координатам идентифицировать реальный объект на местности.</p></div>
+<div class="lwm-teacher-stats"><div><strong>92%</strong><span>положительно оценили формат</span></div><div><strong>84%</strong><span>отметили понятность материала</span></div><div><strong>92%</strong><span>испытали интерес к работе</span></div><div><strong>72%</strong><span>хотели бы повторить такой формат</span></div></div>
+</section>
+<section class="lwm-teacher-sources-card">
+<div><span class="lwm-teacher-label">Подробнее</span><h3>Методическое обоснование — в разделе «Наука»</h3><p>Здесь оставлена практическая выжимка для проведения занятия. Полные статьи, описание математической модели, ход апробации и библиографические данные вынесены в раздел публикаций сайта.</p></div>
+<a class="lwm-teacher-science-link" href="science.html">Перейти в раздел «Наука» <span aria-hidden="true">→</span></a>
+</section>
+<section aria-labelledby="az-calc-title" class="lwm-calculator lwm-teacher-calculator" id="azCalculatorSection">
+<div class="lwm-section-header">
+<div>
+<h2 id="az-calc-title">Калькулятор азимутов по трём точкам</h2>
+<p class="lwm-description">Введите координаты двух опорных объектов и искомого объекта — калькулятор определит азимуты на искомый объект.</p>
+</div>
+</div>
+<div aria-label="Координаты объектов" class="lwm-az-table" role="group">
+<article class="lwm-az-point">
+<div class="lwm-az-point-head">
+<span class="lwm-az-point-number">1</span>
+<div>
+<span class="lwm-az-point-role">Опорный объект</span>
+<h3>Опорный объект 1</h3>
+</div>
+</div>
+<div class="lwm-fields lwm-fields-two">
+<label><span>Широта, °</span><input autocomplete="off" id="az-lat1" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/></label>
+<label><span>Долгота, °</span><input autocomplete="off" id="az-lon1" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/></label>
+</div>
+</article>
+<article class="lwm-az-point">
+<div class="lwm-az-point-head">
+<span class="lwm-az-point-number">2</span>
+<div>
+<span class="lwm-az-point-role">Опорный объект</span>
+<h3>Опорный объект 2</h3>
+</div>
+</div>
+<div class="lwm-fields lwm-fields-two">
+<label><span>Широта, °</span><input autocomplete="off" id="az-lat2" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/></label>
+<label><span>Долгота, °</span><input autocomplete="off" id="az-lon2" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/></label>
+</div>
+</article>
+<article class="lwm-az-point lwm-az-point-target">
+<div class="lwm-az-point-head">
+<span class="lwm-az-point-number">3</span>
+<div>
+<span class="lwm-az-point-role">Искомый объект</span>
+<h3>Искомый объект</h3>
+</div>
+</div>
+<div class="lwm-fields lwm-fields-two">
+<label><span>Широта, °</span><input autocomplete="off" id="az-lat3" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/></label>
+<label><span>Долгота, °</span><input autocomplete="off" id="az-lon3" inputmode="decimal" placeholder="xx.xxxxxx" type="text"/></label>
+</div>
+</article>
+</div>
+<div class="lwm-actions">
+<button class="lwm-button lwm-button-primary" id="az-calculateButton" type="button">Вычислить азимуты</button>
+<button class="lwm-button" disabled="" id="az-copyButton" type="button">Скопировать результат</button>
+<button class="lwm-button lwm-button-ghost" id="az-clearButton" type="button">Очистить</button>
+</div>
+<article class="lwm-result-card lwm-teacher-console">
+<div class="lwm-result-heading">
+<h2>Результат</h2>
+</div>
+<div aria-live="polite" class="lwm-result-output" id="az-resultOutput" role="status"></div>
+<div class="lwm-console-history-head">
+<span>Последние расчёты</span>
+</div>
+<div aria-label="История вычислений" class="lwm-history" id="az-history"></div>
+</article>
+</section></div>
+</div>
+<!-- ========== БЫСТРЫЕ ПЕРЕХОДЫ ========== -->
+<!-- ========== МАТЕМАТИЧЕСКАЯ МОДЕЛЬ ========== -->
+<!-- ========== КАЛЬКУЛЯТОР ========== -->
+</section>
+<footer>
+<div class="footer-content">
+<div class="copyright">
       © 2026 г. Красноперов Вячеслав Андреевич.
       <br/>
-      version 6.6.8.1.
+      version 6.6.9.
      </div>
-     <div class="social-links">
-      <a class="social-icon" href="mailto:vk.uspu@ya.ru">
-       <img alt="Email" src="assets/logos/email-logo.png"/>
-      </a>
-      <a class="social-icon" href="https://vk.com/gastin01" target="_blank">
-       <img alt="ВКонтакте" src="assets/logos/vk-logo.webp"/>
-      </a>
-      <a class="social-icon" href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank">
-       <img alt="eLibrary" src="assets/logos/elibrary-logo.png"/>
-      </a>
-     </div>
-    </div>
-   </footer>
-  </div>
-  <script>
+<div class="social-links">
+<a class="social-icon" href="mailto:vk.uspu@ya.ru">
+<img alt="Email" src="assets/logos/email-logo.png"/>
+</a>
+<a class="social-icon" href="https://vk.com/gastin01" target="_blank">
+<img alt="ВКонтакте" src="assets/logos/vk-logo.webp"/>
+</a>
+<a class="social-icon" href="https://elibrary.ru/author_profile.asp?authorid=1251425" target="_blank">
+<img alt="eLibrary" src="assets/logos/elibrary-logo.png"/>
+</a>
+</div>
+</div>
+</footer>
+</div>
+<script>
    if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
   }
   </script>
-  <script>
+<script>
    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ: цвет (5 акцентов) + режим (светлый/тёмный) =====
 (function() {
     const COLORS = ['purple', 'orange', 'ocean', 'emerald', 'rose'];
@@ -892,7 +819,7 @@
     }
 })();
   </script>
-  <script>
+<script>
    (function(){
 "use strict";
 const LAT_METERS=111111.0, LON_METERS=111319.0;
@@ -969,7 +896,7 @@ clearButton.addEventListener("click",clearAll);
 ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();calculate();}}));
 })();
   </script>
-  <script>
+<script>
    // ===== РЕНДЕР ФОРМУЛ (KaTeX) =====
     // Ждём DOMContentLoaded — к этому моменту оба defer-скрипта KaTeX
     // (сама библиотека и auto-render) уже гарантированно выполнены.
@@ -985,7 +912,7 @@ ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.
         }
     });
   </script>
-  <script>
+<script>
     // ===== ПОЛЗУНОК ХОДА ПОСТРОЕНИЯ =====
     (function() {
         const range = document.getElementById('proofRange');
@@ -1029,7 +956,7 @@ ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.
         updateFill();
     })();
   </script>
-  <script>
+<script>
    (function() {
     "use strict";
 
@@ -1164,7 +1091,7 @@ ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.
 
 })();
   </script>
-  <script>
+<script>
    (function () {
     const tabs = document.querySelectorAll('.lwm-audience-tab');
     const panels = document.querySelectorAll('.lwm-audience-panel');
@@ -1201,5 +1128,5 @@ ids.forEach(id=>fields[id].addEventListener("keydown",e=>{if(e.key==="Enter"){e.
     });
 })();
   </script>
- </body>
+</body>
 </html>
